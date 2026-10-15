@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>展览海报｜山海异兽录</title>
+  <meta name="description" content="山海异兽录——山海经神兽图鉴科普网站 展览海报与项目展板">
+  <link rel="stylesheet" href="css/exquisite-demo.css">
+  <style>
+    /* Poster-specific styles */
+    .poster-page {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(54,79,86,.18), transparent 55%),
+        radial-gradient(circle at 85% 30%, rgba(180,74,52,.08), transparent 40%),
+        linear-gradient(180deg, rgba(247,239,220,.92), rgba(235,220,186,.94)),
+        url('images/demo/paper-texture.jpg') center top/620px repeat;
+    }
+    .poster-page .ex-header {
+      background: rgba(40,51,52,.88);
+    }
+    .poster-hero {
+      text-align: center;
+      padding: 56px 28px 40px;
+      position: relative;
+    }
+    .poster-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(168,32,26,.06), transparent 70%),
+        radial-gradient(ellipse at 20% 80%, rgba(212,161,79,.07), transparent 50%);
+      pointer-events: none;
+    }
+    .poster-title-block {
+      position: relative;
+      display: inline-block;
+      padding: 36px 60px 28px;
+      border: 3px double rgba(168,32,26,.45);
+      background: rgba(255,248,235,.55);
+      backdrop-filter: blur(6px);
+      margin-bottom: 18px;
+    }
+    .poster-title-block::before,
+    .poster-title-block::after {
+      content: '◆';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #a8201a;
+      font-size: 14px;
+    }
+    .poster-title-block::before { top: -9px; }
+    .poster-title-block::after { bottom: -9px; }
+    .poster-title {
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 900;
+      letter-spacing: 8px;
+      color: #1a1210;
+      margin: 0 0 6px;
+      font-family: "Noto Serif SC", "Source Han Serif SC", serif;
+    }
+    .poster-subtitle {
+      font-size: clamp(14px, 1.8vw, 18px);
+      color: #7b6041;
+      letter-spacing: 6px;
+      margin: 0;
+    }
+    .poster-tagline {
+      font-size: clamp(13px, 1.5vw, 16px);
+      color: #8f6427;
+      letter-spacing: 3px;
+      margin: 14px 0 0;
+    }
+    .poster-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+    /* Exhibition grid — two columns for the main board */
+    .expo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 780px) {
+      .expo-grid { grid-template-columns: 1fr; }
+      .poster-title-block { padding: 22px 28px 18px; }
+    }
+    .expo-card {
+      background: rgba(255,248,238,.6);
+      border: 1px solid rgba(151,100,42,.22);
+      border-radius: 10px;
+      padding: 26px 28px;
+      box-shadow: 0 8px 32px rgba(53,28,9,.08);
+      position: relative;
+    }
+    .expo-card h3 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      font-weight: 800;
+      color: #2c1f14;
+      letter-spacing: 2px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(168,32,26,.18);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .expo-card h3 .ico {
+      font-size: 22px;
+    }
+    .expo-card p, .expo-card li {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #463a2e;
+      margin: 0;
+    }
+    .expo-card ul {
+      margin: 4px 0 0;
+      padding-left: 20px;
+    }
+    .expo-card ul li { margin-bottom: 4px; }
+    /* Full-width highlight bar */
+    .highlight-bar {
+      background: linear-gradient(90deg, rgba(40,51,52,.88), rgba(54,79,86,.7), rgba(68,75,67,.88));
+      color: #f5e4b2;
+      text-align: center;
+      padding: 32px 28px;
+      margin: 0 0 32px;
+      border-top: 1px solid rgba(212,161,79,.35);
+      border-bottom: 1px solid rgba(212,161,79,.35);
+    }
+    .highlight-bar .big-num {
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 900;
+      letter-spacing: 3px;
+      display: block;
+    }
+    .highlight-bar .big-label {
+      font-size: 15px;
+      letter-spacing: 4px;
+      opacity: .75;
+    }
+    /* Beast showcase strip */
+    .beast-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 780px) {
+      .beast-strip { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .beast-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    .beast-chip {
+      text-align: center;
+      background: rgba(255,248,238,.55);
+      border: 1px solid rgba(151,100,42,.18);
+      border-radius: 10px;
+      padding: 16px 10px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .beast-chip:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(53,28,9,.13);
+    }
+    .beast-chip .chip-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      background-size: cover;
+      background-position: center;
+      border: 2px solid rgba(212,161,79,.4);
+      box-shadow: 0 0 0 4px rgba(143,100,39,.08);
+    }
+    .beast-chip strong {
+      display: block;
+      font-size: 17px;
+      letter-spacing: 2px;
+      color: #2c1f14;
+      margin-bottom: 2px;
+    }
+    .beast-chip span {
+      font-size: 12px;
+      color: #8f6427;
+      letter-spacing: 1px;
+    }
+    /* Bottom two-column: tech + team */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+    @media (max-width: 780px) {
+      .bottom-grid { grid-template-columns: 1fr; }
+    }
+    /* Print styles */
+    @media print {
+      .ex-header, .ex-footer, .back-top-btn { display: none !important; }
+      .poster-page {
+        background: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .poster-shell { max-width: 100%; }
+      .expo-card, .beast-chip, .highlight-bar { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body class="exquisite-page poster-page">
+  <header class="ex-header">
+    <div class="site-shell ex-nav">
+      <a class="brand" href="index.html" aria-label="山海异兽录首页">
+        <span class="logo-mark logo-image"><img src="images/demo/山海经1logo.png" alt="山海异兽录 logo"></span>
+        <span><span class="brand-title">山海异兽录</span><span class="brand-sub">山海经神兽图鉴科普网站</span></span>
+      </a>
+      <nav class="nav-menu" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="beasts.html">神兽图鉴</a>
+        <a href="map.html">栖息地</a>
+        <a href="culture.html">文化延伸</a>
+        <a href="about.html">关于我们</a>
+      </nav>
+      <div class="search-pill">搜索神兽、典故、地名 <span>⌕</span></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero title block -->
+    <section class="poster-hero">
+      <div class="poster-title-block">
+        <h1 class="poster-title">山海异兽录</h1>
+        <p class="poster-subtitle">SHAN HAI CLASSIC OF BEASTS</p>
+      </div>
+      <p class="poster-tagline">以图解经 · 以文化人 · 探索《山海经》中的神兽世界与华夏文明</p>
+    </section>
+
+    <!-- Key numbers highlight bar -->
+    <div class="highlight-bar">
+      <span class="big-num">8 页完整站点 · 5 大神兽详解 · 16+ 异兽图鉴</span>
+      <span class="big-label">HTML5 + CSS3 + JavaScript 纯静态前端设计</span>
+    </div>
+
+    <div class="poster-shell">
+      <!-- Two-column overview -->
+      <div class="expo-grid">
+        <div class="expo-card">
+          <h3><span class="ico">📖</span>项目简介</h3>
+          <p>《山海异兽录》是一个以《山海经》神兽插图科普为核心的前端课程设计网站。作品围绕"神兽图鉴—栖息地地图—文化典故"三主线展开，通过国风视觉设计，让用户在浏览神兽图像、分类探索和信息层级递进中理解中国上古神话内容。</p>
+        </div>
+        <div class="expo-card">
+          <h3><span class="ico">🎯</span>设计目标</h3>
+          <ul>
+            <li>打造图文并茂、视觉统一的国风神兽科普站点</li>
+            <li>实现三层页面结构（首页→栏目→详情），信息层次分明</li>
+            <li>神兽图鉴支持分类筛选与关键词搜索</li>
+            <li>栖息地页以现代地图重构《山海经》地理叙事</li>
+            <li>文化延伸页展示原文出处、历代解读与民俗演变</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Featured beasts -->
+      <div class="beast-strip">
+        <div class="beast-chip">
+          <div class="chip-icon" style="background-image:url('images/demo/thumb-taotie.jpg')"></div>
+          <strong>饕餮</strong>
+          <span>贪婪·青铜纹饰</span>
+        </div>
+        <div class="beast-chip">
+          <div class="chip-icon" style="background-image:url('images/demo/thumb-baize.jpg')"></div>
+          <strong>白泽</strong>
+          <span>智慧·通晓万物</span>
+        </div>
+        <div class="beast-chip">
+          <div class="chip-icon" style="background-image:url('images/demo/thumb-fenghuang.jpg')"></div>
+          <strong>凤凰</strong>
+          <span>祥瑞·百鸟朝凤</span>
+        </div>
+        <div class="beast-chip">
+          <div class="chip-icon" style="background-image:url('images/demo/thumb-qilin.jpg')"></div>
+          <strong>麒麟</strong>
+          <span>仁德·四灵之首</span>
+        </div>
+        <div class="beast-chip">
+          <div class="chip-icon" style="background-image:url('images/demo/thumb-xuanwu.jpg')"></div>
+          <strong>玄武</strong>
+          <span>镇水·龟蛇合体</span>
+        </div>
+      </div>
+
+      <!-- Bottom: tech + team -->
+      <div class="bottom-grid">
+        <div class="expo-card">
+          <h3><span class="ico">⚙️</span>技术架构</h3>
+          <ul>
+            <li><strong>前端技术</strong>：HTML5 + CSS3 + JavaScript（纯静态）</li>
+            <li><strong>页面数量</strong>：8 个完整 HTML 页面</li>
+            <li><strong>CSS 体系</strong>：国风视觉变量系统，支持响应式布局</li>
+            <li><strong>交互功能</strong>：神兽分类筛选、关键词搜索、客户端分页、轮播图、平滑滚动</li>
+            <li><strong>兼容性</strong>：桌面端 1400px + 移动端 390px 双端适配</li>
+            <li><strong>特色技术</strong>：CSS Grid/Flexbox 布局、backdrop-filter 毛玻璃、CSS 渐变与纹理叠加</li>
+          </ul>
+        </div>
+        <div class="expo-card">
+          <h3><span class="ico">👥</span>团队信息</h3>
+          <ul>
+            <li><strong>课程名称</strong>：前端课程期末作业 · 山海经神兽图鉴科普网站</li>
+            <li><strong>团队成员</strong>：（请填写姓名与学号）</li>
+            <li><strong>指导老师</strong>：（请填写指导老师）</li>
+            <li><strong>完成日期</strong>：2024年</li>
+            <li><strong>资料来源</strong>：《山海经全译》《图解山海经》《山海经异兽图全》《古本山海经图说》及相关学术论文</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Page structure diagram -->
+      <div class="expo-card" style="margin-bottom:36px;">
+        <h3><span class="ico">🗺️</span>站点地图</h3>
+        <p style="text-align:center;">
+          <strong>首页</strong>（视觉入口+神兽精选+轮播）
+          &nbsp;→&nbsp;
+          <strong>神兽图鉴</strong>（16+卡片+筛选+分页）→ 神兽详情（5个独立页面）
+          &nbsp;·&nbsp;
+          <strong>栖息地</strong>（地图展示）→ 地域详情
+          &nbsp;·&nbsp;
+          <strong>文化延伸</strong>（文章列表）→ 文化详情（九尾狐深度解读）
+          &nbsp;·&nbsp;
+          <strong>关于我们</strong>（课程说明+团队+参考资料）
+          &nbsp;·&nbsp;
+          <strong>展览海报</strong>（本页）
+        </p>
+        <p style="text-align:center;margin-top:10px;font-size:13px;color:#8f6427;">
+          三层结构：首页 → 栏目页（神兽图鉴 / 栖息地 / 文化延伸）→ 内容详情页（神兽详情 / 地域详情 / 文化详情）
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="ex-footer">
+    <div class="site-shell footer-grid">
+      <div><div class="footer-brand"><span class="logo-mark logo-image"><img src="images/demo/山海经1logo.png" alt="山海异兽录 logo"></span><span><strong class="brand-title">山海异兽录</strong><p>以图解经，以文化人，探索《山海经》中的神兽世界与华夏文明。</p></span></div></div>
+      <div class="footer-col"><h4>导航</h4><a href="index.html">首页</a><a href="beasts.html">神兽图鉴</a><a href="map.html">栖息地</a></div>
+      <div class="footer-col"><h4>详情</h4><a href="beast-detail.html">神兽详情</a><a href="habitat-detail.html">地域详情</a><a href="culture-detail.html">文化详情</a></div>
+      <div class="footer-col"><h4>说明</h4><a href="culture.html">文化延伸</a><a href="classics.html">原典摘读</a><a href="about.html">关于我们</a><a href="poster.html">展览海报</a></div>
+      <div class="footer-col"><h4>作业说明</h4><p>本网站为十五页完整版山海异兽录静态前端站点。</p></div>
+    </div>
+    <div class="site-shell copyright">© 2024 山海异兽录 · 山海经神兽图鉴科普网站</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

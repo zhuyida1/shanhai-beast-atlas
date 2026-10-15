@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>山海异兽录网站结构图</title>
+  <style>
+    :root {
+      --ink: #1c1512;
+      --muted: #78685c;
+      --paper: #f7efe1;
+      --paper-deep: #efe0c8;
+      --gold: #bd8b45;
+      --gold-soft: #e4c281;
+      --red: #9d261e;
+      --red-deep: #6f1713;
+      --black: #16110f;
+      --line: rgba(112, 77, 39, .28);
+      --shadow: 0 18px 45px rgba(38, 20, 12, .14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.68;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(157, 38, 30, .12), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(189, 139, 69, .16), transparent 26%),
+        linear-gradient(135deg, #f8f1e5, #ead8bc);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 34px 22px 64px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+      padding: 44px;
+      color: #f9eed6;
+      background:
+        linear-gradient(120deg, rgba(22, 17, 15, .95), rgba(82, 22, 18, .88)),
+        url("images/demo/hero-bg.jpg") center/cover;
+      border: 1px solid rgba(228, 194, 129, .46);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(228, 194, 129, .36);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(34px, 6vw, 72px);
+      letter-spacing: 0;
+      line-height: 1.08;
+    }
+
+    .hero p {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 18px 0 0;
+      color: rgba(249, 238, 214, .82);
+      font-size: 17px;
+    }
+
+    .meta-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 14px;
+      border: 1px solid rgba(228, 194, 129, .45);
+      color: #f5d79a;
+      background: rgba(18, 11, 8, .34);
+      font-size: 14px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 22px 0 26px;
+    }
+
+    .stat {
+      padding: 18px;
+      color: #f4e5c7;
+      background: var(--black);
+      border: 1px solid rgba(228, 194, 129, .28);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .section {
+      margin-top: 28px;
+      padding: 28px;
+      background:
+        linear-gradient(rgba(255, 249, 235, .92), rgba(255, 249, 235, .92)),
+        url("images/demo/paper-texture.jpg") center/cover;
+      border: 1px solid rgba(112, 77, 39, .22);
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      margin: 0 0 16px;
+      color: var(--red-deep);
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .section-lead {
+      margin: -6px 0 22px;
+      color: var(--muted);
+    }
+
+    .topology {
+      display: grid;
+      grid-template-columns: minmax(210px, .9fr) minmax(300px, 1.25fr) minmax(300px, 1.45fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .level {
+      position: relative;
+      padding: 18px;
+      background: rgba(255, 252, 244, .74);
+      border: 1px solid var(--line);
+    }
+
+    .level-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--red-deep);
+      font-weight: 700;
+    }
+
+    .level-title span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .node-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .node {
+      position: relative;
+      display: block;
+      padding: 12px 13px;
+      background: #fffaf0;
+      border: 1px solid rgba(112, 77, 39, .22);
+      box-shadow: 0 8px 20px rgba(75, 42, 20, .08);
+    }
+
+    .node strong {
+      display: block;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .node small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .node.main {
+      color: #f9ecd1;
+      background: linear-gradient(135deg, var(--red-deep), #35120f);
+      border-color: rgba(228, 194, 129, .48);
+    }
+
+    .node.main strong,
+    .node.main small {
+      color: inherit;
+    }
+
+    .node.support {
+      background: #f4ead8;
+    }
+
+    .arrow-note {
+      margin-top: 14px;
+      padding: 10px 12px;
+      color: var(--muted);
+      background: rgba(189, 139, 69, .1);
+      border-left: 3px solid var(--gold);
+      font-size: 13px;
+    }
+
+    .skeleton-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skeleton {
+      padding: 18px;
+      background: #fffaf0;
+      border: 1px solid var(--line);
+    }
+
+    .skeleton h3 {
+      margin: 0 0 12px;
+      color: var(--red-deep);
+      font-size: 18px;
+    }
+
+    .flow {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .flow li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 8px 10px;
+      background: rgba(247, 239, 225, .75);
+      border: 1px solid rgba(112, 77, 39, .16);
+      font-size: 14px;
+    }
+
+    .flow b {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .page-card {
+      min-height: 100%;
+      padding: 18px;
+      background: #fffaf0;
+      border: 1px solid var(--line);
+    }
+
+    .page-card h3 {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 10px;
+      color: var(--red-deep);
+      font-size: 18px;
+    }
+
+    .page-card h3 code {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .page-card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .page-card li {
+      margin: 6px 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 3px 9px;
+      color: var(--red-deep);
+      background: rgba(157, 38, 30, .08);
+      border: 1px solid rgba(157, 38, 30, .18);
+      font-size: 12px;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .route-card {
+      padding: 16px;
+      background: #fffaf0;
+      border: 1px solid var(--line);
+    }
+
+    .route-card h3 {
+      margin: 0 0 10px;
+      color: var(--red-deep);
+      font-size: 17px;
+    }
+
+    .route-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .notice {
+      padding: 16px 18px;
+      background: rgba(157, 38, 30, .08);
+      border: 1px solid rgba(157, 38, 30, .22);
+      color: #4f211d;
+    }
+
+    .notice strong {
+      color: var(--red-deep);
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding: 18px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 940px) {
+      .summary,
+      .topology,
+      .skeleton-grid,
+      .page-grid,
+      .route-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 30px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <h1>山海异兽录网站结构图</h1>
+      <p>基于 shanhai-final-site 目录下 15 个 HTML 页面整理，展示首页、二级栏目、内容详情页、公共头尾与页面互链关系。</p>
+      <div class="meta-row">
+        <span class="chip">项目类型：静态前端课程网站</span>
+        <span class="chip">主题：山海经神兽插图科普</span>
+        <span class="chip">页面总数：15 个 HTML</span>
+        <span class="chip">主导航：首页 + 4 个栏目</span>
+      </div>
+    </section>
+
+    <div class="summary">
+      <div class="stat"><strong>1</strong>首页入口</div>
+      <div class="stat"><strong>4</strong>主导航栏目</div>
+      <div class="stat"><strong>10</strong>内容 / 详情 / 支撑页</div>
+      <div class="stat"><strong>3</strong>课程要求层级</div>
+    </div>
+
+    <section class="section">
+      <h2>一、三层站点结构图</h2>
+      <p class="section-lead">这个站点已经满足“首页 → 二级栏目页 → 内容详情页”的三层页面关系，同时保留关于页、海报页和资料说明作为支撑内容。</p>
+
+      <div class="topology">
+        <div class="level">
+          <div class="level-title">第一层：首页 <span>入口层</span></div>
+          <ul class="node-list">
+            <li><a class="node main" href="index.html"><strong>山海异兽录首页</strong><small>index.html</small></a></li>
+          </ul>
+          <div class="arrow-note">首页承担总入口：轮播主视觉、统计条、原典摘读、文化速览、神兽精选。</div>
+        </div>
+
+        <div class="level">
+          <div class="level-title">第二层：栏目页 <span>分类浏览层</span></div>
+          <ul class="node-list">
+            <li><a class="node" href="beasts.html"><strong>神兽图鉴</strong><small>beasts.html｜筛选、搜索、图鉴列表</small></a></li>
+            <li><a class="node" href="map.html"><strong>栖息地地图</strong><small>map.html｜交互地图、点位筛选</small></a></li>
+            <li><a class="node" href="culture.html"><strong>文化延伸</strong><small>culture.html｜专题文章、地域神话、视觉转译</small></a></li>
+            <li><a class="node support" href="about.html"><strong>关于我们</strong><small>about.html｜项目说明、资料来源</small></a></li>
+          </ul>
+          <div class="arrow-note">主导航除首页外有 4 项：神兽图鉴、栖息地、文化延伸、关于我们。</div>
+        </div>
+
+        <div class="level">
+          <div class="level-title">第三层：详情与支撑页 <span>内容展开层</span></div>
+          <ul class="node-list">
+            <li><a class="node" href="beast-detail.html"><strong>九尾狐详解</strong><small>beast-detail.html</small></a></li>
+            <li><a class="node" href="beast-baize.html"><strong>白泽详解</strong><small>beast-baize.html</small></a></li>
+            <li><a class="node" href="beast-fenghuang.html"><strong>凤凰详解</strong><small>beast-fenghuang.html</small></a></li>
+            <li><a class="node" href="beast-qilin.html"><strong>麒麟详解</strong><small>beast-qilin.html</small></a></li>
+            <li><a class="node" href="beast-taotie.html"><strong>饕餮详解</strong><small>beast-taotie.html</small></a></li>
+            <li><a class="node" href="beast-xuanwu.html"><strong>玄武详解</strong><small>beast-xuanwu.html</small></a></li>
+            <li><a class="node" href="habitat-detail.html"><strong>南山青丘地域详情</strong><small>habitat-detail.html</small></a></li>
+            <li><a class="node" href="culture-detail.html"><strong>青丘九尾文化详解</strong><small>culture-detail.html</small></a></li>
+            <li><a class="node" href="classics.html"><strong>山海原典摘读</strong><small>classics.html</small></a></li>
+            <li><a class="node support" href="poster.html"><strong>展览海报</strong><small>poster.html</small></a></li>
+          </ul>
+          <div class="arrow-note">详情页主要从图鉴页、地图页、文化页、首页精选卡片和页脚入口进入。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>二、公共页面骨架</h2>
+      <p class="section-lead">多数页面采用统一头部、主体内容、页脚结构。栏目页和详情页在主体部分根据功能不同分化。</p>
+
+      <div class="skeleton-grid">
+        <div class="skeleton">
+          <h3>公共头部 Header</h3>
+          <ul class="flow">
+            <li><b>1</b> Logo / 品牌：山海异兽录</li>
+            <li><b>2</b> 主导航：首页、神兽图鉴、栖息地、文化延伸、关于我们</li>
+            <li><b>3</b> 搜索提示：搜索神兽、典故、地名</li>
+          </ul>
+        </div>
+        <div class="skeleton">
+          <h3>主体 Main</h3>
+          <ul class="flow">
+            <li><b>首页</b> 轮播主视觉、统计、列表、精选卡片</li>
+            <li><b>栏目页</b> banner、面包屑、筛选/侧栏、列表</li>
+            <li><b>详情页</b> hero、侧栏、正文卡、相关推荐</li>
+          </ul>
+        </div>
+        <div class="skeleton">
+          <h3>公共页脚 Footer</h3>
+          <ul class="flow">
+            <li><b>导航</b> 首页、神兽图鉴、栖息地</li>
+            <li><b>详情</b> 神兽详情、地域详情、文化详情</li>
+            <li><b>说明</b> 文化延伸、原典摘读、关于我们、资料来源</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>三、页面内容结构拆解</h2>
+      <p class="section-lead">下面按页面类型列出主要版块，方便后续修改时快速定位。</p>
+
+      <div class="page-grid">
+        <article class="page-card">
+          <h3>首页 <code>index.html</code></h3>
+          <ul>
+            <li>首页主题轮播：九尾狐、凤凰、饕餮三张 hero slide。</li>
+            <li>黑金统计条：神兽收录、典籍出处、地域场景、文化典故。</li>
+            <li>两栏内容列表：山海原典摘读、文化典故速览。</li>
+            <li>神兽精选卡片：饕餮、白泽、凤凰、麒麟、玄武。</li>
+            <li>红色标语带和统一黑色页脚。</li>
+          </ul>
+          <div class="tag-row"><span class="tag">入口页</span><span class="tag">轮播</span><span class="tag">内容聚合</span></div>
+        </article>
+
+        <article class="page-card">
+          <h3>神兽图鉴 <code>beasts.html</code></h3>
+          <ul>
+            <li>栏目 banner + 面包屑导航。</li>
+            <li>顶部筛选 chips：全部、瑞兽、凶兽、羽族、鳞甲、山兽、水兽。</li>
+            <li>侧边栏分类说明，满足栏目页分类导航需求。</li>
+            <li>图鉴卡片网格和分页脚本，当前展示 16 个结果。</li>
+            <li>重点导向六个独立神兽详情页。</li>
+          </ul>
+          <div class="tag-row"><span class="tag">二级栏目</span><span class="tag">侧栏</span><span class="tag">筛选搜索</span></div>
+        </article>
+
+        <article class="page-card">
+          <h3>栖息地地图 <code>map.html</code></h3>
+          <ul>
+            <li>考据增强版 hero，明确“路线图思路、非现代经纬度”。</li>
+            <li>研究说明条：路线优先、证据分级、经篇分层、交互保留。</li>
+            <li>左侧筛选面板：经篇/图层、神兽属性、显示控制、图例。</li>
+            <li>中间 SVG 交互地图，右侧文献点位详情卡。</li>
+            <li>点位列表和考据说明区域由 data/map-points-rigorous.js 与 js/map-rigorous.js 支撑。</li>
+          </ul>
+          <div class="tag-row"><span class="tag">二级栏目</span><span class="tag">交互地图</span><span class="tag">数据脚本</span></div>
+        </article>
+
+        <article class="page-card">
+          <h3>文化延伸 <code>culture.html</code></h3>
+          <ul>
+            <li>文化专题 banner + 说明卡。</li>
+            <li>四项 feature strip：原典摘读、图像再设计、地图联动、文创转译。</li>
+            <li>侧边栏分类：神兽典故、地域神话、祭祀纹样、后世演绎。</li>
+            <li>专题文章列表，重点入口为 classics.html 与 culture-detail.html。</li>
+            <li>下方分栏：地域神话、视觉转译。</li>
+          </ul>
+          <div class="tag-row"><span class="tag">二级栏目</span><span class="tag">专题文章</span><span class="tag">文化线索</span></div>
+        </article>
+
+        <article class="page-card">
+          <h3>神兽详情组 <code>beast-*.html</code></h3>
+          <ul>
+            <li>包含九尾狐、白泽、凤凰、麒麟、饕餮、玄武六个详情页。</li>
+            <li>统一结构：hero → container → sidebar → main-card → 正文 section → 相关推荐 → slogan。</li>
+            <li>正文重点包含：神兽本源、核心特征、形态特征、能力特性、栖息之地、象征寓意、文化延伸。</li>
+            <li>每页通过相关神兽推荐回链到其他详情页或图鉴体系。</li>
+          </ul>
+          <div class="tag-row"><span class="tag">详情页</span><span class="tag">统一模板</span><span class="tag">相关推荐</span></div>
+        </article>
+
+        <article class="page-card">
+          <h3>文章详情组 <code>classics / culture / habitat</code></h3>
+          <ul>
+            <li>classics.html：原典摘读，按南山经、北山经、西山经、海荒经组织。</li>
+            <li>culture-detail.html：青丘九尾文化详解，展开原文解读、历代解读、双重身份、民俗表现。</li>
+            <li>habitat-detail.html：南山青丘地域详情，连接九尾狐、凤凰、旋龟、蛊雕等地域内容。</li>
+            <li>共同结构：sub-hero、面包屑、侧栏导航、文章正文、相关页面推荐。</li>
+          </ul>
+          <div class="tag-row"><span class="tag">内容页</span><span class="tag">面包屑</span><span class="tag">图文正文</span></div>
+        </article>
+
+        <article class="page-card">
+          <h3>关于页 <code>about.html</code></h3>
+          <ul>
+            <li>说明网站定位、页面结构、资料来源、设计风格。</li>
+            <li>提供 docs/source-notes.md 的资料来源说明入口。</li>
+            <li>作为主导航中的说明类栏目，增强课程作业完整度。</li>
+          </ul>
+          <div class="tag-row"><span class="tag">说明页</span><span class="tag">资料来源</span></div>
+        </article>
+
+        <article class="page-card">
+          <h3>海报页 <code>poster.html</code></h3>
+          <ul>
+            <li>展览海报式展示项目简介、设计目标、技术架构、团队信息、站点地图。</li>
+            <li>不是主流程必需页，但可作为展示/答辩材料入口。</li>
+          </ul>
+          <div class="tag-row"><span class="tag">支撑页</span><span class="tag">展示页</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>四、主要链接流向</h2>
+      <p class="section-lead">按真实页面链接整理出的阅读路径如下。</p>
+
+      <div class="route-grid">
+        <div class="route-card">
+          <h3>首页导流</h3>
+          <p>index.html → beasts.html / beast-detail.html / classics.html / beast-baize.html / beast-fenghuang.html / beast-qilin.html / beast-taotie.html / beast-xuanwu.html</p>
+        </div>
+        <div class="route-card">
+          <h3>图鉴导流</h3>
+          <p>beasts.html → beast-detail.html / beast-baize.html / beast-fenghuang.html / beast-qilin.html / beast-taotie.html / beast-xuanwu.html</p>
+        </div>
+        <div class="route-card">
+          <h3>地图导流</h3>
+          <p>map.html → habitat-detail.html（通过页脚和地域内容体系进入）→ beast-detail.html / culture-detail.html / map.html</p>
+        </div>
+        <div class="route-card">
+          <h3>文化导流</h3>
+          <p>culture.html → classics.html / culture-detail.html / habitat-detail.html / map.html / about.html</p>
+        </div>
+        <div class="route-card">
+          <h3>公共页脚</h3>
+          <p>所有主页面均回链 index.html、beasts.html、map.html，并提供 beast-detail.html、habitat-detail.html、culture-detail.html、culture.html、classics.html、about.html、docs/source-notes.md。</p>
+        </div>
+        <div class="route-card">
+          <h3>支撑说明</h3>
+          <p>about.html 与 poster.html 用于补足项目说明、资料来源、站点地图和展示材料，不承担主要内容浏览路径。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>五、检查备注</h2>
+      <div class="notice">
+        <strong>结构整体完整：</strong>站点已具备课程要求中的首页、二级栏目页、内容详情页三层结构，且主导航除首页外有 4 个栏目。
+        <br>
+        <strong>小问题提醒：</strong>culture-detail.html 中部分 class、href、src 属性使用了中文弯引号，浏览器可能无法识别相关样式、图片或链接。此结构图未修改原页面，只记录该检查结果。
+      </div>
+    </section>
+
+    <div class="footer">生成文件：structure-diagram.html · 可直接双击打开，或通过本地预览服务器访问。</div>
+  </div>
+</body>
+</html>

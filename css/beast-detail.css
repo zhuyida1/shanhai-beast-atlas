@@ -1,0 +1,1001 @@
+
+:root{
+  --ink:#15100d;
+  --ink-2:#241a14;
+  --paper:#f8ead0;
+  --paper-2:#fff8e8;
+  --paper-3:#f2dfbd;
+  --red:#a92322;
+  --red-2:#7b1615;
+  --gold:#d7a44a;
+  --gold-2:#8f6727;
+  --brown:#5f4226;
+  --line:rgba(114,79,35,.28);
+  --shadow:0 18px 38px rgba(64,42,18,.18);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(217,164,74,.18), transparent 28%),
+    radial-gradient(circle at 90% 6%, rgba(169,35,34,.1), transparent 24%),
+    linear-gradient(180deg,#faecd1 0%,#f8ead0 42%,#ead6af 100%);
+  font-family:"Microsoft YaHei","SimSun",serif;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.24;
+  background-image:
+    linear-gradient(45deg, rgba(113,84,42,.08) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(113,84,42,.08) 25%, transparent 25%);
+  background-size:44px 44px;
+  mix-blend-mode:multiply;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,calc(100% - 48px));margin:auto}
+.topbar{
+  position:sticky;top:0;z-index:99;
+  background:linear-gradient(180deg,#15100d,#0d0a08);
+  border-bottom:1px solid rgba(215,164,74,.42);
+  box-shadow:0 10px 30px rgba(0,0,0,.28);
+}
+.nav{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  gap:32px;
+}
+.brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.logo{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--red);
+  border:2px solid var(--gold);
+  color:#ffe6a8;
+  display:grid;place-items:center;
+  font-weight:800;
+  line-height:1.05;
+}
+.logo.logo-image{
+  overflow:hidden;
+  padding:0;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+}
+.logo.logo-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  transform:none;
+}
+
+/* Final page-style unification overrides */
+:root{
+  --site-zhu:#b44a34;
+  --site-zhe:#8f5734;
+  --site-gold:#c49a4a;
+  --site-dai:#223d4b;
+  --site-ink:#3d3932;
+  --site-muted:#756853;
+  --site-line:rgba(111,82,48,.24);
+  --site-shadow:0 20px 54px rgba(78,53,30,.1);
+  --site-serif:"STSong","SimSun","Songti SC","Noto Serif CJK SC","Source Han Serif SC",serif;
+  --site-sans:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;
+}
+
+body{
+  color:var(--site-ink);
+  font-family:var(--site-sans);
+  background:
+    radial-gradient(circle at 12% 18%,rgba(54,79,86,.12),transparent 26%),
+    radial-gradient(circle at 86% 9%,rgba(180,74,52,.1),transparent 27%),
+    linear-gradient(180deg,rgba(247,239,220,.9),rgba(235,220,186,.92)),
+    url("../images/demo/paper-texture.jpg") center top/620px repeat;
+}
+body:before{
+  opacity:.16;
+  background:
+    linear-gradient(90deg,rgba(34,61,75,.08) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(34,61,75,.05) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+body:after{
+  content:"山海经";
+  color:rgba(93,43,25,.055);
+}
+
+.topbar{
+  min-height:82px;
+  background:rgba(40,51,52,.78);
+  border-bottom:1px solid rgba(196,154,74,.38);
+  box-shadow:0 16px 40px rgba(47,38,27,.16);
+  backdrop-filter:blur(14px);
+}
+.nav{min-height:82px}
+.brand-title{
+  color:#f0d48c;
+  font-family:var(--site-serif);
+  text-shadow:none;
+}
+.brand-sub,
+.menu a,
+.search{color:#eadbb8}
+.menu a{
+  border-radius:0;
+  border:1px solid transparent;
+  background:transparent;
+}
+.menu a.active,
+.menu a:hover{
+  color:#fff4d0;
+  background:rgba(180,74,52,.22);
+  border-color:rgba(196,154,74,.48);
+  box-shadow:none;
+}
+.search{
+  border-color:rgba(196,154,74,.48);
+  background:rgba(34,61,75,.24);
+}
+
+.hero{
+  min-height:420px;
+  background:
+    linear-gradient(90deg,rgba(246,238,218,.9) 0%,rgba(246,238,218,.68) 36%,rgba(34,61,75,.12) 74%),
+    linear-gradient(180deg,rgba(255,250,235,.08),rgba(84,60,36,.16)),
+    url("../images/demo/detail-jiuweihu.jpg") center 45%/cover no-repeat;
+  border-bottom:1px solid var(--site-line);
+}
+.hero:before{
+  background:
+    radial-gradient(circle at 20% 44%,rgba(255,249,230,.48),transparent 24%),
+    linear-gradient(180deg,rgba(255,249,230,.1),transparent 58%,rgba(45,35,24,.18));
+}
+.hero:after{background:linear-gradient(180deg,transparent,rgba(236,218,176,.62))}
+.hero-inner{padding:104px 0 92px}
+.hero-title{
+  color:var(--site-dai);
+  font-family:var(--site-serif);
+  font-size:clamp(54px,5vw,78px);
+  letter-spacing:0;
+  text-shadow:0 2px 0 rgba(255,250,232,.72),0 8px 18px rgba(60,45,27,.12);
+}
+.hero-sub{
+  color:var(--site-ink);
+  font-weight:700;
+}
+
+.breadcrumb{color:var(--site-muted)}
+.layout{gap:30px}
+.sidebar,
+.main-card,
+.gallery,
+.feature,
+.symbol,
+.beast-card,
+.quote,
+.tab,
+.download{
+  border-radius:0;
+}
+.sidebar,
+.main-card,
+.gallery,
+.feature,
+.symbol,
+.beast-card{
+  border:1px solid var(--site-line);
+  box-shadow:var(--site-shadow);
+}
+.sidebar{
+  background:
+    linear-gradient(180deg,rgba(34,61,75,.96),rgba(32,45,49,.96)),
+    url("../images/demo/paper-texture.jpg") center/480px repeat;
+  color:#ead9af;
+}
+.side-head,
+.side-section-title{
+  background:linear-gradient(90deg,rgba(180,74,52,.96),rgba(143,87,52,.92));
+  color:#fff1c9;
+}
+.main-card,
+.gallery,
+.feature,
+.symbol,
+.beast-card{
+  background:
+    linear-gradient(180deg,rgba(255,252,241,.72),rgba(231,216,184,.42)),
+    url("../images/demo/paper-texture.jpg") center/460px repeat;
+}
+.section h2,
+.recommend h2,
+.feature h3,
+.symbol b,
+.beast-card h3{
+  color:var(--site-dai);
+  font-family:var(--site-serif);
+}
+.quote{
+  color:#4d3e30;
+  border-color:rgba(196,154,74,.38);
+  background:
+    linear-gradient(180deg,rgba(255,250,232,.8),rgba(238,225,196,.66)),
+    url("../images/demo/paper-texture.jpg") center/430px repeat;
+}
+.gallery-main{border-radius:0}
+.gallery-main .plaque,
+.tab.active,
+.download button,
+.red-btn{
+  border-radius:0;
+  background:linear-gradient(180deg,var(--site-zhu),#934936);
+  color:#fff1c9;
+}
+.slogan{
+  margin-top:70px;
+  background:
+    linear-gradient(90deg,rgba(34,61,75,.94),rgba(68,75,67,.9),rgba(143,87,52,.82)),
+    url("../images/demo/paper-texture.jpg") center/480px repeat;
+  color:#f5df9b;
+  border-top:1px solid rgba(196,154,74,.36);
+  border-bottom:1px solid rgba(196,154,74,.36);
+}
+.footer{
+  background:linear-gradient(180deg,#273638,#202d31);
+  color:#dcc99d;
+}
+.footer h3{color:#e1c679}
+.footer p,
+.footer a{color:#d7c8a6}
+
+/* Final alignment for detail page with the redesigned home page */
+:root{
+  --site-paper:#f3ead6;
+  --site-zhu:#b44a34;
+  --site-zhe:#8f5734;
+  --site-gold:#c49a4a;
+  --site-dai:#223d4b;
+  --site-ink:#3d3932;
+  --site-muted:#756853;
+  --site-line:rgba(111,82,48,.24);
+  --site-shadow:0 20px 54px rgba(78,53,30,.1);
+  --site-serif:"STSong","SimSun","Songti SC","Noto Serif CJK SC","Source Han Serif SC",serif;
+  --site-sans:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",Arial,sans-serif;
+}
+
+body{
+  color:var(--site-ink);
+  font-family:var(--site-sans);
+  background:
+    radial-gradient(circle at 12% 18%,rgba(54,79,86,.12),transparent 26%),
+    radial-gradient(circle at 86% 9%,rgba(180,74,52,.1),transparent 27%),
+    linear-gradient(180deg,rgba(247,239,220,.9),rgba(235,220,186,.92)),
+    url("../images/demo/paper-texture.jpg") center top/620px repeat;
+}
+
+body:before{
+  opacity:.16;
+  background:
+    linear-gradient(90deg,rgba(34,61,75,.08) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(34,61,75,.05) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+
+body:after{
+  content:"山海经";
+  color:rgba(93,43,25,.055);
+}
+
+.topbar{
+  min-height:82px;
+  background:rgba(40,51,52,.78);
+  border-bottom:1px solid rgba(196,154,74,.38);
+  box-shadow:0 16px 40px rgba(47,38,27,.16);
+  backdrop-filter:blur(14px);
+}
+.nav{min-height:82px}
+.brand-title{
+  color:#f0d48c;
+  font-family:var(--site-serif);
+  text-shadow:none;
+}
+.brand-sub,
+.menu a,
+.search{color:#eadbb8}
+.menu a{
+  border-radius:0;
+  border:1px solid transparent;
+  background:transparent;
+}
+.menu a.active,
+.menu a:hover{
+  color:#fff4d0;
+  background:rgba(180,74,52,.22);
+  border-color:rgba(196,154,74,.48);
+  box-shadow:none;
+}
+.search{
+  border-color:rgba(196,154,74,.48);
+  background:rgba(34,61,75,.24);
+}
+
+.hero{
+  min-height:420px;
+  background:
+    linear-gradient(90deg,rgba(246,238,218,.9) 0%,rgba(246,238,218,.68) 36%,rgba(34,61,75,.12) 74%),
+    linear-gradient(180deg,rgba(255,250,235,.08),rgba(84,60,36,.16)),
+    url("../images/demo/detail-jiuweihu.jpg") center 45%/cover no-repeat;
+  border-bottom:1px solid var(--site-line);
+}
+.hero:before{
+  background:
+    radial-gradient(circle at 20% 44%,rgba(255,249,230,.48),transparent 24%),
+    linear-gradient(180deg,rgba(255,249,230,.1),transparent 58%,rgba(45,35,24,.18));
+}
+.hero:after{background:linear-gradient(180deg,transparent,rgba(236,218,176,.62))}
+.hero-inner{padding:104px 0 92px}
+.hero-title{
+  color:var(--site-dai);
+  font-family:var(--site-serif);
+  font-size:clamp(54px,5vw,78px);
+  letter-spacing:0;
+  text-shadow:0 2px 0 rgba(255,250,232,.72),0 8px 18px rgba(60,45,27,.12);
+}
+.hero-sub{
+  color:var(--site-ink);
+  font-weight:700;
+}
+
+.breadcrumb{
+  color:var(--site-muted);
+}
+.layout{
+  gap:30px;
+}
+.sidebar,
+.main-card,
+.gallery,
+.feature,
+.symbol,
+.beast-card{
+  border-radius:0;
+  border:1px solid var(--site-line);
+  box-shadow:var(--site-shadow);
+}
+.sidebar{
+  background:
+    linear-gradient(180deg,rgba(34,61,75,.96),rgba(32,45,49,.96)),
+    url("../images/demo/paper-texture.jpg") center/480px repeat;
+  color:#ead9af;
+}
+.side-head,
+.side-section-title{
+  background:linear-gradient(90deg,rgba(180,74,52,.96),rgba(143,87,52,.92));
+  color:#fff1c9;
+}
+.main-card,
+.gallery,
+.feature,
+.symbol,
+.beast-card{
+  background:
+    linear-gradient(180deg,rgba(255,252,241,.72),rgba(231,216,184,.42)),
+    url("../images/demo/paper-texture.jpg") center/460px repeat;
+}
+.section h2,
+.recommend h2,
+.feature h3,
+.symbol b,
+.beast-card h3{
+  color:var(--site-dai);
+  font-family:var(--site-serif);
+}
+.quote{
+  border-radius:0;
+  color:#4d3e30;
+  border-color:rgba(196,154,74,.38);
+  background:
+    linear-gradient(180deg,rgba(255,250,232,.8),rgba(238,225,196,.66)),
+    url("../images/demo/paper-texture.jpg") center/430px repeat;
+}
+.gallery-main{
+  border-radius:0;
+}
+.gallery-main .plaque,
+.tab.active,
+.download button,
+.red-btn{
+  border-radius:0;
+  background:linear-gradient(180deg,var(--site-zhu),#934936);
+  color:#fff1c9;
+}
+.tab,
+.download{
+  border-radius:0;
+}
+
+.slogan{
+  margin-top:70px;
+  background:
+    linear-gradient(90deg,rgba(34,61,75,.94),rgba(68,75,67,.9),rgba(143,87,52,.82)),
+    url("../images/demo/paper-texture.jpg") center/480px repeat;
+  color:#f5df9b;
+  border-top:1px solid rgba(196,154,74,.36);
+  border-bottom:1px solid rgba(196,154,74,.36);
+}
+.footer{
+  background:linear-gradient(180deg,#273638,#202d31);
+  color:#dcc99d;
+}
+.footer h3{color:#e1c679}
+.footer p,
+.footer a{color:#d7c8a6}
+.brand-title{color:#e8c273;font-size:26px;font-weight:900;letter-spacing:2px}
+.brand-sub{color:#d6c09a;font-size:12px;margin-top:2px}
+.menu{display:flex;align-items:center;gap:18px;list-style:none;margin:0;padding:0}
+.menu a{
+  display:block;
+  color:#f7e6be;
+  font-weight:700;
+  padding:10px 16px;
+  border-radius:999px;
+}
+.menu a.active,.menu a:hover{
+  background:linear-gradient(180deg,#c8352e,#8a1b18);
+  color:#fff2ca;
+  box-shadow:inset 0 0 0 1px rgba(255,221,128,.46);
+}
+.search{
+  width:210px;height:36px;border-radius:999px;
+  border:1px solid rgba(215,164,74,.65);
+  color:#d8bc82;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 12px;font-size:13px;
+}
+.hero{
+  min-height:340px;
+  background:
+    linear-gradient(90deg,rgba(248,234,208,.96) 0%,rgba(248,234,208,.92) 38%,rgba(248,234,208,.15) 65%),
+    url("../images/demo/detail-jiuweihu.jpg") center 45%/cover no-repeat;
+  border-bottom:1px solid rgba(143,103,39,.25);
+  position:relative;
+  overflow:hidden;
+}
+.hero:after{
+  content:"";
+  position:absolute;inset:auto 0 0 0;height:80px;
+  background:linear-gradient(180deg,transparent,rgba(248,234,208,.95));
+}
+.hero-inner{
+  position:relative;z-index:2;
+  padding:82px 0 76px;
+}
+.hero-title{
+  font-size:72px;
+  line-height:1;
+  margin:0 0 22px;
+  font-family:"STKaiti","KaiTi","SimSun",serif;
+  letter-spacing:4px;
+}
+.hero-sub{
+  font-size:22px;color:#49382b;margin:0;
+  letter-spacing:1px;
+}
+.breadcrumb{
+  padding:26px 0 18px;
+  color:#75614b;
+  font-size:14px;
+}
+.breadcrumb span{margin:0 10px;color:#b79355}
+.layout{
+  display:grid;
+  grid-template-columns:230px 1fr;
+  gap:28px;
+  align-items:start;
+}
+.sidebar{
+  background:linear-gradient(180deg,#18120f,#0f0c0a);
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid rgba(215,164,74,.35);
+  box-shadow:var(--shadow);
+  color:#f5dfac;
+}
+.side-head{
+  background:linear-gradient(180deg,#b32625,#821917);
+  color:#fff1bf;
+  font-size:24px;
+  font-weight:800;
+  text-align:center;
+  padding:16px 12px;
+  border-bottom:1px solid rgba(215,164,74,.42);
+}
+.side-section-title{
+  background:linear-gradient(90deg,#b42121,#821817);
+  color:#fff1bf;
+  padding:12px 18px;
+  font-size:18px;font-weight:800;
+}
+.side-list{list-style:none;margin:0;padding:12px 18px 18px}
+.side-list li{
+  padding:8px 0;
+  display:flex;justify-content:space-between;gap:12px;
+  border-bottom:1px solid rgba(215,164,74,.13);
+  font-size:15px;
+}
+.side-list small{display:block;color:#c5a66a;margin-top:3px}
+.download{
+  margin:18px;
+  border:1px solid rgba(215,164,74,.55);
+  border-radius:8px;
+  text-align:center;
+  padding:20px 12px;
+  background:rgba(255,255,255,.03);
+}
+.download button,.red-btn{
+  border:0;border-radius:999px;
+  background:linear-gradient(180deg,#b9302a,#8a1d19);
+  color:#fff3c7;
+  padding:8px 22px;
+  font-weight:800;
+  box-shadow:inset 0 0 0 1px rgba(255,218,124,.35);
+}
+.main-card{
+  background:rgba(255,248,232,.92);
+  border:1px solid var(--line);
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  padding:28px;
+}
+.gallery{
+  border:1px solid rgba(143,103,39,.32);
+  border-radius:8px;
+  padding:14px;
+  background:#fdf3de;
+}
+.gallery-main{
+  position:relative;
+  min-height:330px;
+  border-radius:6px;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(248,232,198,.9),transparent 38%),
+    url("../images/demo/detail-jiuweihu.jpg") center 45%/cover no-repeat;
+}
+.gallery-main .plaque{
+  position:absolute;left:18px;top:32px;
+  width:84px;
+  background:#fff6df;
+  border:1px solid rgba(143,103,39,.35);
+  text-align:center;
+  padding:20px 8px;
+  font-size:34px;
+  font-family:"STKaiti","KaiTi",serif;
+  writing-mode:vertical-rl;
+  letter-spacing:6px;
+}
+.fullscreen{
+  position:absolute;right:18px;bottom:18px;
+  background:#17110d;color:#f7d991;
+  padding:10px 16px;border-radius:6px;
+  border:1px solid rgba(215,164,74,.6);
+}
+.thumbs{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:10px;
+  margin-top:12px;
+}
+.thumb{
+  height:58px;border-radius:6px;border:1px solid rgba(143,103,39,.3);
+  background:url("../images/demo/thumb-jiuweihu.jpg") center/cover no-repeat;
+}
+.thumb:first-child{outline:3px solid var(--red)}
+.thumb:nth-child(2){background-image:url("../images/demo/detail-jiuweihu.jpg")}
+.thumb:nth-child(3){background-image:url("../images/demo/thumb-baize.jpg")}
+.thumb:nth-child(4){background-image:url("../images/demo/thumb-qilin.jpg")}
+.thumb:nth-child(5){background-image:url("../images/demo/thumb-fenghuang.jpg")}
+.thumb:nth-child(6){background-image:url("../images/demo/map-shanhai.jpg")}
+.section{margin-top:28px}
+.section h2{
+  font-size:29px;margin:0 0 16px;
+  font-family:"STKaiti","KaiTi",serif;
+}
+.section p{font-size:17px;line-height:2;color:#3d3026}
+.quote{
+  margin-top:16px;
+  padding:18px 22px;
+  background:#fff1d2;
+  border:1px solid rgba(215,164,74,.42);
+  border-radius:8px;
+  color:#5b4028;
+  font-weight:700;
+}
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.feature{
+  text-align:center;
+  padding:18px 12px;
+  border:1px solid rgba(215,164,74,.4);
+  border-radius:8px;
+  background:rgba(255,246,223,.8);
+}
+.feature h3{margin:0 0 8px;color:var(--red);font-size:18px}
+.feature p{font-size:14px;line-height:1.7;margin:0}
+.tabs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:18px;
+}
+.tab{
+  text-align:center;padding:12px;
+  border:1px solid rgba(215,164,74,.42);
+  border-radius:8px;
+  background:#f5dfb8;
+  font-weight:800;
+}
+.tab.active{background:linear-gradient(180deg,#b92c27,#891917);color:#fff0bf}
+.symbols{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:22px;
+}
+.symbol{
+  background:#fff4dc;border:1px solid rgba(215,164,74,.42);
+  border-radius:8px;padding:18px;display:flex;align-items:center;gap:14px;
+}
+.symbol b{font-size:42px;color:var(--red);font-family:"STKaiti","KaiTi",serif}
+.recommend{margin:34px 0 0}
+.recommend h2{text-align:center;font-size:30px;font-family:"STKaiti","KaiTi",serif}
+.card-row{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:18px;
+}
+.beast-card{
+  background:#fff6df;border:1px solid rgba(215,164,74,.45);
+  border-radius:8px;padding:10px;text-align:center;
+  box-shadow:0 10px 20px rgba(92,55,20,.12);
+}
+.beast-img{
+  height:90px;border-radius:6px;
+  background:url("../images/demo/thumb-jiuweihu.jpg") center/cover no-repeat;
+  margin-bottom:10px;
+}
+.card-row .beast-card:nth-child(1) .beast-img{background-image:url("../images/demo/thumb-baize.jpg")}
+.card-row .beast-card:nth-child(2) .beast-img{background-image:url("../images/demo/thumb-qilin.jpg")}
+.card-row .beast-card:nth-child(3) .beast-img{background-image:url("../images/demo/thumb-fenghuang.jpg")}
+.card-row .beast-card:nth-child(4) .beast-img{background-image:url("../images/demo/thumb-yinglong.jpg")}
+.card-row .beast-card:nth-child(5) .beast-img{background-image:url("../images/demo/thumb-taotie.jpg")}
+.beast-card h3{margin:4px 0;color:var(--red);font-size:20px}
+.beast-card p{font-size:13px;line-height:1.5;color:#604d3b;min-height:38px}
+.slogan{
+  margin-top:42px;
+  background:linear-gradient(90deg,rgba(34,61,75,.94),rgba(68,75,67,.9),rgba(143,87,52,.82));
+  color:#f5e4b2;text-align:center;
+  padding:28px 16px;
+  font-size:26px;font-family:"STKaiti","KaiTi",serif;font-weight:800;
+}
+.footer{
+  background:#11100e;color:#dec48c;
+  padding:38px 0 28px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:28px;
+}
+.footer h3{margin:0 0 12px;color:#e2bf73}
+.footer p,.footer a{font-size:14px;color:#c5ad7a;line-height:1.9}
+.copy{text-align:center;color:#8e7a59;border-top:1px solid rgba(215,164,74,.2);margin-top:24px;padding-top:16px}
+@media(max-width:980px){
+  .menu,.search{display:none}
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:static}
+  .feature-grid,.card-row{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-title{font-size:52px}
+}
+@media(max-width:620px){
+  .container{width:min(100% - 28px,1180px)}
+  .feature-grid,.symbols,.tabs,.card-row,.thumbs{grid-template-columns:1fr}
+  .hero-title{font-size:42px}
+  .hero-sub{font-size:17px}
+}
+
+/* 山海主题详情页美化增强 */
+:root{
+  --lacquer:#160c08;
+  --cinnabar:#a51f18;
+  --cinnabar-bright:#d24732;
+  --antique-gold:#d8aa5d;
+  --paper-glow:#fff8e7;
+  --hairline:rgba(122,79,35,.26);
+}
+
+body{
+  font-family:"Source Han Serif SC","Noto Serif SC","Songti SC","SimSun",serif;
+  background:
+    linear-gradient(rgba(250,237,205,.86),rgba(242,220,178,.9)),
+    url('../images/demo/paper-texture.jpg') center top/430px repeat;
+}
+
+body:after{
+  content:"九尾青丘";
+  position:fixed;
+  right:2vw;
+  bottom:5vh;
+  z-index:-1;
+  writing-mode:vertical-rl;
+  font-family:"STKaiti","KaiTi","SimSun",serif;
+  font-size:104px;
+  font-weight:900;
+  color:rgba(93,43,25,.055);
+  pointer-events:none;
+}
+
+.topbar{
+  min-height:86px;
+  background:
+    linear-gradient(90deg,rgba(165,31,24,.2),transparent 24%,rgba(216,170,93,.12)),
+    linear-gradient(180deg,#1b100b,#080504);
+  backdrop-filter:saturate(1.05) blur(10px);
+}
+
+.nav{min-height:86px}
+
+.logo{
+  border-radius:8px;
+  position:relative;
+  transform:rotate(-2deg);
+  background:
+    radial-gradient(circle at 34% 28%,rgba(255,236,170,.26),transparent 32%),
+    linear-gradient(145deg,#b82d22,#5e100b);
+}
+
+.logo::after{
+  content:"";
+  position:absolute;
+  width:70%;
+  height:70%;
+  border:1px solid rgba(255,230,160,.28);
+  border-radius:6px;
+}
+
+.brand-title,
+.hero-title,
+.section h2,
+.recommend h2{
+  letter-spacing:0;
+}
+
+.menu a{
+  border-radius:6px;
+  position:relative;
+}
+
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  bottom:5px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--antique-gold),transparent);
+  opacity:0;
+  transform:scaleX(.45);
+  transition:.2s ease;
+}
+
+.menu a:hover::after,
+.menu a.active::after{
+  opacity:1;
+  transform:scaleX(1);
+}
+
+.search{
+  border-radius:999px;
+  box-shadow:inset 0 0 0 1px rgba(255,232,170,.08),0 8px 22px rgba(0,0,0,.14);
+}
+
+.hero{
+  min-height:400px;
+  background:
+    linear-gradient(90deg,rgba(248,234,208,.98) 0%,rgba(248,234,208,.88) 36%,rgba(72,25,15,.18) 67%),
+    url("../images/demo/detail-jiuweihu.jpg") center 45%/cover no-repeat;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(120deg,rgba(120,74,35,.14) 1px,transparent 1px),
+    radial-gradient(circle at 66% 28%,rgba(165,31,24,.22),transparent 22%);
+  background-size:46px 46px,auto;
+}
+
+.hero-title{
+  text-shadow:0 3px 0 rgba(255,247,221,.55),0 18px 30px rgba(93,50,20,.13);
+}
+
+.sidebar,
+.main-card,
+.gallery,
+.feature,
+.symbol,
+.beast-card{
+  border-radius:8px;
+  box-shadow:0 22px 50px rgba(70,39,16,.18);
+}
+
+.main-card,
+.feature,
+.symbol,
+.beast-card{
+  background:
+    linear-gradient(180deg,rgba(255,250,235,.94),rgba(246,226,188,.86)),
+    url('../images/demo/paper-texture.jpg') center/460px repeat;
+  border:1px solid var(--hairline);
+}
+
+.gallery{
+  background:
+    linear-gradient(180deg,rgba(255,248,229,.96),rgba(244,224,184,.9)),
+    url('../images/demo/paper-texture.jpg') center/420px repeat;
+}
+
+.gallery-main{
+  border-radius:0 22px 0 22px;
+  box-shadow:0 18px 40px rgba(70,39,16,.16);
+}
+
+.gallery-main:after{
+  content:"";
+  position:absolute;
+  inset:16px;
+  border:1px solid rgba(255,232,168,.32);
+  border-radius:0 14px 0 14px;
+  pointer-events:none;
+}
+
+.gallery-main .plaque{
+  border-radius:4px;
+  background:
+    linear-gradient(180deg,rgba(255,220,142,.2),transparent 42%),
+    linear-gradient(#bf3127,#74130f);
+  color:#ffe5a6;
+}
+
+.download button,
+.red-btn,
+.tab{
+  border-radius:6px;
+}
+
+.download button:hover,
+.red-btn:hover,
+.tab:hover,
+.beast-card:hover{
+  transform:translateY(-2px);
+}
+
+.quote{
+  border-radius:8px;
+  background:
+    linear-gradient(180deg,rgba(255,245,218,.96),rgba(239,213,166,.86));
+}
+
+.tab.active,
+.side-head,
+.side-section-title{
+  background:
+    linear-gradient(90deg,rgba(94,18,12,.98),rgba(177,43,31,.98),rgba(94,18,12,.98)),
+    url('../images/demo/paper-texture.jpg') center/430px repeat;
+}
+
+.slogan{
+  background:
+    linear-gradient(90deg,rgba(34,61,75,.94),rgba(68,75,67,.9),rgba(143,87,52,.82)),
+    url('../images/demo/paper-texture.jpg') center/480px repeat;
+  letter-spacing:0;
+}
+
+.footer{
+  border-top:1px solid rgba(216,170,93,.24);
+  background:
+    linear-gradient(rgba(10,8,6,.97),rgba(10,8,6,.97)),
+    url('../images/demo/paper-texture.jpg') center/420px repeat;
+}
+
+@media(max-width:620px){
+  body:after{display:none}
+  .topbar{min-height:auto}
+  .nav{min-height:74px}
+}
+
+.logo.logo-image{
+  overflow:hidden;
+  padding:0;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  color:transparent;
+  letter-spacing:0;
+}
+
+.logo.logo-image::after{
+  content:none;
+}
+
+.logo.logo-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  transform:none;
+}
+
+/* Final effective detail-page overrides */
+.topbar{
+  min-height:82px;
+  background:rgba(40,51,52,.78);
+  border-bottom:1px solid rgba(196,154,74,.38);
+  box-shadow:0 16px 40px rgba(47,38,27,.16);
+  backdrop-filter:blur(14px);
+}
+.nav{min-height:82px}
+.brand-title{
+  color:#f0d48c;
+  text-shadow:none;
+}
+.brand-sub,
+.menu a,
+.search{color:#eadbb8}
+.menu a{
+  border-radius:0;
+  border:1px solid transparent;
+  background:transparent;
+}
+.menu a.active,
+.menu a:hover{
+  color:#fff4d0;
+  background:rgba(180,74,52,.22);
+  border-color:rgba(196,154,74,.48);
+  box-shadow:none;
+}
+.search{
+  border-color:rgba(196,154,74,.48);
+  background:rgba(34,61,75,.24);
+}
+.hero{
+  min-height:420px;
+  background:
+    linear-gradient(90deg,rgba(246,238,218,.9) 0%,rgba(246,238,218,.68) 36%,rgba(34,61,75,.12) 74%),
+    linear-gradient(180deg,rgba(255,250,235,.08),rgba(84,60,36,.16)),
+    url("../images/demo/detail-jiuweihu.jpg") center 45%/cover no-repeat;
+}
+.hero-title{
+  color:#223d4b;
+  letter-spacing:0;
+}
+.sidebar,
+.main-card,
+.gallery,
+.feature,
+.symbol,
+.beast-card,
+.quote,
+.tab,
+.download{
+  border-radius:0;
+}
+.slogan{
+  background:
+    linear-gradient(90deg,rgba(34,61,75,.94),rgba(68,75,67,.9),rgba(143,87,52,.82)),
+    url("../images/demo/paper-texture.jpg") center/480px repeat;
+}
+.footer{
+  background:linear-gradient(180deg,#273638,#202d31);
+  color:#dcc99d;
+}

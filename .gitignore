@@ -1,0 +1,27 @@
+# Local browser profiles and verification screenshots
+.chrome-check*/
+/current-home-check.png
+/playwright-report/
+/test-results/
+
+# Dependencies, editor state and local operating-system files
+node_modules/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+*.tmp
+
+# Local credentials and machine-specific settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated archives
+*.zip
+*.7z
+*.rar
