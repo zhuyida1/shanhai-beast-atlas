@@ -1,0 +1,413 @@
+/* 沉浸式全屏首页 - 纯净视觉体验 */
+
+:root {
+  --ink: #2d2520;
+  --paper: #f3ead6;
+  --cinnabar: #b44a34;
+  --gold: #c49a4a;
+  --mist: rgba(243, 234, 214, 0.85);
+  --shadow-soft: rgba(45, 37, 32, 0.12);
+}
+
+/* 隐藏传统导航 */
+body.immersive-home .ex-header {
+  display: none;
+}
+
+/* 全屏画卷容器 */
+.fullscreen-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #e8dcc0 0%, #f0e6d2 50%, #f5ede0 100%);
+  cursor: default;
+}
+
+/* 水墨背景图 */
+.canvas-backdrop {
+  position: absolute;
+  inset: 0;
+  background: url('../images/bg/bg-shanhai.jpg') center center / cover no-repeat;
+  opacity: 0.92;
+  will-change: transform;
+}
+
+/* 纸质纹理叠加 */
+.canvas-backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../images/demo/paper-texture.jpg') center top / 600px repeat;
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* 动态云雾层 */
+.canvas-mist {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mist-flow {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  background: radial-gradient(ellipse at center, var(--mist) 0%, transparent 70%);
+  filter: blur(40px);
+  opacity: 0;
+  animation: mistDrift 25s ease-in-out infinite;
+}
+
+.mist-flow:nth-child(1) {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.mist-flow:nth-child(2) {
+  top: 40%;
+  right: 15%;
+  animation-delay: -8s;
+}
+
+.mist-flow:nth-child(3) {
+  bottom: 25%;
+  left: 20%;
+  animation-delay: -16s;
+}
+
+@keyframes mistDrift {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    opacity: 0.6;
+    transform: translate(30px, -20px) scale(1.1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(60px, -40px) scale(1.2);
+  }
+  75% {
+    opacity: 0.6;
+    transform: translate(90px, -30px) scale(1.1);
+  }
+}
+
+/* 导航热区容器 */
+.nav-hotspots {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* 单个热区 */
+.hotspot {
+  position: absolute;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 热区位置 */
+.hotspot-beasts {
+  top: 25%;
+  left: 15%;
+  width: 180px;
+  height: 180px;
+}
+
+.hotspot-map {
+  top: 30%;
+  right: 18%;
+  width: 160px;
+  height: 160px;
+}
+
+.hotspot-culture {
+  bottom: 28%;
+  left: 20%;
+  width: 170px;
+  height: 170px;
+}
+
+.hotspot-classics {
+  bottom: 25%;
+  right: 22%;
+  width: 150px;
+  height: 150px;
+}
+
+/* 热区图标(默认几乎不可见) */
+.hotspot-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(196, 154, 74, 0.08) 0%, transparent 70%);
+  opacity: 0.3;
+  backdrop-filter: blur(0px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hotspot-icon svg,
+.hotspot-icon img {
+  width: 60%;
+  height: 60%;
+  opacity: 0.2;
+  filter: drop-shadow(0 2px 8px var(--shadow-soft));
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 热区标签(默认隐藏) */
+.hotspot-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow: 0 2px 12px rgba(243, 234, 214, 0.8);
+}
+
+/* 悬停状态:浮现 */
+.hotspot:hover .hotspot-icon {
+  opacity: 1;
+  background: radial-gradient(circle at center, rgba(196, 154, 74, 0.18) 0%, rgba(180, 74, 52, 0.08) 70%);
+  backdrop-filter: blur(12px);
+  transform: scale(1.15);
+  box-shadow: 0 8px 32px rgba(196, 154, 74, 0.25), inset 0 0 0 1px rgba(196, 154, 74, 0.3);
+}
+
+.hotspot:hover .hotspot-icon svg,
+.hotspot:hover .hotspot-icon img {
+  opacity: 0.85;
+  transform: scale(1.1);
+}
+
+.hotspot:hover .hotspot-label {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateY(-80px) scale(1.05);
+}
+
+/* 点击反馈 */
+.hotspot:active .hotspot-icon {
+  transform: scale(1.05);
+}
+
+/* 印章标识(装饰性) */
+.seal-mark {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: -12px;
+  right: -12px;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: 0.1s;
+}
+
+.seal-mark img {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 12px rgba(180, 74, 52, 0.3));
+}
+
+.hotspot:hover .seal-mark {
+  opacity: 0.9;
+  transform: rotate(8deg) scale(1.1);
+}
+
+/* 中央标题区(可选显示) */
+.canvas-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  opacity: 0.6;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.canvas-title h1 {
+  font-size: clamp(48px, 8vw, 96px);
+  font-family: "STSong", "SimSun", "Songti SC", serif;
+  color: var(--ink);
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-shadow: 0 4px 16px rgba(243, 234, 214, 0.8);
+  opacity: 0.5;
+}
+
+.canvas-title p {
+  font-size: clamp(16px, 2vw, 24px);
+  color: var(--ink);
+  opacity: 0.4;
+  margin-top: 16px;
+  letter-spacing: 0.2em;
+}
+
+/* 悬停任何热区时标题淡化 */
+.nav-hotspots:hover ~ .canvas-title {
+  opacity: 0.2;
+}
+
+/* 滚动入口提示(屏幕底部中央) */
+.scroll-entry {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.4s ease;
+}
+
+.scroll-entry:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.scroll-entry-text {
+  font-size: 13px;
+  color: var(--ink);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.scroll-entry-arrow {
+  font-size: 28px;
+  color: var(--gold);
+  animation: arrowPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* 内容区域(滚动后显示) */
+.content-below {
+  position: relative;
+  top: 100vh;
+  background: var(--paper);
+  z-index: 10;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .hotspot {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .hotspot-beasts {
+    top: 20%;
+    left: 10%;
+  }
+
+  .hotspot-map {
+    top: 22%;
+    right: 10%;
+  }
+
+  .hotspot-culture {
+    bottom: 30%;
+    left: 10%;
+  }
+
+  .hotspot-classics {
+    bottom: 28%;
+    right: 10%;
+  }
+
+  .hotspot-label {
+    font-size: 16px;
+  }
+
+  .hotspot:hover .hotspot-label {
+    transform: translate(-50%, -50%) translateY(-60px) scale(1);
+  }
+
+  .seal-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .canvas-title h1 {
+    font-size: 48px;
+  }
+
+  .canvas-title p {
+    font-size: 14px;
+  }
+
+  .mist-flow {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) and (pointer: coarse) {
+  .hotspot-icon {
+    opacity: 0.5;
+  }
+
+  .hotspot-label {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) translateY(-70px);
+  }
+
+  /* 触摸时激活 */
+  .hotspot:active .hotspot-icon {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  .hotspot:active .hotspot-label {
+    opacity: 1;
+  }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .canvas-backdrop,
+  .hotspot-icon,
+  .hotspot-label,
+  .seal-mark,
+  .canvas-title,
+  .scroll-entry {
+    transition: none;
+  }
+
+  .mist-flow,
+  .scroll-entry-arrow {
+    animation: none;
+  }
+
+  .hotspot:hover .hotspot-icon {
+    transform: none;
+  }
+
+  .hotspot:hover .hotspot-label {
+    transform: translate(-50%, -50%) translateY(-80px);
+  }
+}
