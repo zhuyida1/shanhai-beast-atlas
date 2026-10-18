@@ -4,6 +4,9 @@
 /playwright-report/
 /test-results/
 
+# AI tool workspace / review artifacts (local only)
+.taste-skill/
+
 # Dependencies, editor state and local operating-system files
 node_modules/
 .vscode/
@@ -13,6 +16,13 @@ Thumbs.db
 Desktop.ini
 *.log
 *.tmp
+
+# Build output and caches
+dist/
+build/
+out/
+.cache/
+.parcel-cache/
 
 # Local credentials and machine-specific settings
 .env
