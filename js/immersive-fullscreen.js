@@ -9,7 +9,14 @@
   choices.forEach(button => button.addEventListener('click', () => {
     const scene = scenes[button.dataset.scene];
     if (!scene) return;
-    document.querySelectorAll('.hero-painting').forEach(image => image.classList.toggle('is-active', image.id === `painting-${button.dataset.scene}`));
+    document.querySelectorAll('.hero-painting').forEach(painting => {
+      const isActive = painting.id === `painting-${button.dataset.scene}`;
+      painting.classList.toggle('is-active', isActive);
+      // 播放/暂停视频
+      if (painting.tagName === 'VIDEO') {
+        isActive ? painting.play() : painting.pause();
+      }
+    });
     choices.forEach(choice => {
       const selected = choice === button;
       choice.classList.toggle('is-selected', selected);
@@ -40,8 +47,42 @@
   document.addEventListener('click', event => {
     if (!menu.hidden && !menu.contains(event.target) && !toggle.contains(event.target)) closeMenu();
   });
-  // The HTML noscript navigation keeps all destinations reachable without JS.
+
+  // 定义减弱动效偏好检测
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+
+  // Hero background parallax on scroll
+  let ticking = false;
+  const heroPaintings = document.querySelector('.hero-paintings');
+  const updateParallax = () => {
+    const scrolled = window.scrollY;
+    const heroHeight = document.querySelector('.scroll-hero')?.offsetHeight || window.innerHeight;
+    if (heroPaintings && scrolled < heroHeight) {
+      heroPaintings.style.transform = `translateY(${scrolled * 0.35}px)`;
+    }
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!reduced.matches && !ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // 尊重用户减弱动效偏好 - 降级视频为静态图
+  const foxVideo = document.getElementById('painting-fox');
+  if (foxVideo && foxVideo.tagName === 'VIDEO' && reduced.matches) {
+    const fallbackImg = document.createElement('img');
+    fallbackImg.className = 'hero-painting is-active';
+    fallbackImg.id = 'painting-fox';
+    fallbackImg.src = 'images/hero/hero-jiuweihu-integrated.png';
+    fallbackImg.alt = '';
+    fallbackImg.width = 1672;
+    fallbackImg.height = 941;
+    foxVideo.replaceWith(fallbackImg);
+  }
+
+  // The HTML noscript navigation keeps all destinations reachable without JS.
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
