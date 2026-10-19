@@ -133,7 +133,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="-1"]:fo
 .footer-col h4 { color: var(--gold); font-size: var(--body-size); font-weight: 400; margin-bottom: 12px; }
 .footer-col a { display: flex; align-items: center; min-height: 44px; white-space: nowrap; }
 .footer-col p { color: var(--muted); }
-.copyright { margin-top: 48px; font-size: var(--small-size); color: var(--muted); }
+.copyright { margin-top: 48px; font-size: var(--small-size); color: var(--muted); text-align: right; }
 
 @media (hover: hover) and (pointer: fine) {
   .main-nav a:hover:not(.is-current) { color: var(--red); }
