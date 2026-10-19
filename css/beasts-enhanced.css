@@ -56,7 +56,7 @@ body.beasts-enhanced::before {
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 32px;
   padding: 24px var(--gutter);
   background: rgba(23, 28, 27, 0.92);
@@ -156,6 +156,7 @@ body.beasts-enhanced::before {
   font-size: 13px;
   background: var(--ink-soft);
   transition: background .3s, transform .3s;
+  margin-left: auto;
 }
 
 .search-indicator:hover {
@@ -849,6 +850,28 @@ body.beasts-enhanced::before {
     repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(219, 184, 121, 0.03) 20px, rgba(219, 184, 121, 0.03) 40px),
     repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(219, 184, 121, 0.03) 20px, rgba(219, 184, 121, 0.03) 40px);
   animation: pattern-slide 30s linear infinite;
+}
+
+/* 标语四角装饰 */
+.slogan-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    /* 左上角 */
+    linear-gradient(to right, var(--gold) 2px, transparent 2px) 20px 20px / 30px 2px no-repeat,
+    linear-gradient(to bottom, var(--gold) 2px, transparent 2px) 20px 20px / 2px 30px no-repeat,
+    /* 右上角 */
+    linear-gradient(to left, var(--gold) 2px, transparent 2px) calc(100% - 20px) 20px / 30px 2px no-repeat,
+    linear-gradient(to bottom, var(--gold) 2px, transparent 2px) calc(100% - 20px) 20px / 2px 30px no-repeat,
+    /* 左下角 */
+    linear-gradient(to right, var(--gold) 2px, transparent 2px) 20px calc(100% - 20px) / 30px 2px no-repeat,
+    linear-gradient(to top, var(--gold) 2px, transparent 2px) 20px calc(100% - 20px) / 2px 30px no-repeat,
+    /* 右下角 */
+    linear-gradient(to left, var(--gold) 2px, transparent 2px) calc(100% - 20px) calc(100% - 20px) / 30px 2px no-repeat,
+    linear-gradient(to top, var(--gold) 2px, transparent 2px) calc(100% - 20px) calc(100% - 20px) / 2px 30px no-repeat;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 @keyframes pattern-slide {
