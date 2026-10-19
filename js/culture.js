@@ -61,10 +61,10 @@
       });
       const visible = sections.filter(section => activeSections.has(section.id));
       // Adjacent columns share a reading band; keep the visitor's chosen column.
-      const current = visible.find(section => section.id === 'later-interpretations')
-        || visible.find(section => section.id === selectedCategory)
-        || visible[0];
-      if (current) setCategory(current.id);
+      const current = visible.find(section => section.id === selectedCategory) || visible[0];
+      const nested = visible.find(section => current !== section && current?.contains(section)
+        && section.getBoundingClientRect().top < window.innerHeight * .2);
+      if (current) setCategory((nested || current).id);
     }, { rootMargin: '-10% 0px -55% 0px', threshold: 0 });
     sections.forEach(section => readingObserver.observe(section));
 
