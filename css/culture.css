@@ -125,7 +125,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="-1"]:fo
 .footer-finale p { font: var(--section-size)/1.3 var(--display); }
 .footer-finale p span { display: inline-block; white-space: nowrap; }
 .footer-finale a { display: inline-flex; align-items: center; gap: 24px; min-height: 44px; color: var(--gold); }
-.footer-grid { display: grid; grid-template-columns: 2fr repeat(3, .7fr) 1fr; gap: 36px; }
+.footer-grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 36px; }
 .footer-brand { display: flex; align-items: flex-start; gap: 12px; }
 .footer-brand .logo-mark { flex-shrink: 0; width: 44px; }
 .footer-brand .brand-title { font: var(--brand-size)/1.3 var(--display); }
@@ -166,8 +166,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="-1"]:fo
   .culture-columns { gap: 32px; }
   .story-row { grid-template-columns: 72px minmax(0, 1fr) 10px; gap: 12px; }
   .story-row img { width: 72px; height: 100px; }
-  .footer-grid { grid-template-columns: 2fr repeat(3, 1fr); }
-  .footer-col:last-child { grid-column: 1/-1; }
 }
 @media (max-width: 1000px) {
   :root { --gutter: 4%; --section-size: 40px; --brand-size: 30px; }
