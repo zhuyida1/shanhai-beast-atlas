@@ -115,7 +115,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="-1"]:fo
 .chapter-note { flex: 1 1 20em; min-width: 0; color: var(--muted); font-size: var(--small-size); padding-bottom: 6px; }
 
 .entry-list { display: grid; gap: 8px; list-style: none; padding: 0; }
-.entry-link { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 208px; gap: 44px; align-items: center; padding: 22px 24px 22px 22px; margin-inline: -22px; transition: background-color .2s; }
+.entry-link { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 232px; gap: 44px; align-items: center; padding: 22px 24px 22px 22px; margin-inline: -22px; transition: background-color .2s; }
 .entry-link::before { content: ""; position: absolute; left: 6px; top: 22px; bottom: 22px; width: 3px; background: var(--red); transform: scaleY(0); transform-origin: top; transition: transform .26s var(--ease); } /* taste-skill-ignore: the 朱批 stroke marks the hovered entry, it is the page's annotation motif. */
 .entry-copy { min-width: 0; }
 .entry-kicker { display: flex; align-items: baseline; gap: 12px; color: var(--muted); font-size: var(--small-size); }
@@ -130,17 +130,23 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="-1"]:fo
 mark { background: none; color: var(--gold); border-bottom: 2px solid var(--red); }
 
 /* 开卷第一条：加大字号与图版，作为整页的落点 */
-.entry-link.is-lead { grid-template-columns: minmax(0, 1fr) 244px; padding: 26px 28px 26px 26px; margin-inline: 0; background: var(--lead); }
+.entry-link.is-lead { grid-template-columns: minmax(0, 1fr) 268px; padding: 26px 28px 26px 26px; margin-inline: 0; background: var(--lead); }
 .entry-link.is-lead::before { left: 8px; top: 30px; bottom: 32px; }
 .entry-link.is-lead .entry-title { font-size: 40px; }
 
-/* 图版占位：cover 为空时显示的水印框，填了 cover 就是真实插图 */
-.entry-plate { position: relative; display: grid; place-items: center; aspect-ratio: 4/5; background: var(--plate); overflow: hidden; }
+/* 图版：有 cover 时是宣纸画心（金线＋朱印＋竖排经篇签），缺图时退回水印占位 */
+.entry-plate { position: relative; display: grid; place-items: center; aspect-ratio: 1 / 1; background: var(--plate); overflow: hidden; }
 .entry-plate::before { content: ""; position: absolute; inset: 12px; border: 2px solid var(--frame); opacity: .6; pointer-events: none; transition: border-color .2s, opacity .2s; }
 .plate-mark { font: 104px/1 var(--display); color: rgba(219, 184, 121, .16); transition: color .2s; }
 .plate-label { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); writing-mode: vertical-rl; font-size: var(--small-size); letter-spacing: .3em; color: var(--muted); }
-.entry-plate img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.entry-plate.has-cover::before, .entry-plate.has-cover .plate-mark, .entry-plate.has-cover .plate-label { display: none; }
+.plate-side, .plate-seal { display: none; }
+
+.entry-plate.has-cover { padding: 14px 26px 14px 14px; background: var(--paper); }
+.entry-plate.has-cover::before { inset: 7px; border: 1px solid rgba(140, 112, 72, .5); opacity: 1; }
+.entry-plate.has-cover .plate-mark, .entry-plate.has-cover .plate-label { display: none; }
+.entry-plate.has-cover img { position: relative; inset: auto; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; transition: transform .35s var(--ease); } /* taste-skill-ignore: multiply lets the source illustration's white ground sit on the 宣纸 mount without a visible card edge. */
+.entry-plate.has-cover .plate-seal { position: absolute; left: 2px; bottom: 2px; z-index: 2; display: grid; place-items: center; width: 22px; height: 22px; background: var(--red); color: var(--paper); font: 13px/1 var(--display); }
+.entry-plate.has-cover .plate-side { position: absolute; right: 5px; top: 14px; z-index: 2; display: block; writing-mode: vertical-rl; font-size: 11px; letter-spacing: .2em; color: #6b5636; }
 
 /* ---------- 检无结果 ---------- */
 .search-empty { margin-top: 44px; padding: 44px 32px; background: var(--ink-soft); text-align: center; }
@@ -187,6 +193,7 @@ mark { background: none; color: var(--gold); border-bottom: 2px solid var(--red)
   .entry-link:hover .entry-title { color: var(--gold); }
   .entry-link:hover .entry-action > span { transform: translate(3px, -3px); }
   .entry-link:hover .entry-plate::before { border-color: var(--gold); opacity: 1; }
+  .entry-link:hover .entry-plate.has-cover img { transform: scale(1.025); }
   .entry-link:hover .plate-mark { color: rgba(219, 184, 121, .3); }
   .catalog-crumb a:hover, .source-note a:hover, .footer-content nav a:hover, .nojs-list a:hover { color: var(--paper); }
 }
@@ -197,13 +204,14 @@ mark { background: none; color: var(--gold); border-bottom: 2px solid var(--red)
 .entry-link:focus-visible .entry-title { color: var(--gold); }
 .entry-link:focus-visible .entry-action > span { transform: translate(3px, -3px); }
 .entry-link:focus-visible .entry-plate::before { border-color: var(--gold); opacity: 1; }
+.entry-link:focus-visible .entry-plate.has-cover img { transform: scale(1.025); }
 .primary-action:active, .menu-toggle:active, .entry-link:active { transform: scale(.995); }
 
 /* ---------- 断点 ---------- */
 @media (min-width: 1700px) {
   .hero-shell { min-height: 740px; padding-top: 220px; padding-bottom: 60px; }
   .hero-copy h1 { font-size: 144px; }
-  .entry-link { grid-template-columns: minmax(0, 1fr) 240px; gap: 56px; }
+  .entry-link { grid-template-columns: minmax(0, 1fr) 264px; gap: 56px; }
   .entry-link.is-lead { grid-template-columns: minmax(0, 1fr) 300px; }
   .entry-link.is-lead .entry-title { font-size: 44px; }
 }
@@ -212,8 +220,8 @@ mark { background: none; color: var(--gold); border-bottom: 2px solid var(--red)
   .scroll-nav > a { padding-inline: 12px; }
   .hero-copy h1 { font-size: 104px; }
   .hero-shell { gap: 6%; }
-  .entry-link { grid-template-columns: minmax(0, 1fr) 176px; gap: 30px; }
-  .entry-link.is-lead { grid-template-columns: minmax(0, 1fr) 220px; }
+  .entry-link { grid-template-columns: minmax(0, 1fr) 200px; gap: 30px; }
+  .entry-link.is-lead { grid-template-columns: minmax(0, 1fr) 240px; }
   .entry-link.is-lead .entry-title { font-size: 36px; }
 }
 @media (max-width: 1000px) {
@@ -226,8 +234,8 @@ mark { background: none; color: var(--gold); border-bottom: 2px solid var(--red)
   .chapter-seal { position: static; width: 48px; height: 48px; margin-bottom: 14px; font-size: 24px; }
   .chapter-head h3 { font-size: 32px; }
   .classics-groups { gap: 62px; margin-top: 48px; }
-  .entry-link { grid-template-columns: minmax(0, 1fr) 150px; gap: 24px; }
-  .entry-link.is-lead { grid-template-columns: minmax(0, 1fr) 190px; }
+  .entry-link { grid-template-columns: minmax(0, 1fr) 176px; gap: 24px; }
+  .entry-link.is-lead { grid-template-columns: minmax(0, 1fr) 210px; }
   .entry-link.is-lead .entry-title { font-size: 32px; }
   .source-note { margin-top: 64px; }
 }
@@ -279,19 +287,25 @@ mark { background: none; color: var(--gold); border-bottom: 2px solid var(--red)
   .chapter-head h3 { font-size: 28px; }
   .chapter-note { padding-bottom: 0; }
   .entry-list { gap: 4px; }
-  .entry-link { grid-template-columns: minmax(0, 1fr) 88px; gap: 16px; padding: 16px 12px; margin-inline: -12px; }
+  /* 手机端改为「文案在上、图版在下」的通栏图版，避免 88px 缩略图看不清 */
+  .entry-link { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 16px 12px 18px; margin-inline: -12px; }
   .entry-link::before { left: 2px; top: 16px; bottom: 16px; }
-  .entry-link.is-lead { grid-template-columns: minmax(0, 1fr) 104px; padding: 20px 16px; }
+  .entry-copy { grid-row: 1; }
+  .entry-link.is-lead { grid-template-columns: minmax(0, 1fr); padding: 20px 16px 22px; }
   .entry-link.is-lead::before { left: 4px; top: 20px; bottom: 20px; }
   .entry-link.is-lead .entry-title { font-size: 24px; }
   .entry-index { font-size: 20px; }
   .entry-title { margin-top: 10px; font-size: 23px; line-height: 1.45; }
   .entry-summary { margin-top: 8px; }
   .entry-action { margin-top: 0; }
-  .entry-plate { aspect-ratio: 3/4; }
+  .entry-plate { grid-row: 2; margin-top: 16px; aspect-ratio: 3 / 4; }
   .entry-plate::before { inset: 8px; }
   .plate-mark { font-size: 52px; }
   .plate-label { bottom: 12px; font-size: 12px; letter-spacing: .2em; }
+  .entry-plate.has-cover { aspect-ratio: auto; padding: 10px 22px 10px 10px; }
+  .entry-plate.has-cover img { height: auto; }
+  .entry-plate.has-cover .plate-side { top: 12px; right: 5px; font-size: 10px; }
+  .entry-plate.has-cover .plate-seal { width: 18px; height: 18px; font-size: 11px; left: 1px; bottom: 1px; }
   .search-empty { margin-top: 32px; padding: 32px 22px; }
   .source-note { margin-top: 52px; padding: 24px 22px; }
   .nojs-list { margin-top: 32px; }
@@ -308,8 +322,6 @@ mark { background: none; color: var(--gold); border-bottom: 2px solid var(--red)
   :root { --gutter: 16px; }
   .hero-copy h1 { font-size: 56px; }
   .brand { font-size: 22px; }
-  .entry-link { grid-template-columns: minmax(0, 1fr) 76px; gap: 14px; }
-  .entry-link.is-lead { grid-template-columns: minmax(0, 1fr) 88px; }
   .entry-title { font-size: 20px; }
   .entry-link.is-lead .entry-title { font-size: 21px; }
   .entry-summary { font-size: var(--small-size); }

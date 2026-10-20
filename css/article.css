@@ -70,10 +70,19 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-
 .mark-chip { padding: 6px 14px; background: var(--red-dark); color: var(--paper); font-size: var(--small-size); }
 .mark-chip-quiet { background: transparent; border: 2px solid var(--frame); color: var(--muted); }
 .masthead-plate-wrap { justify-self: end; }
-.masthead-plate { position: relative; display: grid; place-items: center; width: 300px; aspect-ratio: 4/5; background: var(--plate); }
+.masthead-plate { position: relative; display: grid; place-items: center; width: 300px; aspect-ratio: 1 / 1; background: var(--plate); }
 .masthead-plate::before { content: ""; position: absolute; inset: 14px; border: 2px solid var(--frame); opacity: .55; pointer-events: none; }
 .masthead-seal { display: grid; place-items: center; width: 96px; height: 96px; background: rgba(168, 35, 32, .28); color: rgba(243, 230, 202, .62); font: 56px/1 var(--display); }
 .masthead-plate-label { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); writing-mode: vertical-rl; font-size: var(--small-size); letter-spacing: .3em; color: var(--muted); }
+.masthead-plate-img, .masthead-side { display: none; }
+
+/* 有图版时：宣纸画心 + 金线 + 朱印 + 竖排经篇签，与摘读目录的图版同一套处理 */
+.masthead-plate.has-cover { padding: 16px 30px 16px 16px; background: var(--paper); }
+.masthead-plate.has-cover::before { inset: 8px; border: 1px solid rgba(140, 112, 72, .5); opacity: 1; }
+.masthead-plate.has-cover .masthead-plate-img { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; } /* taste-skill-ignore: multiply lets the source illustration's white ground sit on the 宣纸 mount without a visible card edge. */
+.masthead-plate.has-cover .masthead-plate-label { display: none; }
+.masthead-plate.has-cover .masthead-seal { position: absolute; left: 3px; bottom: 3px; width: 30px; height: 30px; background: var(--red); color: var(--paper); font-size: 18px; }
+.masthead-plate.has-cover .masthead-side { position: absolute; right: 7px; top: 16px; display: block; writing-mode: vertical-rl; font-size: 12px; letter-spacing: .2em; color: #6b5636; }
 
 /* ---------- 阅读区骨架 ---------- */
 .read-shell { display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 6%; align-items: start; padding-top: 72px; padding-bottom: 96px; }
@@ -252,10 +261,13 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-
   .masthead-marks { margin-top: 18px; gap: 8px; }
   .mark-chip { padding: 5px 12px; font-size: 13px; }
   .masthead-plate-wrap { margin-top: 26px; }
-  .masthead-plate { width: 132px; }
+  .masthead-plate { width: 168px; }
   .masthead-plate::before { inset: 8px; }
   .masthead-seal { width: 48px; height: 48px; font-size: 26px; }
   .masthead-plate-label { bottom: 12px; font-size: 12px; letter-spacing: .2em; }
+  .masthead-plate.has-cover { padding: 8px 20px 8px 8px; }
+  .masthead-plate.has-cover .masthead-side { display: none; }
+  .masthead-plate.has-cover .masthead-seal { width: 20px; height: 20px; font-size: 12px; left: 2px; bottom: 2px; }
   .read-shell { padding-top: 26px; padding-bottom: 52px; }
   .read-rail { gap: 12px; margin-bottom: 30px; }
   .view-switch { width: 100%; }

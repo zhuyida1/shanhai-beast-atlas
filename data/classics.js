@@ -3,10 +3,12 @@
  *       cover 配图路径 / link 条目地址
  * 说明：
  *   1. link 指向 article.html?id=N，正文存放在 data/articles.js，两处的 id 必须对应。
- *   2. cover 留空时页面会渲染统一的「插图待补」图版占位；以后换成插图时，
- *      只需把路径填进 cover（如 'images/hero/hero-jiuweihu-integrated.png'）。
- *   3. 分类标签按《山海经》五藏山经与海荒经的篇目组织，条目顺序即阅读顺序。
- *   4. 这是首发的一批条目，不是全站总量：条目番号、卷序和篇目筛选项
+ *   2. cover 为本站从《山海经》异兽图整理稿取用的图版：已按页裁切、去掉页边、统一压到长边 900px，
+ *      存于 images/classics/。图版对应的整理稿页码（按条目 id 1-10）为：10、8、11、9、5、4、3、70、28、25。
+ *      条目页读同一份 cover，改路径时列表页与条目页一起变。
+ *   3. cover 为空或图片读取失败时，页面自动退回「插图待补」水印占位框，不会出现破图。
+ *   4. 分类标签按《山海经》五藏山经与海荒经的篇目组织，条目顺序即阅读顺序。
+ *   5. 这是首发的一批条目，不是全站总量：条目番号、卷序和篇目筛选项
  *      都由 js/classics.js 自动生成，页面文案里不写死条数。
  */
 const SHANHAI_CLASSICS = [
@@ -15,7 +17,7 @@ const SHANHAI_CLASSICS = [
     title: '青丘九尾狐：其状如狐而九尾',
     summary: '青丘之山的四句记载：九尾、婴儿之音、食人、食者不蛊，形貌与后果一句话说清。',
     category: '南山经',
-    cover: '',
+    cover: 'images/classics/jiuweihu.jpg',
     link: 'article.html?id=1'
   },
   {
@@ -23,7 +25,7 @@ const SHANHAI_CLASSICS = [
     title: '丹穴凤凰：五采而文，见则安宁',
     summary: '从「状如鸡」到五处羽毛花纹，一条记载如何把羽色写成天下安宁的征兆。',
     category: '南山经',
-    cover: '',
+    cover: 'images/classics/fenghuang.jpg',
     link: 'article.html?id=2'
   },
   {
@@ -31,7 +33,7 @@ const SHANHAI_CLASSICS = [
     title: '杻阳旋龟：龟身鸟首而虺尾',
     summary: '怪水里的异形之龟：鸟首蛇尾、声如判木，原文还记了佩之不聋、可以为底。',
     category: '南山经',
-    cover: '',
+    cover: 'images/classics/xuangui.jpg',
     link: 'article.html?id=3'
   },
   {
@@ -39,7 +41,7 @@ const SHANHAI_CLASSICS = [
     title: '鹿吴蛊雕：如雕而有角，其音如婴儿',
     summary: '鹿吴之山无草木多金石，泽更之水里住着一只带角的食人雕兽。',
     category: '南山经',
-    cover: '',
+    cover: 'images/classics/gudiao.jpg',
     link: 'article.html?id=4'
   },
   {
@@ -47,7 +49,7 @@ const SHANHAI_CLASSICS = [
     title: '章莪之狰：赤豹五尾而一角',
     summary: '章莪之山「所为甚怪」，赤豹五尾而一角，其音如击石，怪异先从山气里来。',
     category: '西山经',
-    cover: '',
+    cover: 'images/classics/zheng.jpg',
     link: 'article.html?id=5'
   },
   {
@@ -55,7 +57,7 @@ const SHANHAI_CLASSICS = [
     title: '阴山天狗：状如狸而白首，可以御凶',
     summary: '阴山白首之狸，其音如榴榴；与同卷凶兽相反，它是可以御凶的一只。',
     category: '西山经',
-    cover: '',
+    cover: 'images/classics/tiangou.jpg',
     link: 'article.html?id=6'
   },
   {
@@ -63,7 +65,7 @@ const SHANHAI_CLASSICS = [
     title: '邽山穷奇：状如牛而猬毛，是食人',
     summary: '邽山之上，状如牛而猬毛，音如嗥狗而食人；四凶的名号另有后世来历。',
     category: '西山经',
-    cover: '',
+    cover: 'images/classics/qiongqi.jpg',
     link: 'article.html?id=7'
   },
   {
@@ -71,7 +73,7 @@ const SHANHAI_CLASSICS = [
     title: '钩吾狍鸮：羊身人面而食人',
     summary: '钩吾之山的食人兽：羊身人面、目在腋下、虎齿人爪，原典只作狍鸮。',
     category: '北山经',
-    cover: '',
+    cover: 'images/classics/paoxiao.jpg',
     link: 'article.html?id=8'
   },
   {
@@ -79,7 +81,7 @@ const SHANHAI_CLASSICS = [
     title: '大荒应龙：杀蚩尤与夸父',
     summary: '凶犁土丘的应龙：杀蚩尤与夸父而不得复上，故下界数旱；旱时作应龙之状求雨。',
     category: '海荒经',
-    cover: '',
+    cover: 'images/classics/yinglong.jpg',
     link: 'article.html?id=9'
   },
   {
@@ -87,7 +89,7 @@ const SHANHAI_CLASSICS = [
     title: '流波山夔：一足苍身而声如雷',
     summary: '流波山的夔：一足苍身，光如日月声如雷，其皮为鼓，声闻五百里。',
     category: '海荒经',
-    cover: '',
+    cover: 'images/classics/kui.jpg',
     link: 'article.html?id=10'
   }
 ];

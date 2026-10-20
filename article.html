@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#171c1b">
   <link rel="icon" type="image/png" href="images/demo/山海经1logo.png">
   <link rel="stylesheet" href="css/article.css">
+  <script src="data/classics.js" defer></script>
   <script src="data/articles.js" defer></script>
   <script src="js/article.js" defer></script>
 </head>
@@ -58,10 +59,12 @@
           </div>
         </div>
         <div class="masthead-plate-wrap">
-          <span class="masthead-plate" aria-hidden="true">
-            <span class="masthead-seal" id="art-seal">典</span>
-            <span class="masthead-plate-label">插图待补</span>
-          </span>
+          <div class="masthead-plate" id="art-plate">
+            <img class="masthead-plate-img" id="art-cover" alt="" decoding="async" hidden>
+            <span class="masthead-seal" id="art-seal" aria-hidden="true">典</span>
+            <span class="masthead-plate-label" id="art-plate-label">插图待补</span>
+            <span class="masthead-side" id="art-plate-side" aria-hidden="true"></span>
+          </div>
         </div>
       </div>
     </section>
@@ -170,7 +173,7 @@
       </div>
       <nav aria-label="页脚导航"><a href="beasts.html">神兽图鉴</a><a href="map.html">山海舆图</a><a href="culture.html">文化寻踪</a><a href="classics.html">原典摘读</a><a href="about.html">关于山海</a></nav>
       <div class="footer-notes">
-        <p>插画为艺术演绎；原典记载与后世演绎分开阅读。<br>图版占位待插图补入。</p>
+        <p>插画为艺术演绎；原典记载与后世演绎分开阅读。<br>图版取自资料整理稿，按页裁切使用。</p>
         <a class="source-link" href="docs/source-notes.md">资料来源说明</a>
         <small>山海异兽录·山海经神兽图鉴科普网站</small>
       </div>

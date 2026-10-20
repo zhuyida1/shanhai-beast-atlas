@@ -60,23 +60,35 @@
 
   const createPlate = item => {
     const plate = make('span', 'entry-plate');
-    const mark = make('span', 'plate-mark', CHAPTER_MARKS[item.category] || (item.category || '典').slice(0, 1));
+    const chapter = item.category || '原典';
+    const sealChar = CHAPTER_MARKS[chapter] || chapter.slice(0, 1);
+
+    // 缺图时用的是水印占位：篇目首字 + 竖排「插图待补」
+    const mark = make('span', 'plate-mark', sealChar);
     mark.setAttribute('aria-hidden', 'true');
     plate.append(mark);
+
     if (item.cover) {
       const image = make('img');
-      image.src = item.cover;
-      image.alt = item.title + ' 的配图';
-      image.width = 400;
-      image.height = 500;
+      image.alt = (item.title || '原典') + ' 的原典插图';
       image.loading = 'lazy';
-      // 图片读不到时退回占位框，页面不会出现破图
+      image.decoding = 'async';
+      // 先挂事件再赋 src，避免缓存命中时错过 load/error
       image.addEventListener('error', () => {
         image.remove();
         plate.classList.remove('has-cover');
       });
+      image.addEventListener('load', () => plate.classList.add('is-loaded'));
+      image.src = item.cover;
+
+      // 有图时加两处小装饰：右下朱印（篇目首字）与右侧竖排经篇签
+      const side = make('span', 'plate-side', chapter);
+      side.setAttribute('aria-hidden', 'true');
+      const seal = make('span', 'plate-seal', sealChar);
+      seal.setAttribute('aria-hidden', 'true');
+
       plate.classList.add('has-cover');
-      plate.insertBefore(image, mark);
+      plate.append(image, side, seal);
     }
     plate.append(make('span', 'plate-label', '插图待补'));
     return plate;

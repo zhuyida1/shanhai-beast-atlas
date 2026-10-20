@@ -56,6 +56,26 @@
   set('art-original', article.original || '');
   set('art-vernacular', article.vernacular || '');
 
+  /* ---------- 题签图版：图版路径与列表页共用 data/classics.js ---------- */
+  const plateBox = node('art-plate');
+  const coverImage = node('art-cover');
+  const plateSide = node('art-plate-side');
+  const classicRecord = (typeof SHANHAI_CLASSICS === 'undefined' ? [] : SHANHAI_CLASSICS)
+    .find(item => item.id === article.id);
+  const cover = article.cover || (classicRecord ? classicRecord.cover : '');
+  if (plateBox && coverImage && cover) {
+    coverImage.alt = article.name + ' 的原典插图';
+    coverImage.hidden = false;
+    // 先挂事件再赋 src，避免缓存命中时错过 error
+    coverImage.addEventListener('error', () => {
+      coverImage.hidden = true;
+      plateBox.classList.remove('has-cover');
+    });
+    coverImage.src = cover;
+    plateBox.classList.add('has-cover');
+    if (plateSide) plateSide.textContent = article.category || '';
+  }
+
   /* ---------- 原书注释 ---------- */
   const notesHost = node('art-notes');
   if (notesHost) {
