@@ -173,7 +173,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .art-option { flex: 1; }
   .reading-layout { grid-template-columns: 1fr; gap: 0; padding-top: 28px; }
   .reading-sidebar { margin-bottom: 24px; }
-  .reading-sticky { position: static; padding: 7px; }
+  .reading-sticky { position: relative; top: auto; padding: 7px; }
   .reading-sticky::before { background-size: 100% 560px; opacity: .18; }
   .toc-title, .reading-note, .download-link { display: none; }
   .reading-nav { grid-template-columns: repeat(4,1fr); padding: 0; }

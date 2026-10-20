@@ -74,7 +74,17 @@ document.addEventListener("DOMContentLoaded", () => {
       "白泽": "beast-baize.html",
       "饕餮": "beast-taotie.html",
       "麒麟": "beast-qilin.html",
-      "玄武": "beast-xuanwu.html"
+      "玄武": "beast-xuanwu.html",
+      "穷奇": "beast-qiongqi.html",
+      "天狗": "beast-tiangou.html",
+      "狰": "beast-zheng.html",
+      "旋龟": "beast-xuangui.html",
+      "应龙": "beast-yinglong.html",
+      "精卫": "beast-jingwei.html",
+      "重明鸟": "beast-chongming.html",
+      "蠃鱼": "beast-luoyu.html",
+      "化蛇": "beast-huashe.html",
+      "蛊雕": "beast-gudiao.html"
     };
     return item.detailLink || beastLinks[item.beast] || "habitat-detail.html";
   }
