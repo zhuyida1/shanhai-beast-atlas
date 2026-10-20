@@ -38,7 +38,7 @@
 - `beast-huashe.html`：化蛇神兽详情页
 - `beast-gudiao.html`：蛊雕神兽详情页
 - `poster.html`：山海主题展览海报页
-- `about.html`：关于我们与资料来源说明页
+- `about.html`：站点说明页（不设主导航，仅「返回上一级」；含五个入口导览、阅读顺序、资料与证据、使用与版权）
 - `structure-diagram.html`：站点结构图辅助页
 
 ## 打开方式

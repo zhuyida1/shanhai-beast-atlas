@@ -3,84 +3,175 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>关于我们｜山海异兽录</title>
-  <meta name="description" content="山海异兽录网站说明，介绍站内定位、页面结构、资料来源与阅读方法。">
-  <link rel="stylesheet" href="css/exquisite-demo.css">
+  <title>关于山海异兽录｜山海异兽录</title>
+  <meta name="description" content="山海异兽录是一座关于《山海经》的线上展卷：十六种神兽、二十二处山川、十条原典摘读与五条文化线索，按图、按地、按文逐层展开。这里说明站内内容、阅读顺序、资料依据与版权口径。">
+  <meta name="theme-color" content="#171c1b">
+  <link rel="icon" type="image/png" href="images/demo/山海经1logo.png">
+  <link rel="preload" as="image" href="images/hero/home-landscape-01.png">
+  <link rel="stylesheet" href="css/about.css">
+  <script src="js/about.js" defer></script>
 </head>
-<body class="exquisite-page about-page">
-  <header class="ex-header">
-    <div class="site-shell ex-nav">
-      <a class="brand" href="index.html" aria-label="山海异兽录首页">
-        <span class="logo-mark logo-image"><img src="images/demo/山海经1logo.png" alt="山海异兽录 logo"></span>
-        <span><span class="brand-title">山海异兽录</span><span class="brand-sub">山海经神兽图鉴科普网站</span></span>
-      </a>
-      <nav class="nav-menu" aria-label="主导航">
-        <a href="index.html">首页</a>
-        <a href="beasts.html">神兽图鉴</a>
-        <a href="map.html">栖息地</a>
-        <a href="culture.html">文化延伸</a>
-        <a class="active" href="about.html">关于我们</a>
-      </nav>
-      <div class="search-pill">搜索神兽、典故、地名 <span>⌕</span></div>
-    </div>
-  </header>
+<body class="about-page">
+  <a class="skip-link" href="#main">跳至正文</a>
 
-  <main>
-    <section class="sub-hero about-hero">
-      <div class="site-shell sub-hero-shell">
-        <div>
-          <div class="hero-kicker">山海画卷 · 站内说明 · 资料来源</div>
-          <h1>关于山海异兽录</h1>
-          <p>这是一个以《山海经》神兽插图科普为核心的国风网站，围绕图鉴、舆图、文化寻踪与原典摘读四条线索展开。</p>
-          <div class="catalog-crumb"><a href="index.html">首页</a><span>/</span><strong>关于我们</strong></div>
+  <!-- 本站页不设主导航，只留「返回上一级」 -->
+  <div class="about-bar">
+    <a class="back-link" id="back-link" href="index.html"><span aria-hidden="true">↩</span> 返回上一级</a>
+    <a class="bar-brand" href="index.html" aria-label="山海异兽录首页">
+      <img src="images/demo/山海经1logo.png" alt="" width="34" height="34">
+      <span>山海异兽录</span>
+    </a>
+  </div>
+
+  <main id="main">
+    <section class="about-hero" aria-labelledby="about-title">
+      <div class="hero-art" aria-hidden="true"><img src="images/hero/home-landscape-01.png" alt="" width="1690" height="923" fetchpriority="high"></div>
+      <div class="site-shell hero-shell">
+        <p class="hero-kicker">山海异兽录 · 站点说明</p>
+        <h1 id="about-title">关于山海异兽录</h1>
+        <p class="hero-lead">一座可以走进去的山海：十六种神兽、二十二处山川，逐条读回原典。</p>
+        <div class="hero-stats">
+          <div><strong>16</strong><span>神兽图鉴</span></div>
+          <div><strong>22</strong><span>山川地点</span></div>
+          <div><strong>10</strong><span>原典摘读</span></div>
+          <div><strong>5</strong><span>文化线索</span></div>
         </div>
-        <div class="hero-quote-card">
-          <strong>前端范围说明</strong>
-          <span>当前版本只做 HTML、CSS、JavaScript 静态交互，不包含后端、数据库或真实检索服务。</span>
+        <div class="hero-actions">
+          <a class="primary-action" href="index.html">从入画开始 <span aria-hidden="true">→</span></a>
+          <a class="ghost-action" href="beasts.html">先翻图鉴</a>
         </div>
       </div>
     </section>
 
-    <section class="site-shell about-grid">
-      <article class="content-card">
-        <h2>网站定位</h2>
-        <p>作品定位为“山海经神兽插图科普网站”。它不是普通文字资料页，而是把神兽图鉴、栖息地地图、文化典故和原文摘读组合起来，让用户通过图像、分类和交互逐层理解《山海经》的神话内容。</p>
-      </article>
-      <article class="content-card">
-        <h2>页面结构</h2>
-        <p>整站采用首页、二级栏目页、内容详情页三层结构。首页负责视觉入口；神兽图鉴、栖息地、文化延伸负责分类浏览；神兽详情、地域详情、文化详情负责承载完整图文内容。</p>
-      </article>
-      <article class="content-card">
-        <h2>资料来源</h2>
-        <p>内容参考本地文献资料中的《山海经》全译、图解资料、古本插图、山海经异兽图资料，以及相关的论文与书籍目录。页面内保留原文出处和资料整理说明，地图页额外标注证据等级。</p>
-      </article>
-      <article class="content-card">
-        <h2>设计风格</h2>
-        <p>视觉系统使用宣纸纹理、漆红、黑金、古铜色、印章和古籍边框等元素，保证神话主题明显；页面宽度、卡片、侧栏和内容容器保持统一，便于后续做高保真标注图。</p>
-      </article>
+    <section class="site-shell about-intro" aria-labelledby="intro-title" data-reveal>
+      <div class="intro-copy">
+        <h2 id="intro-title">这是什么</h2>
+        <p>「山海异兽录」是一座关于《山海经》的线上展卷。它把十八卷里散落的异兽、山川与旧说，整理成可以按图、按地、按文去读的线索：想看形貌去图鉴，想知道它住在哪座山去舆图，想知道原话怎么写，就回到原典。</p>
+        <p>这里不把神话讲成故事集。每一条记载都尽量停在它原来的位置——先看原文给出的形、声、兆，再看后人如何解释它；能确定的写确定，存疑的标存疑。</p>
+      </div>
+      <aside class="intro-card">
+        <p class="card-label">一句话</p>
+        <p class="card-quote">先有原文，后有白话；<br>先有山川，后有故事。</p>
+        <p class="card-note">站内讲解都从《山海经》的句子出发，不替古人补写。</p>
+      </aside>
     </section>
 
-    <section class="site-shell content-card source-card">
-      <div class="panel-head"><h2>参考资料列表</h2><a class="more" href="docs/source-notes.md">查看说明文件</a></div>
-      <div class="source-list">
-        <p>《山海经全译》：用于原文、白话译文和条目释义参考。</p>
-        <p>《图解山海经》：用于中山经路线、山名、异兽考据和图像资料参考。</p>
-        <p>《山海经》异兽图全、古本山海经图说：用于古籍插图、异兽形态和视觉风格参考。</p>
-        <p>张步天《〈山海经〉地图的性质与内涵》：用于地图页“路线图 / 山川名物考察图”的表达逻辑。</p>
-        <p>图像学与怪诞美学相关论文：用于神兽图形再设计和国风视觉语言参考。</p>
+    <section class="site-shell about-entries" id="entries" aria-labelledby="entries-title" data-reveal>
+      <div class="section-head">
+        <h2 id="entries-title">五个入口</h2>
+        <p>从任一条线索开始，都能走完一圈。</p>
       </div>
+      <ul class="entry-list">
+        <li>
+          <a class="entry-row" href="index.html">
+            <span class="entry-no" aria-hidden="true">一</span>
+            <strong class="entry-name">入画</strong>
+            <span class="entry-desc">首页。一幅画卷，把山海、异兽与旧说铺开。</span>
+            <span class="entry-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry-row" href="beasts.html">
+            <span class="entry-no" aria-hidden="true">二</span>
+            <strong class="entry-name">神兽图鉴</strong>
+            <span class="entry-desc">16 种异兽。形貌、声音、栖息与出处，可按属性筛选、按关键词检索。</span>
+            <span class="entry-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry-row" href="map.html">
+            <span class="entry-no" aria-hidden="true">三</span>
+            <strong class="entry-name">山海舆图</strong>
+            <span class="entry-desc">22 处地点。可拖动缩放的相对位置图，配地域手札与经文路线。</span>
+            <span class="entry-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry-row" href="culture.html">
+            <span class="entry-no" aria-hidden="true">四</span>
+            <strong class="entry-name">文化寻踪</strong>
+            <span class="entry-desc">5 条线索。从九尾狐到应龙，看神话如何进入诗文、图像与民俗。</span>
+            <span class="entry-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="entry-row" href="classics.html">
+            <span class="entry-no" aria-hidden="true">五</span>
+            <strong class="entry-name">原典摘读</strong>
+            <span class="entry-desc">10 条摘读。原文与白话逐句对读，附原书注释、名物考与义疏。</span>
+            <span class="entry-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="site-shell about-read" aria-labelledby="read-title" data-reveal>
+      <div class="section-head">
+        <h2 id="read-title">怎么读</h2>
+        <p>一条记载的顺序：先看形，再寻地，最后读文。</p>
+      </div>
+      <ol class="read-steps">
+        <li>
+          <span class="step-index" aria-hidden="true">一</span>
+          <h3>先看形</h3>
+          <p>图鉴里一条记载最先给的是形与声：状如狐而九尾，其音如婴儿。先把这层记住，再谈别的。</p>
+        </li>
+        <li>
+          <span class="step-index" aria-hidden="true">二</span>
+          <h3>再寻地</h3>
+          <p>到舆图看它住哪座山、哪条水。方位是相对的，路线只是示意；看不清的地方，站内标为待辨。</p>
+        </li>
+        <li>
+          <span class="step-index" aria-hidden="true">三</span>
+          <h3>后读文</h3>
+          <p>回原典摘读，原文一列、白话一列。哪句写形、哪句写兆、哪句是后人的解释，对着看最清楚。</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="site-shell about-source" aria-labelledby="source-title" data-reveal>
+      <div class="section-head">
+        <h2 id="source-title">资料与证据</h2>
+        <p>哪里是原文，哪里是演绎，站内分开标。</p>
+      </div>
+      <div class="source-grid">
+        <article class="source-card">
+          <h3>原文与译注</h3>
+          <p>摘读的原文、注释与译文以《山海经》异兽图整理稿为底本，按经篇编排；引文只取能见形貌、声音与后果的句子。</p>
+        </article>
+        <article class="source-card">
+          <h3>图像与演绎</h3>
+          <p>站内插图为艺术演绎，不作考据依据。条目图版取自整理稿，按页裁切、统一尺寸后使用；图像著作权属原作者与出版方。</p>
+        </article>
+        <article class="source-card">
+          <h3>舆图与方位</h3>
+          <p>舆图采用相对位置与路线示意，不宣称对应现代经纬度；每条记录标注证据等级，存疑处标注待辨。</p>
+        </article>
+      </div>
+      <a class="source-more" href="docs/source-notes.md">查看资料来源说明 <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="site-shell about-usage" aria-labelledby="usage-title" data-reveal>
+      <h2 id="usage-title">使用与版权</h2>
+      <p>站内文字与图版仅用于非商业的山海文化科普展示。古籍原文属公有领域；现代整理稿、译文与插画的著作权归原作者与出版方。如需转载或引用，请先联系本站并注明出处。</p>
+      <p>本站不设账号、没有后台统计，页面打开即读；地图页的动效开关只记在浏览器本地，不会上传。</p>
     </section>
   </main>
 
-  <footer class="ex-footer">
-    <div class="site-shell footer-grid">
-      <div><div class="footer-brand"><span class="logo-mark logo-image"><img src="images/demo/山海经1logo.png" alt="山海异兽录 logo"></span><span><strong class="brand-title">山海异兽录</strong><p>以图解经，以文化人，探索《山海经》中的神兽世界与华夏文明。</p></span></div></div>
-      <div class="footer-col"><h4>导航</h4><a href="index.html">首页</a><a href="beasts.html">神兽图鉴</a><a href="map.html">栖息地</a></div>
-      <div class="footer-col"><h4>详情</h4><a href="beast-detail.html">神兽详情</a><a href="habitat-detail.html">地域详情</a><a href="culture-detail.html">文化详情</a></div>
-      <div class="footer-col"><h4>说明</h4><a href="culture.html">文化延伸</a><a href="classics.html">原典摘读</a><a href="about.html">关于我们</a><a href="poster.html">展览海报</a><a href="docs/source-notes.md">资料来源</a></div>
-      <div class="footer-col"><h4>站点说明</h4><p>山海异兽录：以《山海经》原典为纲的神兽科普站点。</p></div>
+  <footer class="home-footer site-shell">
+    <div class="footer-art" aria-hidden="true"></div>
+    <div class="footer-content">
+      <div class="footer-finale">
+        <h2 class="footer-closing"><span>一卷未尽，</span><span>山海待续。</span></h2>
+        <a class="source-link" href="index.html">重返山海画卷 <span aria-hidden="true">↗</span></a>
+      </div>
+      <nav aria-label="页脚导航"><a href="beasts.html">神兽图鉴</a><a href="map.html">山海舆图</a><a href="culture.html">文化寻踪</a><a href="classics.html">原典摘读</a><a href="about.html">关于山海</a></nav>
+      <div class="footer-notes">
+        <p>插画为艺术演绎；原典记载与后世演绎分开阅读。<br>图版取自资料整理稿，按页裁切使用。</p>
+        <a class="source-link" href="docs/source-notes.md">资料来源说明</a>
+        <small>山海异兽录·山海经神兽图鉴科普网站</small>
+      </div>
     </div>
-    <div class="site-shell copyright">山海异兽录·山海经神兽图鉴科普网站</div>
   </footer>
 </body>
 </html>
