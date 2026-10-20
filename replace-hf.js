@@ -37,7 +37,7 @@ const newFooter = `<footer class="ex-footer">
       <div class="footer-col"><h4>说明</h4><a href="culture.html">文化延伸</a><a href="about.html">关于我们</a><a href="docs/source-notes.md">资料来源</a></div>
       <div class="footer-col"><h4>作业说明</h4><p>本网站为八页完整版山海异兽录静态前端站点。</p></div>
     </div>
-    <div class="site-shell copyright">© 2024 山海异兽录 · 山海经神兽图鉴科普网站</div>
+    <div class="site-shell copyright">山海异兽录·山海经神兽图鉴科普网站</div>
   </footer>`;
 
 files.forEach(file => {
