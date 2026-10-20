@@ -59,7 +59,7 @@
         toggle.setAttribute('aria-label', reduced.matches ? '地图动态效果，已遵循系统减少动态效果设置' : '地图动态效果');
         toggle.disabled = reduced.matches;
         toggle.querySelector('.motion-toggle-label').textContent = reduced.matches ? '已减少动效' : paused ? '开启动效' : '暂停动效';
-        toggle.title = reduced.matches ? '已遵循系统的“减少动态效果”设置' : paused ? '开启入场、路线流光与地点动效' : '暂停入场、路线流光与地点动效';
+        toggle.title = reduced.matches ? '已遵循系统的“减少动态效果”设置' : paused ? '开启入场、导航金边与扫光、路线流光和地点动效' : '暂停入场、导航金边与扫光、路线流光和地点动效';
         paint();
       }
       toggle.addEventListener('click', () => {
