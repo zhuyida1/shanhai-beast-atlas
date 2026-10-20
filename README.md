@@ -1,6 +1,6 @@
 # 山海异兽录 - 前端整合版
 
-本目录是「山海异兽录」网站的完整版静态前端源码，不包含后端、数据库或部署服务。当前包含 26 个网站页面及 1 个结构图辅助页面。
+本目录是「山海异兽录」网站的完整版静态前端源码，不包含后端、数据库或部署服务。当前包含 24 个网站页面及 1 个结构图辅助页面。
 
 ## 共同开发
 
@@ -16,11 +16,10 @@
 - `index.html`：首页
 - `beasts.html`：神兽图鉴二级栏目页
 - `map.html`：栖息地地图二级栏目页
-- `culture.html`：文化延伸二级栏目页
+- `culture.html`：文化寻踪二级栏目页
 - `beast-detail.html`：九尾狐详情页（详情页视觉基准）
 - `habitat-detail.html`：地域详情内容页
-- `culture-detail.html`：文化典故内容页
-- classics.html：原典摘读列表页（按经篇编排的摘读目录，含关键词检字与经篇筛选，数据见 `data/classics.js`）
+- `classics.html`：原典摘读列表页（按经篇编排的摘读目录，含关键词检字与经篇筛选，数据见 `data/classics.js`）
 - `article.html`：原典摘读条目页（经文对读、原书注释、名物考与义疏，正文见 `data/articles.js`，地址形如 `article.html?id=N`）
 - `beast-baize.html`：白泽神兽详情页
 - `beast-fenghuang.html`：凤凰神兽详情页
@@ -37,7 +36,6 @@
 - `beast-luoyu.html`：蠃鱼神兽详情页
 - `beast-huashe.html`：化蛇神兽详情页
 - `beast-gudiao.html`：蛊雕神兽详情页
-- `poster.html`：山海主题展览海报页
 - `about.html`：站点说明页（不设主导航，仅「返回上一级」；含五个入口导览、阅读顺序、资料与证据、使用与版权）
 - `structure-diagram.html`：站点结构图辅助页
 

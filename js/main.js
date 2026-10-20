@@ -17,7 +17,6 @@ function setActiveNav() {
     'beast-fenghuang.html': 'beasts.html',
     'beast-qilin.html': 'beasts.html',
     'beast-xuanwu.html': 'beasts.html',
-    'culture-detail.html': 'culture.html',
     'habitat-detail.html': 'map.html'
   };
   const target = parentMap[current] || current;

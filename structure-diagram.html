@@ -389,11 +389,11 @@
   <div class="page">
     <section class="hero">
       <h1>山海异兽录网站结构图</h1>
-      <p>基于 shanhai-final-site 目录下 26 个网站页面整理，展示首页、二级栏目、内容详情页、公共头尾与页面互链关系。</p>
+      <p>基于 shanhai-final-site 目录下 24 个网站页面整理，展示首页、二级栏目、内容详情页、公共头尾与页面互链关系。</p>
       <div class="meta-row">
         <span class="chip">项目类型：静态前端网站</span>
         <span class="chip">主题：山海经神兽插图科普</span>
-        <span class="chip">页面总数：26 个网站页面 + 1 个结构图页</span>
+        <span class="chip">页面总数：24 个网站页面 + 1 个结构图页</span>
         <span class="chip">主导航：首页 + 4 个栏目</span>
       </div>
     </section>
@@ -423,10 +423,10 @@
           <ul class="node-list">
             <li><a class="node" href="beasts.html"><strong>神兽图鉴</strong><small>beasts.html｜筛选、搜索、图鉴列表</small></a></li>
             <li><a class="node" href="map.html"><strong>栖息地地图</strong><small>map.html｜交互地图、点位筛选</small></a></li>
-            <li><a class="node" href="culture.html"><strong>文化延伸</strong><small>culture.html｜专题文章、地域神话、视觉转译</small></a></li>
+            <li><a class="node" href="culture.html"><strong>文化寻踪</strong><small>culture.html｜专题文章、地域神话、视觉转译</small></a></li>
             <li><a class="node support" href="about.html"><strong>关于山海</strong><small>about.html｜站点说明、阅读顺序、资料来源</small></a></li>
           </ul>
-          <div class="arrow-note">主导航除首页外有 4 项：神兽图鉴、栖息地、文化延伸、关于我们。</div>
+          <div class="arrow-note">主导航共 5 项：入画（首页）、神兽图鉴、山海舆图、文化寻踪、原典摘读。</div>
         </div>
 
         <div class="level">
@@ -449,10 +449,8 @@
             <li><a class="node" href="beast-huashe.html"><strong>化蛇详解</strong><small>beast-huashe.html</small></a></li>
             <li><a class="node" href="beast-gudiao.html"><strong>蛊雕详解</strong><small>beast-gudiao.html</small></a></li>
             <li><a class="node" href="habitat-detail.html"><strong>南山青丘地域详情</strong><small>habitat-detail.html</small></a></li>
-            <li><a class="node" href="culture-detail.html"><strong>青丘九尾文化详解</strong><small>culture-detail.html</small></a></li>
             <li><a class="node" href="classics.html"><strong>山海原典摘读</strong><small>classics.html</small></a></li>
             <li><a class="node" href="article.html?id=1"><strong>原典摘读条目页</strong><small>article.html?id=N</small></a></li>
-            <li><a class="node support" href="poster.html"><strong>展览海报</strong><small>poster.html</small></a></li>
           </ul>
           <div class="arrow-note">详情页主要从图鉴页、地图页、文化页、首页精选卡片和页脚入口进入。</div>
         </div>
@@ -468,7 +466,7 @@
           <h3>公共头部 Header</h3>
           <ul class="flow">
             <li><b>1</b> Logo / 品牌：山海异兽录</li>
-            <li><b>2</b> 主导航：首页、神兽图鉴、栖息地、文化延伸、关于我们</li>
+            <li><b>2</b> 主导航：入画、神兽图鉴、山海舆图、文化寻踪、原典摘读</li>
             <li><b>3</b> 搜索提示：搜索神兽、典故、地名</li>
           </ul>
         </div>
@@ -483,9 +481,9 @@
         <div class="skeleton">
           <h3>公共页脚 Footer</h3>
           <ul class="flow">
-            <li><b>导航</b> 首页、神兽图鉴、栖息地</li>
-            <li><b>详情</b> 神兽详情、地域详情、文化详情</li>
-            <li><b>说明</b> 文化延伸、原典摘读、关于我们、资料来源</li>
+            <li><b>导航</b> 入画、神兽图鉴、山海舆图、文化寻踪、原典摘读</li>
+            <li><b>详情</b> 神兽详情、地域详情、原典对读</li>
+            <li><b>说明</b> 关于山海、资料来源</li>
           </ul>
         </div>
       </div>
@@ -533,12 +531,12 @@
         </article>
 
         <article class="page-card">
-          <h3>文化延伸 <code>culture.html</code></h3>
+          <h3>文化寻踪 <code>culture.html</code></h3>
           <ul>
             <li>文化专题 banner + 说明卡。</li>
             <li>四项 feature strip：原典摘读、图像再设计、地图联动、文创转译。</li>
             <li>侧边栏分类：神兽典故、地域神话、祭祀纹样、后世演绎。</li>
-            <li>专题文章列表，重点入口为 classics.html 与 culture-detail.html。</li>
+            <li>专题文章列表，重点入口为 classics.html 与 article.html?id=N。</li>
             <li>下方分栏：地域神话、视觉转译。</li>
           </ul>
           <div class="tag-row"><span class="tag">二级栏目</span><span class="tag">专题文章</span><span class="tag">文化线索</span></div>
@@ -560,7 +558,6 @@
           <ul>
             <li>classics.html：原典摘读列表页，按南山经、西山经、北山经、海荒经分组编排原典条目，顶部提供关键词检字与经篇印签筛选；条目标题含经篇标签、一句话摘要与配图位，链接指向 article.html?id=N。</li>
             <li>article.html?id=N：原典摘读条目页，正文由 data/articles.js 按 id 渲染。结构为题签（兽名、注音、原典图版）→ 经文对读（左侧原文纸签与注释，右侧白话，可切换对读／只读原文／只读白话）→ 名物考四格 → 义疏 → 相关条目 → 上一条／目录／下一条，顶部有阅读进度线。</li>
-            <li>culture-detail.html：青丘九尾文化详解，展开原文解读、历代解读、双重身份、民俗表现。</li>
             <li>habitat-detail.html：南山青丘地域详情，连接九尾狐、凤凰、旋龟、蛊雕等地域内容。</li>
             <li>共同结构：sub-hero、面包屑、侧栏导航、文章正文、相关页面推荐。</li>
           </ul>
@@ -576,15 +573,6 @@
             <li>提供 docs/source-notes.md 的资料来源说明入口。</li>
           </ul>
           <div class="tag-row"><span class="tag">说明页</span><span class="tag">无主导航</span><span class="tag">资料来源</span></div>
-        </article>
-
-        <article class="page-card">
-          <h3>海报页 <code>poster.html</code></h3>
-          <ul>
-            <li>展览海报式展示项目简介、设计目标、技术架构、团队信息、站点地图。</li>
-            <li>不是主流程必需页，但可作为展示/答辩材料入口。</li>
-          </ul>
-          <div class="tag-row"><span class="tag">支撑页</span><span class="tag">展示页</span></div>
         </article>
       </div>
     </section>
@@ -604,19 +592,19 @@
         </div>
         <div class="route-card">
           <h3>地图导流</h3>
-          <p>map.html → habitat-detail.html（通过页脚和地域内容体系进入）→ beast-detail.html / culture-detail.html / map.html</p>
+          <p>map.html → habitat-detail.html（通过页脚和地域内容体系进入）→ beast-detail.html / article.html?id=N / map.html</p>
         </div>
         <div class="route-card">
           <h3>文化导流</h3>
-          <p>culture.html → classics.html / culture-detail.html / habitat-detail.html / map.html / about.html</p>
+          <p>culture.html → classics.html / article.html?id=N / beast-*.html / habitat-detail.html / map.html / about.html</p>
         </div>
         <div class="route-card">
           <h3>公共页脚</h3>
-          <p>所有主页面均回链 index.html、beasts.html、map.html，并提供 beast-detail.html、habitat-detail.html、culture-detail.html、culture.html、classics.html、about.html、docs/source-notes.md。</p>
+          <p>所有主页面均回链 index.html、beasts.html、map.html，并提供 beast-detail.html、habitat-detail.html、article.html、culture.html、classics.html、about.html、docs/source-notes.md。</p>
         </div>
         <div class="route-card">
           <h3>支撑说明</h3>
-          <p>about.html 与 poster.html 用于补足项目说明、资料来源、站点地图和展示材料，不承担主要内容浏览路径。</p>
+          <p>about.html 用于补足站点说明、资料来源与阅读顺序，不承担主要内容浏览路径。</p>
         </div>
       </div>
     </section>
@@ -624,9 +612,8 @@
     <section class="section">
       <h2>五、检查备注</h2>
       <div class="notice">
-        <strong>结构整体完整：</strong>站点已具备首页、二级栏目页、内容详情页三层结构，且主导航除首页外有 4 个栏目。
-        <br>
-        <strong>小问题提醒：</strong>culture-detail.html 中部分 class、href、src 属性使用了中文弯引号，浏览器可能无法识别相关样式、图片或链接。此结构图未修改原页面，只记录该检查结果。
+        <strong>结构整体完整：</strong>站点已具备首页、二级栏目页、内容详情页三层结构，主导航共 5 项。
+
       </div>
     </section>
 
