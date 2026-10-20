@@ -53,7 +53,7 @@
 - `js/`：地图和基础交互脚本
 - `data/`：神兽数据、地图点位数据、原典摘读目录与条目正文数据
 - `images/`：页面图片素材（`images/classics/` 是原典摘读十条的图版）
-- `docs/`：资料来源说明
+- `docs/`：资料来源说明与组件记录（含导航金边与扫光说明 `docs/navigation-flow.md`）
 - `CONTRIBUTING.md`：多人协作和验证说明
 - `AGENTS.md`：AI 编码助手接手约定
 
