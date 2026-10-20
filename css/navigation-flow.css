@@ -1,0 +1,23 @@
+/* Shared decoration only: menus, destinations and layout belong to each page. */
+.nav-flow-anchor{position:relative}
+.nav-flow-host{border-color:transparent!important;outline:1px solid #c998486e;outline-offset:-1px}
+.nav-flow-host:focus-visible{outline:3px solid #dbb879;outline-offset:4px}
+.nav-flow-frame{position:absolute;z-index:4;display:block;pointer-events:none!important;overflow:visible;line-height:0}
+.nav-flow-frame[hidden]{display:none!important}
+.nav-flow-frame .nav-flow-svg{display:block;width:100%;height:100%;max-width:none;overflow:visible;fill:none;pointer-events:none;filter:drop-shadow(0 0 1px #c9984833)}
+.nav-flow-svg path{fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.nav-flow-svg .nav-flow-beam{animation:nav-flow-travel var(--nav-flow-duration,8s) linear infinite;animation-play-state:paused;opacity:0}
+.nav-flow-frame[data-running="true"] .nav-flow-beam{animation-play-state:running;opacity:1}
+@keyframes nav-flow-travel{from{stroke-dashoffset:var(--nav-flow-offset,0px)}to{stroke-dashoffset:calc(var(--nav-flow-offset,0px) - 1000px)}}
+
+.nav-flow-control{display:block;margin:18px 0 0 auto;max-width:100%;min-height:44px;padding:6px 12px;border:1px solid #b69a625c;border-radius:2px;background:#171c1b;color:#dbb879;font:13px/1.6 "Songti SC","SimSun",serif;cursor:pointer}
+.nav-flow-control:hover{border-color:#dbb879;color:#ffedbc}
+.nav-flow-control:focus-visible{outline:3px solid #dbb879;outline-offset:4px}
+.nav-flow-control:disabled{cursor:default;color:#bfc0ad}
+
+@media(prefers-reduced-motion:reduce){
+ .nav-flow-svg .nav-flow-beam{animation:none!important;opacity:0!important}
+}
+@media print{
+ .nav-flow-frame,.nav-flow-control{display:none!important}
+}
