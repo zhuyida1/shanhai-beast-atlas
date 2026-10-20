@@ -51,7 +51,7 @@ a:focus-visible, button:focus-visible, [tabindex="-1"]:focus-visible { outline: 
 .hero-shell { max-width: 1600px; }
 .hero-kicker { color: var(--gold); font-size: var(--small-size); letter-spacing: .3em; }
 .hero-shell h1 { margin-top: 18px; font: 104px/1.14 var(--display); font-weight: 400; }
-.hero-lead { max-width: 29em; margin-top: 22px; color: #e6dcc6; font-size: 19px; line-height: 1.9; }
+.hero-lead { max-width: 34em; margin-top: 22px; color: #e6dcc6; font-size: 19px; line-height: 1.9; }
 .hero-stats { display: flex; flex-wrap: wrap; gap: 20px 46px; margin-top: 42px; }
 .hero-stats div { display: grid; gap: 6px; }
 .hero-stats strong { font: 42px/1 var(--display); font-weight: 400; color: var(--gold); }
