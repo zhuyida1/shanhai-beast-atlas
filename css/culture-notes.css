@@ -688,17 +688,24 @@ button { font: inherit; color: inherit; }
   color: #e7ddc7;
 }
 
-/* 对照滑杆 */
+/* 对照滑杆：两层各自铺宣纸底，图片只与本层纸面混合，避免两层互透 */
 .compare {
   position: relative;
   margin-top: 40px;
   aspect-ratio: 16 / 10;
-  background: var(--paper);
+  background: var(--ink-soft);
   overflow: hidden;
   touch-action: pan-y;
 }
 
-.compare img {
+.compare-layer {
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  isolation: isolate;
+}
+
+.compare-layer img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -707,7 +714,19 @@ button { font: inherit; color: inherit; }
   mix-blend-mode: multiply;
 }
 
-.compare .layer-gentle {
+.compare .layer-wild img {
+  object-position: 52% 44%;
+  transform: scale(1.06);
+  transform-origin: 52% 50%;
+}
+
+.compare .layer-tame img {
+  object-position: 48% 42%;
+  transform: scale(1.3) translateX(9%);
+  transform-origin: 48% 46%;
+}
+
+.compare .layer-tame {
   clip-path: inset(0 0 0 calc(var(--pct) * 1%));
 }
 
@@ -1184,6 +1203,10 @@ button { font: inherit; color: inherit; }
   .fband-detail { font-size: 14px; }
   .three-colors { grid-template-columns: 1fr; }
   .compare { aspect-ratio: 4 / 3; }
+  .compare-tag { top: 10px; padding: 5px 10px; font-size: 12px; letter-spacing: .06em; }
+  .compare-tag.wild { left: 10px; }
+  .compare-tag.tame { right: 10px; }
+  .compare-handle::after { width: 28px; height: 28px; }
   .device,
   .device.reversed { grid-template-columns: minmax(0, 1fr); }
   .device.reversed .device-copy { order: 0; }
