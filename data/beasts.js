@@ -26,7 +26,7 @@ const SHANHAI_BEASTS = [
     original: '丹穴之山，有鸟焉，其状如鸡，五采而文，名曰凤皇。',
     translation: '丹穴山中有一种鸟，形状像鸡，五彩斑斓，名叫凤凰。',
     short: '五采而文，见则天下安宁，是祥瑞与文明的象征。',
-    link: 'beast-detail.html'
+    link: 'beast-fenghuang.html'
   },
   {
     id: 'qiongqi',
@@ -40,7 +40,7 @@ const SHANHAI_BEASTS = [
     original: '其状如牛，猬毛，名曰穷奇，音如嗥狗，是食人。',
     translation: '形状像牛，全身长着刺猬一样的毛，叫声像狗，会吃人。',
     short: '形似牛而猬毛，古书中常被视为凶异之兽。',
-    link: 'beast-detail.html'
+    link: 'beast-qiongqi.html'
   },
   {
     id: 'tiangou',
@@ -54,7 +54,7 @@ const SHANHAI_BEASTS = [
     original: '其状如狸而白首，名曰天狗，其音如榴榴，可以御凶。',
     translation: '形状像狸而头白，名叫天狗，叫声像榴榴，可以抵御凶邪。',
     short: '白首如狸，可以御凶，适合用于辟邪主题内容。',
-    link: 'beast-detail.html'
+    link: 'beast-tiangou.html'
   },
   {
     id: 'zheng',
@@ -68,7 +68,7 @@ const SHANHAI_BEASTS = [
     original: '其状如赤豹，五尾一角，其音如击石，其名曰狰。',
     translation: '形状像红豹，有五条尾巴和一只角，声音像敲击石头。',
     short: '赤豹之形，五尾一角，视觉辨识度很强。',
-    link: 'beast-detail.html'
+    link: 'beast-zheng.html'
   },
   {
     id: 'xuangui',
@@ -82,7 +82,7 @@ const SHANHAI_BEASTS = [
     original: '其状如龟而鸟首虺尾，其名曰旋龟。',
     translation: '形状像龟，却长着鸟头和蛇尾，名叫旋龟。',
     short: '龟身、鸟首、蛇尾，是地图页水域点位的合适角色。',
-    link: 'beast-detail.html'
+    link: 'beast-xuangui.html'
   },
   {
     id: 'baize',
@@ -96,7 +96,7 @@ const SHANHAI_BEASTS = [
     original: '白泽通晓万物之情，常被视为祥瑞与智慧之兽。',
     translation: '白泽常被理解为能够识别万物、辟除妖邪的神兽。',
     short: '通晓万物之情，适合作为图鉴页的知识型神兽。',
-    link: 'beast-detail.html'
+    link: 'beast-baize.html'
   },
   {
     id: 'qilin',
@@ -110,7 +110,7 @@ const SHANHAI_BEASTS = [
     original: '麒麟为仁兽，常与圣王、太平、祥瑞相连。',
     translation: '麒麟在传统文化中象征仁德、祥瑞与秩序。',
     short: '仁兽也，性温驯，主太平。',
-    link: 'beast-detail.html'
+    link: 'beast-qilin.html'
   },
   {
     id: 'taotie',
@@ -124,7 +124,7 @@ const SHANHAI_BEASTS = [
     original: '饕餮常见于青铜器纹饰，后世多以贪食凶兽理解。',
     translation: '饕餮适合用于网站中的青铜、祭祀、纹样视觉元素。',
     short: '青铜纹样常见神兽，可强化古籍和祭祀氛围。',
-    link: 'beast-detail.html'
+    link: 'beast-taotie.html'
   },
   {
     id: 'yinglong',
@@ -138,7 +138,7 @@ const SHANHAI_BEASTS = [
     original: '应龙为有翼之龙，常与治水、战争、神话秩序相关。',
     translation: '应龙适合用于地图页的山川、水域与神话路线内容。',
     short: '有翼之龙，能兴云雨，常与大荒神话相连。',
-    link: 'beast-detail.html'
+    link: 'beast-yinglong.html'
   },
   {
     id: 'jingwei',
@@ -152,7 +152,7 @@ const SHANHAI_BEASTS = [
     original: '有鸟焉，其状如乌，文首、白喙、赤足，名曰精卫。',
     translation: '精卫鸟形如乌，有花纹的头、白色的喙和红色的脚。',
     short: '衔木石以填海，文化延伸页可重点展开。',
-    link: 'beast-detail.html'
+    link: 'beast-jingwei.html'
   },
   {
     id: 'zhongmingniao',
@@ -166,6 +166,6 @@ const SHANHAI_BEASTS = [
     original: '重明鸟双睛重瞳，能辟邪魅。',
     translation: '重明鸟常被视为能驱邪护宅的神鸟。',
     short: '两目重瞳，能辟除猛兽妖灾。',
-    link: 'beast-detail.html'
+    link: 'beast-chongming.html'
   }
 ];

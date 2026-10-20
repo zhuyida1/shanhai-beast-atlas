@@ -1,0 +1,25 @@
+/* 延续九尾狐的暗青灰、宣纸、细金线和古籍阅读目录。 */
+.beast-reading-page .hero-copy h1 { font-size: clamp(76px, 8.6vw, 138px); }
+.beast-reading-page .hero-intro { max-width: 22em; }
+.beast-reading-page .hero-art { max-width: 620px; width: 100%; justify-self: end; }
+/* 已有图鉴素材多为方幅：完整呈现主体，避免套用长卷比例而裁掉角、翼和尾。 */
+.beast-reading-page .art-open > img { aspect-ratio: 1.2; object-fit: contain; object-position: center; }
+.beast-reading-page .trait-art img { aspect-ratio: 1; object-fit: contain; }
+.beast-reading-page .source-summary { font-size: clamp(24px, 2.4vw, 34px); line-height: 1.8; max-width: 26em; }
+.beast-reading-page .original-text blockquote { font-size: clamp(20px, 2.4vw, 34px); }
+.beast-reading-page .origin-reading > .text-link { margin-top: 14px; }
+@media (max-width: 1100px) {
+  .beast-reading-page .hero-copy h1 { font-size: clamp(72px, 8.4vw, 94px); }
+}
+@media (max-width: 800px) {
+  .beast-reading-page .hero-copy h1 { font-size: 96px; }
+  .beast-reading-page .hero-art { max-width: none; }
+  .beast-reading-page .art-open > img { aspect-ratio: 1.25; }
+  .beast-reading-page .hero-intro { max-width: 32em; }
+}
+@media (max-width: 520px) {
+  .beast-reading-page .hero-copy h1 { font-size: clamp(72px, 20vw, 88px); }
+  .beast-reading-page .source-summary { font-size: 20px; }
+  .beast-reading-page .art-open > img { aspect-ratio: 1.08; }
+  .beast-reading-page .trait-art img { aspect-ratio: 1.15; }
+}
