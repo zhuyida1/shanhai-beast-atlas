@@ -491,6 +491,22 @@ body:after{
   font-size:14px;
 }
 .breadcrumb span{margin:0 10px;color:#b79355}
+
+.detail-page .detail-return{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-height:44px;
+  margin-bottom:20px;
+  color:var(--site-dai);
+  font-size:16px;
+  font-weight:700;
+}
+.detail-page .detail-return:hover{color:var(--site-zhu)}
+.detail-page .detail-return:focus-visible{
+  outline:2px solid var(--site-dai);
+  outline-offset:4px;
+}
 .layout{
   display:grid;
   grid-template-columns:230px 1fr;
