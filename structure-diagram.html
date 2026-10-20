@@ -389,11 +389,11 @@
   <div class="page">
     <section class="hero">
       <h1>山海异兽录网站结构图</h1>
-      <p>基于 shanhai-final-site 目录下 24 个网站页面整理，展示首页、二级栏目、内容详情页、公共头尾与页面互链关系。</p>
+      <p>基于 shanhai-final-site 目录下 28 个网站页面整理，展示首页、二级栏目、内容详情页、公共头尾与页面互链关系。</p>
       <div class="meta-row">
         <span class="chip">项目类型：静态前端网站</span>
         <span class="chip">主题：山海经神兽插图科普</span>
-        <span class="chip">页面总数：24 个网站页面 + 1 个结构图页</span>
+        <span class="chip">页面总数：28 个网站页面 + 1 个结构图页</span>
         <span class="chip">主导航：首页 + 4 个栏目</span>
       </div>
     </section>
@@ -401,13 +401,13 @@
     <div class="summary">
       <div class="stat"><strong>1</strong>首页入口</div>
       <div class="stat"><strong>4</strong>主导航栏目</div>
-      <div class="stat"><strong>10</strong>内容 / 详情 / 支撑页</div>
+      <div class="stat"><strong>23</strong>内容 / 详情 / 支撑页</div>
       <div class="stat"><strong>3</strong>页面层级</div>
     </div>
 
     <section class="section">
       <h2>一、三层站点结构图</h2>
-      <p class="section-lead">这个站点已经满足“首页 → 二级栏目页 → 内容详情页”的三层页面关系，同时保留关于页、海报页和资料说明作为支撑内容。</p>
+      <p class="section-lead">这个站点已经满足“首页 → 二级栏目页 → 内容详情页”的三层页面关系，同时保留站点说明页与资料说明作为支撑内容。</p>
 
       <div class="topology">
         <div class="level">
@@ -451,6 +451,10 @@
             <li><a class="node" href="habitat-detail.html"><strong>南山青丘地域详情</strong><small>habitat-detail.html</small></a></li>
             <li><a class="node" href="classics.html"><strong>山海原典摘读</strong><small>classics.html</small></a></li>
             <li><a class="node" href="article.html?id=1"><strong>原典摘读条目页</strong><small>article.html?id=N</small></a></li>
+            <li><a class="node" href="culture-taotie.html"><strong>饕餮纹与黑金视觉</strong><small>culture-taotie.html</small></a></li>
+            <li><a class="node" href="culture-five-colors.html"><strong>凤凰五色与吉祥图式</strong><small>culture-five-colors.html</small></a></li>
+            <li><a class="node" href="culture-gentle.html"><strong>瑞兽图像的温和化</strong><small>culture-gentle.html</small></a></li>
+            <li><a class="node" href="culture-evidence.html"><strong>地图点位的证据等级</strong><small>culture-evidence.html</small></a></li>
           </ul>
           <div class="arrow-note">详情页主要从图鉴页、地图页、文化页、首页精选卡片和页脚入口进入。</div>
         </div>
@@ -537,9 +541,22 @@
             <li>四项 feature strip：原典摘读、图像再设计、地图联动、文创转译。</li>
             <li>侧边栏分类：神兽典故、地域神话、祭祀纹样、后世演绎。</li>
             <li>专题文章列表，重点入口为 classics.html 与 article.html?id=N。</li>
-            <li>下方分栏：地域神话、视觉转译。</li>
+            <li>下方分栏：地域神话、视觉转译；视觉转译四项各有独立专题页（见下）。</li>
           </ul>
           <div class="tag-row"><span class="tag">二级栏目</span><span class="tag">专题文章</span><span class="tag">文化线索</span></div>
+        </article>
+
+        <article class="page-card">
+          <h3>文化专题组 <code>culture-*.html</code></h3>
+          <ul>
+            <li>文化寻踪「视觉转译」四项各成一页，共用 <code>css/culture-notes.css</code> 与 <code>js/culture-notes.js</code>。</li>
+            <li>饕餮纹与黑金视觉：兽面四部位可点选、纹样命名史、四色取样。</li>
+            <li>凤凰五色与吉祥图式：五采而文对应五德的表、五色与五方、站内只用三色。</li>
+            <li>瑞兽图像的温和化：凶异与祥瑞对照滑杆、三段变化、三种手法。</li>
+            <li>地图点位的证据等级：四级标注、三种范围说法、站点取法。</li>
+            <li>四页统一「返回文化寻踪」顶栏与站点页脚，正文按各自命题单独编排。</li>
+          </ul>
+          <div class="tag-row"><span class="tag">专题页</span><span class="tag">四种版式</span><span class="tag">文化延伸</span></div>
         </article>
 
         <article class="page-card">
@@ -596,7 +613,7 @@
         </div>
         <div class="route-card">
           <h3>文化导流</h3>
-          <p>culture.html → classics.html / article.html?id=N / beast-*.html / habitat-detail.html / map.html / about.html</p>
+          <p>culture.html → culture-taotie.html / culture-five-colors.html / culture-gentle.html / culture-evidence.html → 各自的「返回文化寻踪」；再由专题页通往 classics.html / article.html?id=N / beast-*.html / map.html</p>
         </div>
         <div class="route-card">
           <h3>公共页脚</h3>
