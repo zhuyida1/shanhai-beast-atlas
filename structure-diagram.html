@@ -391,7 +391,7 @@
       <h1>山海异兽录网站结构图</h1>
       <p>基于 shanhai-final-site 目录下 15 个 HTML 页面整理，展示首页、二级栏目、内容详情页、公共头尾与页面互链关系。</p>
       <div class="meta-row">
-        <span class="chip">项目类型：静态前端课程网站</span>
+        <span class="chip">项目类型：静态前端网站</span>
         <span class="chip">主题：山海经神兽插图科普</span>
         <span class="chip">页面总数：15 个 HTML</span>
         <span class="chip">主导航：首页 + 4 个栏目</span>
@@ -402,7 +402,7 @@
       <div class="stat"><strong>1</strong>首页入口</div>
       <div class="stat"><strong>4</strong>主导航栏目</div>
       <div class="stat"><strong>10</strong>内容 / 详情 / 支撑页</div>
-      <div class="stat"><strong>3</strong>课程要求层级</div>
+      <div class="stat"><strong>3</strong>页面层级</div>
     </div>
 
     <section class="section">
@@ -441,6 +441,7 @@
             <li><a class="node" href="habitat-detail.html"><strong>南山青丘地域详情</strong><small>habitat-detail.html</small></a></li>
             <li><a class="node" href="culture-detail.html"><strong>青丘九尾文化详解</strong><small>culture-detail.html</small></a></li>
             <li><a class="node" href="classics.html"><strong>山海原典摘读</strong><small>classics.html</small></a></li>
+            <li><a class="node" href="article.html?id=1"><strong>原典摘读条目页</strong><small>article.html?id=N</small></a></li>
             <li><a class="node support" href="poster.html"><strong>展览海报</strong><small>poster.html</small></a></li>
           </ul>
           <div class="arrow-note">详情页主要从图鉴页、地图页、文化页、首页精选卡片和页脚入口进入。</div>
@@ -545,9 +546,10 @@
         </article>
 
         <article class="page-card">
-          <h3>文章详情组 <code>classics / culture / habitat</code></h3>
+          <h3>文章与列表组 <code>classics / culture / habitat</code></h3>
           <ul>
-            <li>classics.html：原典摘读，按南山经、北山经、西山经、海荒经组织。</li>
+            <li>classics.html：原典摘读列表页，按南山经、西山经、北山经、海荒经分组编排原典条目，顶部提供关键词检字与经篇印签筛选；条目标题含经篇标签、一句话摘要与配图位，链接指向 article.html?id=N。</li>
+            <li>article.html?id=N：原典摘读条目页，正文由 data/articles.js 按 id 渲染。结构为题签（兽名、注音、图版占位）→ 经文对读（左侧原文纸签与注释，右侧白话，可切换对读／只读原文／只读白话）→ 名物考四格 → 义疏 → 相关条目 → 上一条／目录／下一条，顶部有阅读进度线。</li>
             <li>culture-detail.html：青丘九尾文化详解，展开原文解读、历代解读、双重身份、民俗表现。</li>
             <li>habitat-detail.html：南山青丘地域详情，连接九尾狐、凤凰、旋龟、蛊雕等地域内容。</li>
             <li>共同结构：sub-hero、面包屑、侧栏导航、文章正文、相关页面推荐。</li>
@@ -560,7 +562,7 @@
           <ul>
             <li>说明网站定位、页面结构、资料来源、设计风格。</li>
             <li>提供 docs/source-notes.md 的资料来源说明入口。</li>
-            <li>作为主导航中的说明类栏目，增强课程作业完整度。</li>
+            <li>作为主导航中的说明类栏目，增强站点结构完整度。</li>
           </ul>
           <div class="tag-row"><span class="tag">说明页</span><span class="tag">资料来源</span></div>
         </article>
@@ -611,7 +613,7 @@
     <section class="section">
       <h2>五、检查备注</h2>
       <div class="notice">
-        <strong>结构整体完整：</strong>站点已具备课程要求中的首页、二级栏目页、内容详情页三层结构，且主导航除首页外有 4 个栏目。
+        <strong>结构整体完整：</strong>站点已具备首页、二级栏目页、内容详情页三层结构，且主导航除首页外有 4 个栏目。
         <br>
         <strong>小问题提醒：</strong>culture-detail.html 中部分 class、href、src 属性使用了中文弯引号，浏览器可能无法识别相关样式、图片或链接。此结构图未修改原页面，只记录该检查结果。
       </div>
