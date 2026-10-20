@@ -1,0 +1,354 @@
+/* 黑金装饰纹理增强 - 为横幅区域添加传统纹样 */
+
+/* 通用装饰性纹理变量 */
+:root {
+  --pattern-gold: #dbb879;
+  --pattern-gold-bright: #f4d89f;
+  --pattern-gold-dim: #8c7048;
+  --pattern-shadow: rgba(0, 0, 0, 0.6);
+  --ornament-scale: 1;
+}
+
+/* ========== 首页章节导航装饰 ========== */
+.chapter-nav {
+  position: relative;
+  overflow: visible;
+}
+
+/* 顶部金色细线装饰 */
+.chapter-nav::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--pattern-gold-dim) 15%,
+    var(--pattern-gold) 50%,
+    var(--pattern-gold-dim) 85%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgba(219, 184, 121, 0.3);
+}
+
+/* 底部金色细线装饰 */
+.chapter-nav::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--pattern-gold-dim) 15%,
+    var(--pattern-gold) 50%,
+    var(--pattern-gold-dim) 85%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+  box-shadow: 0 -1px 3px rgba(219, 184, 121, 0.3);
+}
+
+.slogan-banner {
+  --slogan-gold: #b89b68;
+  --slogan-ink: #2c221c;
+  --slogan-red: #741e1b;
+  --slogan-ornament-width: min(30vw, 380px);
+  position: relative;
+  isolation: isolate;
+  min-height: 180px;
+  padding: 38px max(24px, 18vw);
+  background: var(--slogan-red);
+  border-block: 3px solid var(--slogan-gold);
+  border-image: none;
+  box-shadow: none;
+}
+
+.slogan-banner::before,
+.slogan-banner::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  bottom: 0;
+  width: var(--slogan-ornament-width);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: .86;
+  pointer-events: none;
+  animation: none;
+  transform: none;
+  filter: none;
+  z-index: 0;
+}
+
+.slogan-banner::before {
+  left: 0;
+  background-image: url("../images/ornament-left.svg");
+  background-position: left bottom;
+}
+
+.slogan-banner::after {
+  right: 0;
+  background-image: url("../images/ornament-right.svg");
+  background-position: right bottom;
+}
+
+.slogan-banner h2 {
+  margin: 0 auto 12px;
+  font-size: clamp(22px, 2.1vw, 32px);
+  line-height: 1.6;
+  letter-spacing: .06em;
+  text-wrap: balance;
+  text-shadow: none;
+}
+
+.slogan-banner p {
+  color: var(--gold);
+  font-size: clamp(14px, 1.25vw, 18px);
+  letter-spacing: .12em;
+}
+
+@media (max-width: 760px) {
+  .slogan-banner {
+    --slogan-ornament-width: min(38vw, 220px);
+    padding: 28px 24px 78px;
+  }
+
+  .slogan-banner::before,
+  .slogan-banner::after {
+    height: 78px;
+    opacity: .72;
+  }
+
+  .slogan-banner h2 {
+    max-width: 25em;
+    font-size: 22px;
+  }
+}
+
+/* ========== 原典摘读页装饰 ========== */
+.classics-hero {
+  position: relative;
+}
+
+/* 顶部金色纹样带
+   注意：classics.css 的 .classics-hero::before 是卷首插画的压暗层，
+   这里改挂在 .hero-shell::after 上，避免把压暗层整个替换掉。 */
+.classics-hero .hero-shell {
+  position: relative;
+}
+
+.classics-hero .hero-shell::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--pattern-gold) 20%,
+    var(--pattern-gold-bright) 50%,
+    var(--pattern-gold) 80%,
+    transparent 100%
+  );
+  z-index: 3;
+  box-shadow: 0 1px 4px rgba(244, 216, 159, 0.5);
+  pointer-events: none;
+}
+
+/* 英雄区域的织锦纹理 - 增强可见度 */
+.classics-hero .hero-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(219, 184, 121, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(219, 184, 121, 0.08) 0%, transparent 50%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 60px,
+      rgba(219, 184, 121, 0.06) 60px,
+      rgba(219, 184, 121, 0.06) 62px
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ========== 神兽图鉴页装饰 ========== */
+.catalog-hero {
+  position: relative;
+  overflow: visible;
+}
+
+/* 顶部装饰性边框
+   注意：beasts-enhanced.css 的 .catalog-hero::before 铺的是卷首插画与压暗渐变，
+   这里改挂在 .hero-container::after 上，避免把插画整层替换掉。 */
+.catalog-hero .hero-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 3px;
+  background:
+    linear-gradient(90deg, transparent, var(--pattern-gold) 30%, var(--pattern-gold) 70%, transparent),
+    linear-gradient(0deg, var(--pattern-shadow), transparent);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* 英雄标题区域的云纹背景 */
+.catalog-hero .hero-container::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 5%;
+  width: 200px;
+  height: 200px;
+  background-image:
+    radial-gradient(ellipse at center, transparent 20%, rgba(219, 184, 121, 0.04) 20%, rgba(219, 184, 121, 0.04) 25%, transparent 25%),
+    radial-gradient(ellipse at 60% 40%, transparent 15%, rgba(219, 184, 121, 0.03) 15%, rgba(219, 184, 121, 0.03) 20%, transparent 20%);
+  background-size: 120px 80px, 100px 70px;
+  background-position: 0 0, 50px 30px;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ========== 筛选工具栏装饰 ========== */
+.filter-toolbar {
+  position: relative;
+}
+
+/* 工具栏的金色细线装饰 */
+.filter-toolbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pattern-gold-dim) 10%,
+    var(--pattern-gold) 50%,
+    var(--pattern-gold-dim) 90%,
+    transparent
+  );
+  opacity: 0.3;
+}
+
+/* 工具栏底部的织纹背景 */
+.filter-toolbar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      120deg,
+      transparent,
+      transparent 80px,
+      rgba(219, 184, 121, 0.015) 80px,
+      rgba(219, 184, 121, 0.015) 81px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ========== 筛选芯片的装饰边框 ========== */
+.filter-chip {
+  position: relative;
+  overflow: visible;
+}
+
+/* 激活状态的金色光晕
+   注意：beasts-enhanced.css 用 .filter-chip.active::before 做朱底扫入动画，
+   这里改用 ::after 画光晕，避免把朱底换成金色渐变。 */
+.filter-chip.active::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    var(--pattern-gold) 0%,
+    transparent 40%,
+    transparent 60%,
+    var(--pattern-gold) 100%
+  );
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ========== 响应式调整 ========== */
+@media (max-width: 760px) {
+  :root {
+    --ornament-scale: 0.7;
+  }
+
+  .chapter-nav::after {
+    width: 60px;
+    height: 60px;
+    background-size: 6px 6px;
+  }
+
+  .catalog-hero .hero-container::before {
+    width: 140px;
+    height: 140px;
+    background-size: 80px 60px, 70px 50px;
+  }
+}
+
+/* ========== 高对比度与无障碍 ========== */
+@media (prefers-contrast: high) {
+  .chapter-nav::before,
+  .chapter-nav::after,
+  .classics-hero .hero-shell::before,
+  .catalog-hero .hero-container::before,
+  .filter-toolbar::after {
+    opacity: 0;
+  }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .chapter-nav::before,
+  .chapter-nav::after,
+  .classics-hero::before,
+  .filter-chip.active::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ========== 打印样式 ========== */
+@media print {
+  .chapter-nav::before,
+  .chapter-nav::after,
+  .classics-hero::before,
+  .classics-hero .hero-shell::before,
+  .catalog-hero::before,
+  .catalog-hero .hero-container::before,
+  .filter-toolbar::before,
+  .filter-toolbar::after,
+  .filter-chip.active::before {
+    display: none;
+  }
+}
