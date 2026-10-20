@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>原典摘读｜山海异兽录</title>
+  <meta name="description" content="山海异兽录原典摘读：一条经文，一句白话，逐句对读。附原书注释、名物考与义疏，原文形貌、声音、征兆、用途一目可查。">
+  <meta name="theme-color" content="#171c1b">
+  <link rel="icon" type="image/png" href="images/demo/山海经1logo.png">
+  <link rel="stylesheet" href="css/article.css">
+  <script src="data/classics.js" defer></script>
+  <script src="data/articles.js" defer></script>
+  <script src="js/article.js" defer></script>
+</head>
+<body class="article-page">
+  <a class="skip-link" href="#main">跳至正文</a>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="cloud" viewBox="0 0 80 48"><path d="M74 35H18C-2 35 3 13 18 17 16 3 40 2 42 17 52 6 69 17 61 27H28c-10 0-11-10-3-12"/><path d="M10 43h49c11 0 15-10 9-14M46 23c-3-7-13-4-10 3"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="read-progress" aria-hidden="true"><span id="read-progress-bar"></span></div>
+
+  <header class="home-header">
+    <a class="brand" href="index.html" aria-label="山海异兽录首页"><img class="brand-logo" src="images/demo/山海经1logo.png" alt="" width="56" height="56"><span>山海异兽录</span></a>
+    <nav class="scroll-nav" aria-label="主导航">
+      <svg class="nav-cloud nav-cloud-left" aria-hidden="true"><use href="#cloud"/></svg>
+      <a href="index.html">入画</a>
+      <a href="beasts.html">神兽图鉴</a>
+      <a href="map.html">山海舆图</a>
+      <a href="culture.html">文化寻踪</a>
+      <a class="is-current" href="classics.html" aria-current="page">原典摘读</a>
+      <svg class="nav-cloud nav-cloud-right" aria-hidden="true"><use href="#cloud"/></svg>
+    </nav>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" hidden>目录 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="移动端主导航" hidden>
+      <a href="beasts.html">神兽图鉴</a><a href="map.html">山海舆图</a><a href="culture.html">文化寻踪</a><a class="is-current" href="classics.html" aria-current="page">原典摘读</a><a href="about.html">关于山海</a>
+    </nav>
+  </header>
+  <noscript><nav class="fallback-nav" aria-label="栏目导航"><a href="index.html">入画</a><a href="beasts.html">神兽图鉴</a><a href="map.html">山海舆图</a><a href="culture.html">文化寻踪</a><a href="classics.html">原典摘读</a><a href="about.html">关于山海</a></nav><style>.fallback-nav{position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:12px;padding:110px 22px 16px;background:#171c1b;color:#f3e6ca}.menu-toggle{display:none!important}.read-rail{display:none!important}.read-article{display:none!important}</style></noscript>
+
+  <main id="main">
+    <section class="article-masthead" aria-labelledby="art-name">
+      <div class="masthead-texture" aria-hidden="true"></div>
+      <div class="site-shell masthead-shell">
+        <div class="masthead-copy">
+          <nav class="masthead-crumb" aria-label="面包屑导航">
+            <a href="index.html">首页</a><span aria-hidden="true">/</span><a href="classics.html">原典摘读</a><span aria-hidden="true">/</span><span aria-current="page" id="art-crumb-name">条目</span>
+          </nav>
+          <p class="masthead-kicker" id="art-kicker">经篇 · 山名</p>
+          <h1 class="masthead-title" id="art-name">原典摘读</h1>
+          <p class="masthead-pinyin" id="art-pinyin"></p>
+          <p class="masthead-subtitle" id="art-subtitle"></p>
+          <p class="masthead-deck" id="art-deck"></p>
+          <div class="masthead-marks">
+            <span class="mark-chip" id="art-place">—</span>
+            <span class="mark-chip mark-chip-quiet" id="art-source">—</span>
+          </div>
+        </div>
+        <div class="masthead-plate-wrap">
+          <div class="masthead-plate" id="art-plate">
+            <img class="masthead-plate-img" id="art-cover" alt="" decoding="async" hidden>
+            <span class="masthead-seal" id="art-seal" aria-hidden="true">典</span>
+            <span class="masthead-plate-label" id="art-plate-label">插图待补</span>
+            <span class="masthead-side" id="art-plate-side" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="read-shell site-shell">
+      <aside class="read-rail" aria-label="阅读工具">
+        <div class="view-switch" role="group" aria-label="阅读方式">
+          <button type="button" data-view="both" aria-pressed="true">对读</button>
+          <button type="button" data-view="classic" aria-pressed="false">只读原文</button>
+          <button type="button" data-view="vernacular" aria-pressed="false">只读白话</button>
+        </div>
+        <nav class="rail-index" aria-label="本篇目录">
+          <a href="#passage">经文对读</a>
+          <a href="#lore">名物考</a>
+          <a href="#gloss">义疏</a>
+          <a href="#related">相关条目</a>
+        </nav>
+        <p class="rail-note">原文与白话逐句对应。切换只改变显示，不改动文字。</p>
+        <a class="rail-back" href="classics.html">返回摘读目录 <span aria-hidden="true">↩</span></a>
+      </aside>
+
+      <div class="read-main">
+        <noscript>
+          <div class="nojs-note">
+            <h2>直接进入条目</h2>
+            <p>本页正文按编号读取，浏览器关闭脚本时可以先从下面的目录进入摘读；开启脚本后可读到原文与白话的对读版式。</p>
+            <ol>
+              <li><a href="article.html?id=1">青丘九尾狐：其状如狐而九尾</a></li>
+              <li><a href="article.html?id=2">丹穴凤凰：五采而文，见则安宁</a></li>
+              <li><a href="article.html?id=3">杻阳旋龟：龟身鸟首而虺尾</a></li>
+              <li><a href="article.html?id=4">鹿吴蛊雕：如雕而有角，其音如婴儿</a></li>
+              <li><a href="article.html?id=5">章莪之狰：赤豹五尾而一角</a></li>
+              <li><a href="article.html?id=6">阴山天狗：状如狸而白首，可以御凶</a></li>
+              <li><a href="article.html?id=7">邽山穷奇：状如牛而猬毛，是食人</a></li>
+              <li><a href="article.html?id=8">钩吾狍鸮：羊身人面而食人</a></li>
+              <li><a href="article.html?id=9">大荒应龙：杀蚩尤与夸父</a></li>
+              <li><a href="article.html?id=10">流波山夔：一足苍身而声如雷</a></li>
+            </ol>
+            <a class="missing-action" href="classics.html">返回摘读目录</a>
+          </div>
+        </noscript>
+
+        <div class="article-missing" id="article-missing" hidden>
+          <strong>没有找到这一条</strong>
+          <p>链接里的编号可能写错了。回摘读目录挑一条重新进入。</p>
+          <a class="missing-action" href="classics.html">返回摘读目录</a>
+        </div>
+
+        <article class="read-article" id="read-article">
+          <section class="passage" id="passage" data-view="both" aria-labelledby="passage-title">
+            <div class="passage-head">
+              <h2 id="passage-title">经文对读</h2>
+              <p class="passage-note" id="passage-note">左为原文，右为白话；转行处与原句对应。</p>
+            </div>
+            <div class="passage-columns">
+              <div class="slip-column">
+                <p class="column-label"><span aria-hidden="true">一</span> 原文</p>
+                <p class="classic-text" id="art-original"></p>
+                <div class="classic-notes" id="art-notes"></div>
+              </div>
+              <div class="vernacular-column">
+                <p class="column-label"><span aria-hidden="true">二</span> 白话</p>
+                <p class="vernacular-text" id="art-vernacular"></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="lore" id="lore" aria-labelledby="lore-title">
+            <div class="section-head">
+              <h2 id="lore-title">名物考</h2>
+              <p>四格都从本条原文里摘出，不加原文没有的信息。</p>
+            </div>
+            <div class="lore-grid" id="art-lore"></div>
+          </section>
+
+          <section class="gloss" id="gloss" aria-labelledby="gloss-title">
+            <div class="section-head">
+              <h2 id="gloss-title">义疏</h2>
+              <p>本站整理的读法，与原文分栏阅读。</p>
+            </div>
+            <div class="gloss-body" id="art-gloss"></div>
+          </section>
+
+          <section class="related" id="related" aria-labelledby="related-title">
+            <div class="section-head">
+              <h2 id="related-title">相关条目</h2>
+              <p>同一卷或形体相近的几条，可对照读。</p>
+            </div>
+            <div class="related-grid" id="art-related"></div>
+          </section>
+
+          <nav class="article-pager" id="art-pager" aria-label="条目翻页"></nav>
+
+          <p class="article-footnote">原文、注释与译文的底本见资料来源说明；义疏为本站整理，涉及后世说法的段落均已注明。</p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="home-footer site-shell">
+    <div class="footer-art" aria-hidden="true"></div>
+    <div class="footer-content">
+      <div class="footer-finale">
+        <h2 class="footer-closing"><span>读一行原典，</span><span>见一山异兽。</span></h2>
+        <a class="source-link" href="classics.html">再看一条摘读 <span aria-hidden="true">↗</span></a>
+      </div>
+      <nav aria-label="页脚导航"><a href="beasts.html">神兽图鉴</a><a href="map.html">山海舆图</a><a href="culture.html">文化寻踪</a><a href="classics.html">原典摘读</a><a href="about.html">关于山海</a></nav>
+      <div class="footer-notes">
+        <p>插画为艺术演绎；原典记载与后世演绎分开阅读。<br>图版取自资料整理稿，按页裁切使用。</p>
+        <a class="source-link" href="docs/source-notes.md">资料来源说明</a>
+        <small>山海异兽录·山海经神兽图鉴科普网站</small>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
