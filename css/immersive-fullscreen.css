@@ -77,7 +77,7 @@ h1, h2, h3, p { margin: 0; }
 .chapter-nav small { display: block; font-size: 14px; color: var(--muted); }
 .section-wrap { padding-inline: var(--gutter); }
 .scroll-world { position: relative; isolation: isolate; }
-.scroll-world::before { content: ""; position: absolute; z-index: -1; inset: 0; background: url('../images/hero/home-landscape-01.png') center 20% / 100% auto repeat-y; filter: grayscale(1); opacity: .045; mask-image: linear-gradient(transparent, black 12%, black 88%, transparent); pointer-events: none; } /* taste-skill-ignore: alpha feathering of bitmap edges, not a colour fill. */
+.scroll-world::before { content: ""; position: absolute; z-index: -1; inset: 0; background: url('../images/hero/home-landscape-01.webp') center 20% / 100% auto repeat-y; filter: grayscale(1); opacity: .045; mask-image: linear-gradient(transparent, black 12%, black 88%, transparent); pointer-events: none; } /* taste-skill-ignore: alpha feathering of bitmap edges, not a colour fill. */
 .beast-gallery { padding-top: 86px; padding-bottom: 40px; }
 .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 44px; }
 .section-heading h2, .reading-title h2 { font: 64px/1.15 var(--display); color: var(--paper); }
@@ -109,7 +109,7 @@ h1, h2, h3, p { margin: 0; }
 .reading-list small { display: block; margin-top: 8px; font-size: 14px; color: var(--gold); }
 
 .home-footer { position: relative; isolation: isolate; overflow: hidden; padding-top: 64px; padding-bottom: 34px; }
-.footer-art { position: absolute; z-index: -2; inset: 0; background: url('../images/hero/home-landscape-01.png') center 65% / cover; filter: grayscale(1); opacity: .11; }
+.footer-art { position: absolute; z-index: -2; inset: 0; background: url('../images/hero/home-landscape-01.webp') center 65% / cover; filter: grayscale(1); opacity: .11; }
 .home-footer::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, var(--ink), transparent 65%); pointer-events: none; } /* taste-skill-ignore: neutral scrim over the closing landscape. */
 .footer-finale { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .footer-closing { font: 64px/1.2 var(--display); }

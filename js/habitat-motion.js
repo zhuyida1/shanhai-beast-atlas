@@ -9,7 +9,8 @@
       const note = document.getElementById('map-motion-note');
       const reduced = matchMedia('(prefers-reduced-motion:reduce)');
       const preferenceKey = 'shanhai-habitat-motion-paused';
-      let paused = false, pending = null, active = null, position = null, phaseTimer = 0;
+      let paused = false, pending = null, active = null, position = null, phaseTimer = 0, inView = true;
+      const journalAnimations = new Set();
       try { paused = localStorage.getItem(preferenceKey) === '1'; } catch (_) { /* Optional preference storage. */ }
       const layer = document.createElement('div');
       layer.className = 'habitat-motion-layer';
@@ -23,7 +24,7 @@
       layer.append(aura);
       viewport.append(layer);
 
-      function enabled() { return !paused && !reduced.matches && !document.hidden; }
+      function enabled() { return !paused && !reduced.matches && !document.hidden && inView; }
       function idleNote() { return enabled() ? '点朱砂，唤醒山海' : '朱砂点选，手札随行'; }
       function paint() {
         const visible = !!active && !!position && enabled();
@@ -51,15 +52,17 @@
         // Keep the selected point's steady state while stopping hidden/disabled animations.
         // Resuming never queues or replays an interrupted awakening.
         if (!enabled()) {
+          for (const animation of journalAnimations) animation.cancel();
+          journalAnimations.clear();
           if (pending) { active = {...pending, phase:'ripple'}; pending = null; }
           settle();
         }
-        page.dataset.habitatMotion = reduced.matches ? 'reduced' : paused ? 'paused' : document.hidden ? 'hidden' : 'on';
+        page.dataset.habitatMotion = reduced.matches ? 'reduced' : paused ? 'paused' : document.hidden ? 'hidden' : !inView ? 'offscreen' : 'on';
         toggle.setAttribute('aria-pressed', String(!paused && !reduced.matches));
         toggle.setAttribute('aria-label', reduced.matches ? '地图动态效果，已遵循系统减少动态效果设置' : '地图动态效果');
         toggle.disabled = reduced.matches;
         toggle.querySelector('.motion-toggle-label').textContent = reduced.matches ? '已减少动效' : paused ? '开启动效' : '暂停动效';
-        toggle.title = reduced.matches ? '已遵循系统的“减少动态效果”设置' : paused ? '开启入场、导航金边与扫光、路线流光和地点动效' : '暂停入场、导航金边与扫光、路线流光和地点动效';
+        toggle.title = reduced.matches ? '已遵循系统的“减少动态效果”设置' : paused ? '开启水纹、巡游金光、朱砂呼吸、手札过渡与路线动效' : '暂停水纹、巡游金光、朱砂呼吸、手札过渡与路线动效';
         paint();
       }
       toggle.addEventListener('click', () => {
@@ -69,6 +72,13 @@
       });
       reduced.addEventListener('change', sync);
       document.addEventListener('visibilitychange', sync);
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          inView = entries[0].isIntersecting;
+          sync();
+        }, {rootMargin: '100px'});
+        observer.observe(viewport);
+      }
       window.addEventListener('pagehide', () => {
         settle();
         aura.hidden = true;
@@ -90,6 +100,18 @@
         select(id, name) {
           clear();
           if (!id) return;
+          for (const animation of journalAnimations) animation.cancel();
+          journalAnimations.clear();
+          if (enabled()) for (const selector of ['#journal-art-host', '#journal-body']) {
+            const target = document.querySelector(selector);
+            if (!target || target.hidden || typeof target.animate !== 'function') continue;
+            const animation = target.animate([
+              {opacity: .35, transform: 'translateY(10px)'},
+              {opacity: 1, transform: 'translateY(0)'}
+            ], {duration: 520, easing: 'cubic-bezier(.2,.65,.3,1)'});
+            journalAnimations.add(animation);
+            animation.onfinish = () => journalAnimations.delete(animation);
+          }
           if (enabled()) pending = {id, name};
           else active = {id, name, phase:'ripple'};
         },

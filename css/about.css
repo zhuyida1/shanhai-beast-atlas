@@ -112,7 +112,7 @@ a:focus-visible, button:focus-visible, [tabindex="-1"]:focus-visible { outline: 
 
 /* ---------- 页脚：与站内一致 ---------- */
 .home-footer { position: relative; isolation: isolate; overflow: hidden; margin-top: 56px; padding-top: 64px; padding-bottom: 34px; }
-.footer-art { position: absolute; z-index: -2; inset: 0; background: url('../images/hero/home-landscape-01.png') center 65% / cover; filter: grayscale(1); opacity: .11; }
+.footer-art { position: absolute; z-index: -2; inset: 0; background: url('../images/hero/home-landscape-01.webp') center 65% / cover; filter: grayscale(1); opacity: .11; }
 .home-footer::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, var(--ink), transparent 65%); pointer-events: none; } /* taste-skill-ignore: neutral scrim over the closing landscape. */
 .footer-finale { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .footer-closing { font: 64px/1.2 var(--display); font-weight: 400; }

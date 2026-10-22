@@ -3,6 +3,8 @@
   const H=window.ShanhaiHabitats,{$,el,clamp,data,placeById,beastById}=H;
   const viewport=$('#map-viewport');if(!viewport)return;
   const svg=$('#habitat-map'),hotspots=$('#hotspot-layer'),labels=$('#label-layer'),tooltip=$('#map-tooltip');
+  const labelLeaders=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  labelLeaders.classList.add('map-label-leaders');labelLeaders.setAttribute('aria-hidden','true');labels.before(labelLeaders);
   let world=H.mountWorld(svg,'atlas'),terrainKey='world',localPositions=new Map();
   const state=H.readState(),initialParams=new URLSearchParams(location.search);
   if(state.passage&&!initialParams.has('point')){const route=data.textRoutes.find(r=>r.id===state.passage),from=placeById.get(route.from);if(from)state.point=from.beastIds[0];else state.node=route.from;}
@@ -62,13 +64,30 @@
     syncLinks();
   }
   function layoutLabels(isolated,groups,rect){
-    for(const l of labelNodes.values())l.hidden=true;if(!state.labels)return;
-    const active=currentPlace(),boxes=[],max=state.view==='region'?12:small.matches&&state.z<1.4?5:small.matches?10:12;
+    labelLeaders.replaceChildren();labelLeaders.setAttribute('viewBox',`0 0 ${rect.width} ${rect.height}`);
+    for(const l of labelNodes.values()){l.hidden=true;delete l.dataset.places;}if(!state.labels)return;
+    const active=currentPlace(),boxes=[];
     const priority=p=>(p.id===active?100:0)+p.labelPriority+(state.q?10:0);
-    isolated.sort((a,b)=>priority(b.place)-priority(a.place));let used=0;
-    for(const point of isolated){if(used>=max)break;const p=point.place,label=labelNodes.get(p.id);label.hidden=false;label.classList.toggle('is-selected',p.id===active);const w=label.offsetWidth,h=label.offsetHeight;const candidates=[[point.x+14,point.y-h/2],[point.x-14-w,point.y-h/2],[point.x-w/2,point.y-25-h],[point.x-w/2,point.y+25]];
-      const box=candidates.map(([x,y])=>({x,y,w,h})).find(b=>b.x>=6&&b.y>=6&&b.x+b.w<=rect.width-6&&b.y+b.h<=rect.height-6&&!boxes.some(c=>b.x<c.x+c.w+5&&b.x+b.w>c.x-5&&b.y<c.y+c.h+5&&b.y+b.h>c.y-5)&&!groups.some(g=>g!==point&&b.x<g.x+11&&b.x+b.w>g.x-11&&b.y<g.y+11&&b.y+b.h>g.y-11));
-      if(!box){label.hidden=true;continue;}label.style.left=box.x+'px';label.style.top=(box.y+h/2)+'px';boxes.push(box);used++;
+    const ordered=[...groups].sort((a,b)=>Math.max(...b.places.map(priority))-Math.max(...a.places.map(priority)));
+    const overlap=(a,b,pad=4)=>Math.max(0,Math.min(a.x+a.w,b.x+b.w+pad)-Math.max(a.x,b.x-pad))*Math.max(0,Math.min(a.y+a.h,b.y+b.h+pad)-Math.max(a.y,b.y-pad));
+    for(const point of ordered){
+      const label=labelNodes.get(point.places[0].id);
+      label.replaceChildren(...point.places.map(p=>el('span','map-label-name',p.name)));
+      label.dataset.places=point.places.map(p=>p.id).join(' ');
+      label.classList.toggle('is-selected',point.places.some(p=>p.id===active));
+      label.classList.toggle('is-group',point.places.length>1);label.hidden=false;
+      const w=label.offsetWidth,h=label.offsetHeight,candidates=[];
+      // Search around the point rather than dropping names after a fixed quota.
+      for(const d of [18,32,50,72,96])for(const [x,y]of [[point.x+d,point.y-h/2],[point.x-d-w,point.y-h/2],[point.x-w/2,point.y-d-h],[point.x-w/2,point.y+d],[point.x+d,point.y-d-h],[point.x-d-w,point.y+d]]){
+        const b={x:clamp(x,5,Math.max(5,rect.width-w-5)),y:clamp(y,5,Math.max(5,rect.height-h-5)),w,h};
+        const collisions=boxes.reduce((sum,c)=>sum+overlap(b,c),0)+groups.reduce((sum,g)=>sum+overlap(b,{x:g.x-12,y:g.y-12,w:24,h:24},2),0);
+        const distance=Math.hypot(b.x+w/2-point.x,b.y+h/2-point.y);
+        candidates.push({...b,score:collisions*1000+distance});
+      }
+      candidates.sort((a,b)=>a.score-b.score);const box=candidates[0];
+      label.style.left=box.x+'px';label.style.top=(box.y+h/2)+'px';boxes.push(box);
+      const endX=clamp(point.x,box.x,box.x+w),endY=clamp(point.y,box.y,box.y+h);
+      if(Math.hypot(endX-point.x,endY-point.y)>22){const line=document.createElementNS('http://www.w3.org/2000/svg','line');line.setAttribute('x1',point.x);line.setAttribute('y1',point.y);line.setAttribute('x2',endX);line.setAttribute('y2',endY);labelLeaders.append(line);}
     }
   }
   function activeRoutes(){const ids=new Set(visiblePlaces.map(p=>p.id));if(state.view==='world'&&results.length&&state.category==='all'&&state.review==='all'&&!state.q)for(const n of data.contextNodes.filter(n=>n.seriesId===state.series))ids.add(n.id);return state.text?data.textRoutes.filter(r=>r.seriesId===state.series&&ids.has(r.from)&&ids.has(r.to)):[];}

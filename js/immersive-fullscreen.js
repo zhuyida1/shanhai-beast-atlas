@@ -14,7 +14,7 @@
   const motionButton = document.querySelector('.motion-toggle');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let currentScene = 'fox';
-  let pausedByUser = false;
+  let pausedByUser = !!navigator.connection?.saveData || /^(slow-)?2g$/.test(navigator.connection?.effectiveType || '');
   let heroVisible = true;
   let videoFailed = false;
   let playRequest = 0;

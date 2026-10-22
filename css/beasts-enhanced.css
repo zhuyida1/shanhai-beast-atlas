@@ -42,7 +42,7 @@ body.beasts-enhanced::before {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background: url('../images/hero/home-landscape-01.png') center 20% / 100% auto repeat-y;
+  background: url('../images/hero/home-landscape-01.webp') center 20% / 100% auto repeat-y;
   filter: grayscale(1);
   opacity: .045;
   mask-image: linear-gradient(transparent, black 12%, black 88%, transparent);

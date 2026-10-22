@@ -231,6 +231,11 @@
     if (emptyHost) emptyHost.hidden = !(active && shown === 0);
     if (listHost) listHost.hidden = active && shown === 0;
     if (clearButton) clearButton.hidden = !term;
+    const url = new URL(location.href);
+    url.searchParams.delete('search');
+    if (term) url.searchParams.set('q',term); else url.searchParams.delete('q');
+    if (state.chapter !== ALL) url.searchParams.set('chapter',state.chapter); else url.searchParams.delete('chapter');
+    try { history.replaceState(null,'',url); } catch (_) { /* Local file browsing remains usable. */ }
   };
 
   const syncChips = () => {
@@ -306,6 +311,14 @@
   if (initialChapter && chapterNames.includes(initialChapter)) state.chapter = initialChapter;
   syncChips();
   applyFilters();
+
+  window.addEventListener('popstate',() => {
+    const next = new URLSearchParams(location.search);
+    state.term = (next.get('q') || next.get('search') || '').trim();
+    state.chapter = chapterNames.includes(next.get('chapter')) ? next.get('chapter') : ALL;
+    if(searchInput)searchInput.value=state.term;
+    syncChips();applyFilters();
+  });
 
   // 键盘：按 / 直接聚焦检字框
   document.addEventListener('keydown', event => {

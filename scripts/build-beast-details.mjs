@@ -2,6 +2,7 @@ import { readFile, writeFile, access } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import { beastDetails } from '../data/beast-details.mjs';
+import { readingConnections } from './reading-connections.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const esc = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
@@ -31,6 +32,10 @@ function render(beast) {
   <link rel="stylesheet" href="css/jiuweihu-detail.css">
   <link rel="stylesheet" href="css/beast-detail-shared.css">
   <script src="js/beast-detail-interactions.js" defer></script>
+  <link rel="icon" type="image/png" href="images/demo/山海经1logo.png">
+  <meta name="theme-color" content="#171c1b">
+  <link rel="stylesheet" href="css/site-experience.css">
+  <script src="js/site-experience.js" defer></script>
 </head>
 <body class="beast-reading-page" data-beast="${slug}">
   <a class="skip-link" href="#origin">跳到正文</a>
@@ -55,6 +60,7 @@ function render(beast) {
         ${variant ? `<div class="art-options" aria-label="${esc(name)}插画切换"><a href="${artwork}" class="art-option is-selected" data-art data-caption="${esc(name)} · 神兽绘像" data-alt="${artAlt}" aria-current="true"><img src="${artwork}" alt="" width="120" height="80"><span>神兽绘像</span></a><a href="${variant}" class="art-option" data-art data-caption="${esc(name)} · 另一种演绎" data-alt="${name}的另一幅国风插画，形貌为艺术演绎"><img src="${variant}" alt="" width="120" height="80"><span>另一种演绎</span></a></div>` : `<a class="text-link" href="${artwork}" download="${slug}-illustration.jpg">保存神兽插画 <span aria-hidden="true">↓</span></a>`}
       </div>
     </section>
+    ${readingConnections(beast)}
     <div class="reading-layout page-width">
       <aside class="reading-sidebar" aria-label="本页阅读目录"><div class="reading-sticky">
         <p class="toc-title">循卷而读</p>

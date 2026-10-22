@@ -19,7 +19,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 36px; }
 body { margin: 0; background: var(--ink); color: var(--paper); font: var(--body-size)/1.85 var(--text); isolation: isolate; }
 body::before, body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; }
-body::before { background: url('../images/hero/home-landscape-01.png') center / cover; opacity: .05; filter: grayscale(1); }
+body::before { background: url('../images/hero/home-landscape-01.webp') center / cover; opacity: .05; filter: grayscale(1); }
 body::after { background: url('../images/demo/paper-texture.jpg') center / 640px repeat; opacity: .07; mix-blend-mode: soft-light; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; }

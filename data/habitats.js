@@ -757,7 +757,7 @@ window.ShanhaiHabitatData = {
         "虺尾"
       ],
       "image": "images/demo/thumb-xuangui.jpg",
-      "detailHref": null,
+      "detailHref": "beast-xuangui.html",
       "catalogHref": "beasts.html?search=%E6%97%8B%E9%BE%9F",
       "contentKind": "classical-excerpt",
       "reviewStatus": "verified",
@@ -807,7 +807,7 @@ window.ShanhaiHabitatData = {
         "白首"
       ],
       "image": "images/demo/thumb-tiangou.jpg",
-      "detailHref": null,
+      "detailHref": "beast-tiangou.html",
       "catalogHref": "beasts.html?search=%E5%A4%A9%E7%8B%97",
       "contentKind": "classical-excerpt",
       "reviewStatus": "verified",
@@ -862,7 +862,7 @@ window.ShanhaiHabitatData = {
         "击石"
       ],
       "image": "images/demo/thumb-zheng.jpg",
-      "detailHref": null,
+      "detailHref": "beast-zheng.html",
       "catalogHref": "beasts.html?search=%E7%8B%B0",
       "contentKind": "classical-excerpt",
       "reviewStatus": "verified",
@@ -915,7 +915,7 @@ window.ShanhaiHabitatData = {
         "大水"
       ],
       "image": "images/demo/thumb-luoyu.jpg",
-      "detailHref": null,
+      "detailHref": "beast-luoyu.html",
       "catalogHref": "beasts.html?search=%E8%A0%83%E9%B1%BC",
       "contentKind": "classical-excerpt",
       "reviewStatus": "verified",
@@ -963,7 +963,7 @@ window.ShanhaiHabitatData = {
         "猬毛"
       ],
       "image": "images/demo/thumb-qiongqi.jpg",
-      "detailHref": null,
+      "detailHref": "beast-qiongqi.html",
       "catalogHref": "beasts.html?search=%E7%A9%B7%E5%A5%87",
       "contentKind": "classical-excerpt",
       "reviewStatus": "verified",
@@ -1012,7 +1012,7 @@ window.ShanhaiHabitatData = {
         "食人"
       ],
       "image": "images/demo/thumb-gudiao.jpg",
-      "detailHref": null,
+      "detailHref": "beast-gudiao.html",
       "catalogHref": "beasts.html?search=%E8%9B%8A%E9%9B%95",
       "contentKind": "classical-excerpt",
       "reviewStatus": "verified",
@@ -1147,7 +1147,7 @@ window.ShanhaiHabitatData = {
         "待核实"
       ],
       "image": "images/demo/thumb-yinglong.jpg",
-      "detailHref": null,
+      "detailHref": "beast-yinglong.html",
       "catalogHref": "beasts.html?search=%E5%BA%94%E9%BE%99",
       "contentKind": "classical-excerpt",
       "reviewStatus": "pending",

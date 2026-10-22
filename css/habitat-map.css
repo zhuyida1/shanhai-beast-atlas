@@ -125,7 +125,7 @@
 .journal-art{position:relative;background:#d9c79e}
 .journal-art img{width:100%;height:auto;object-fit:contain}
 .journal-art figcaption{padding:8px 16px;background:var(--habitat-paper);border-bottom:1px solid #b7a77f66;color:#715c3d;font-size:11px;line-height:1.6;text-align:right;overflow-wrap:anywhere}
-.no-illustration{background:linear-gradient(#e5d5ad99,#c7b78f99),url('../images/hero/home-landscape-01.png') center/cover;display:grid;place-items:center;position:relative;min-height:190px}
+.no-illustration{background:linear-gradient(#e5d5ad99,#c7b78f99),url('../images/hero/home-landscape-01.webp') center/cover;display:grid;place-items:center;position:relative;min-height:190px}
 .missing-art{color:#534f3f;padding:18px}.journal-art.no-illustration figcaption{font-size:11px}
 .journal-body{padding:20px 24px 24px;overflow-wrap:anywhere}
 .journal-place{font-size:14px;color:#736246;display:flex;align-items:center;gap:8px}.journal-place::before{content:"";width:18px;height:1px;background:#ac7049}
@@ -162,7 +162,7 @@
 .source-method-body{display:grid;grid-template-columns:1fr 1fr;gap:24px 60px;padding-top:25px;font-size:14px;color:var(--habitat-muted)}
 .source-method-body h3{color:var(--habitat-paper);font-size:18px;font-weight:400;margin-bottom:8px}.source-method-body a{color:var(--habitat-gold);text-decoration:underline;text-underline-offset:4px}
 .habitat-footer{position:relative;margin-top:50px;padding:54px 0 32px;isolation:isolate;overflow:hidden}
-.habitat-footer::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(var(--habitat-ink),#171c1b99),url('../images/hero/home-landscape-01.png') center 70%/cover;opacity:.5;pointer-events:none}
+.habitat-footer::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(var(--habitat-ink),#171c1b99),url('../images/hero/home-landscape-01.webp') center 70%/cover;opacity:.5;pointer-events:none}
 .footer-finale{display:flex;align-items:center;justify-content:space-between;gap:28px}.footer-finale h2{font:50px/1.3 var(--habitat-display);font-weight:400}.habitat-footer nav{display:flex;flex-wrap:wrap;gap:8px 30px;margin-block:28px 36px}.habitat-footer nav a{min-height:44px;display:flex;align-items:center;font-size:14px}.footer-note{display:flex;justify-content:space-between;align-items:end;gap:25px;font-size:12px;color:var(--habitat-muted)}
 .region-heading{display:flex;justify-content:space-between;gap:40px;align-items:center;padding-block:16px 28px}.region-heading h1{font:68px/1.2 var(--habitat-display);font-weight:400;margin-top:8px;overflow-wrap:anywhere}.region-heading p:not(.eyebrow){max-width:580px;color:var(--habitat-muted);margin-top:16px}.region-heading .text-link{margin-top:16px}
 .region-minimap{width:300px;max-width:38%;aspect-ratio:1;position:relative;flex-shrink:0;overflow:hidden}.region-minimap svg{width:100%;height:100%;display:block}.region-minimap::after{content:"局部山海 · 位置示意";position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:12px;color:var(--habitat-gold);background:var(--habitat-ink)}

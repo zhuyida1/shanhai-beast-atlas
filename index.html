@@ -6,12 +6,15 @@
   <meta name="description" content="展开一卷山海，循着原典与插画，遇见九尾狐、凤凰和古人的奇异想象。">
   <title>山海异兽录 · 一卷山海，万象有灵</title>
   <link rel="icon" type="image/png" href="images/demo/山海经1logo.png">
-  <link rel="preload" as="image" href="images/hero/hero-jiuweihu-integrated.png">
+  <link rel="preload" as="image" href="images/hero/hero-jiuweihu-integrated.webp">
   <link rel="stylesheet" href="css/immersive-fullscreen.css">
   <link rel="stylesheet" href="css/banner-decorations.css">
   <script src="js/immersive-fullscreen.js" defer></script>
   <link rel="stylesheet" href="css/navigation-flow.css">
   <script src="js/navigation-flow.js" defer></script>
+  <link rel="stylesheet" href="css/site-experience.css">
+  <script src="js/site-experience.js" defer></script>
+  <meta name="theme-color" content="#171c1b">
 </head>
 <body class="immersive-home">
   <a class="skip-link" href="#main">跳至首页内容</a>
@@ -46,12 +49,12 @@
   <main id="main">
     <section class="scroll-hero" aria-labelledby="hero-title">
       <div class="hero-paintings" aria-hidden="true">
-        <img class="hero-painting hero-poster is-active" id="fox-poster" src="images/hero/hero-jiuweihu-integrated.png" alt="" width="1672" height="941" fetchpriority="high">
-        <video class="hero-painting" id="painting-fox" loop muted playsinline preload="none" poster="images/hero/hero-jiuweihu-integrated.png" width="2560" height="1440">
+        <img class="hero-painting hero-poster is-active" id="fox-poster" src="images/hero/hero-jiuweihu-integrated.webp" alt="" width="1672" height="941" fetchpriority="high">
+        <video class="hero-painting" id="painting-fox" loop muted playsinline preload="none" poster="images/hero/hero-jiuweihu-integrated.webp" width="2560" height="1440">
           <source src="images/hero/video/jiuweihu-animated.mp4" type="video/mp4">
-          <img src="images/hero/hero-jiuweihu-integrated.png" alt="" width="1672" height="941" fetchpriority="high">
+          <img src="images/hero/hero-jiuweihu-integrated.webp" alt="" width="1672" height="941" fetchpriority="high">
         </video>
-        <img class="hero-painting" id="painting-phoenix" src="images/hero/hero-fenghuang-integrated.png" alt="" width="1672" height="941">
+        <img class="hero-painting" id="painting-phoenix" src="images/hero/hero-fenghuang-integrated.webp" alt="" width="1672" height="941">
       </div>
       <div class="hero-copy">
         <h1 id="hero-title"><span>山海</span><span>异兽录</span></h1>
@@ -84,7 +87,7 @@
       <div class="beast-exhibition">
         <a class="exhibit exhibit-fox" href="beast-detail.html"><div class="exhibit-image"><img src="images/demo/thumb-jiuweihu.jpg" alt="山水间的九尾狐国风插画" width="1254" height="1254" loading="lazy"><span class="exhibit-seal">青丘之山</span></div><div class="exhibit-caption"><h3>九尾狐</h3><p>其状如狐而九尾，其音如婴儿。</p><span class="exhibit-action">观其形 · 读其文 <span aria-hidden="true">↗</span></span></div></a>
         <a class="exhibit exhibit-phoenix" href="beast-fenghuang.html"><div class="exhibit-image"><img src="images/demo/thumb-fenghuang.jpg" alt="丹穴山中的五彩凤凰国风插画" width="1254" height="1254" loading="lazy"><span class="exhibit-seal">丹穴之山</span></div><div class="exhibit-caption"><h3>凤凰</h3><p>其状如鸡，五采而文。</p><span class="exhibit-action">观其形 · 读其文 <span aria-hidden="true">↗</span></span></div></a>
-        <a class="exhibit exhibit-turtle" href="beasts.html"><div class="exhibit-image"><img src="images/demo/thumb-xuangui.jpg" alt="水畔鸟首蛇尾的旋龟国风插画" width="1254" height="1254" loading="lazy"><span class="exhibit-seal">杻阳之山</span></div><div class="exhibit-caption"><h3>旋龟</h3><p>其状如龟而鸟首虺尾。</p><span class="exhibit-action">前往神兽图鉴 <span aria-hidden="true">↗</span></span></div></a>
+        <a class="exhibit exhibit-turtle" href="beast-xuangui.html"><div class="exhibit-image"><img src="images/demo/thumb-xuangui.jpg" alt="水畔鸟首蛇尾的旋龟国风插画" width="1254" height="1254" loading="lazy"><span class="exhibit-seal">杻阳之山</span></div><div class="exhibit-caption"><h3>旋龟</h3><p>其状如龟而鸟首虺尾。</p><span class="exhibit-action">观其形 · 读其文 <span aria-hidden="true">↗</span></span></div></a>
       </div>
     </section>
 
@@ -93,9 +96,9 @@
         <div class="reading-title"><h2 id="reading-title">画中有奇兽<br>书中有来处</h2><p>从眼前的形，读回古籍里的字。<br>也读文字之外，流传千年的想象。</p><a class="text-link" href="classics.html">打开原典摘读 <span aria-hidden="true">↗</span></a></div>
         <div class="reading-columns">
           <section class="reading-list" aria-labelledby="classics-title"><h3 id="classics-title">原典里的山川异兽</h3>
-            <a href="classics.html"><span>青丘有兽</span><p>有兽焉，其状如狐而九尾，其音如婴儿。</p><small>《南山经》</small></a>
-            <a href="classics.html"><span>丹穴有鸟</span><p>有鸟焉，其状如鸡，五采而文，名曰凤凰。</p><small>《南山经》</small></a>
-            <a href="classics.html"><span>旋龟出焉</span><p>其状如龟而鸟首虺尾，其名曰旋龟。</p><small>《南山经》</small></a>
+            <a href="article.html?id=1"><span>青丘有兽</span><p>有兽焉，其状如狐而九尾，其音如婴儿。</p><small>《南山经》</small></a>
+            <a href="article.html?id=2"><span>丹穴有鸟</span><p>有鸟焉，其状如鸡，五采而文，名曰凤凰。</p><small>《南山经》</small></a>
+            <a href="article.html?id=3"><span>旋龟出焉</span><p>其状如龟而鸟首虺尾，其名曰旋龟。</p><small>《南山经》</small></a>
           </section>
           <section class="reading-list culture-list" aria-labelledby="culture-title"><h3 id="culture-title">神话之外的回响</h3>
             <a href="culture.html"><span>九尾狐的形象流变</span><p>从古籍中的异兽，读到后世故事中的狐影。</p><small>文化寻踪</small></a>

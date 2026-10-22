@@ -59,6 +59,34 @@
 @keyframes habitat-cinnabar-ring{0%{opacity:.9;transform:scale(.6)}100%{opacity:0;transform:scale(3.4)}}
 @keyframes habitat-star-appear{0%{opacity:0;transform:scale(.45)}16%,78%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
 @keyframes habitat-star-turn{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+/* Ambient movement stays behind names and controls, following the same pause state. */
+.habitat-page .atlas-waterlines { animation: habitat-sea-drift 22s linear infinite paused; }
+.habitat-page .atlas-lake-waterlines { animation: habitat-lake-drift 9s linear infinite paused; }
+.habitat-page .atlas-compass-glint { opacity: 0; animation: habitat-compass-tour 36s linear infinite paused; }
+.habitat-page .hotspot::after {
+  content: ''; position: absolute; width: 22px; height: 22px; border: 1px solid #e3bd78;
+  border-radius: 50%; opacity: 0; pointer-events: none;
+  animation: habitat-point-breathe 4.8s ease-out infinite paused;
+}
+.habitat-page .hotspot:nth-child(3n)::after { animation-delay: -1.6s; }
+.habitat-page .hotspot:nth-child(3n + 1)::after { animation-delay: -3.2s; }
+.habitat-page .hotspot.is-selected::after { border-color: #fff0b5; border-width: 2px; }
+.habitat-page[data-habitat-motion="on"] :is(.atlas-waterlines,.atlas-lake-waterlines,.atlas-compass-glint),
+.habitat-page[data-habitat-motion="on"] .hotspot::after { animation-play-state: running; }
+.habitat-page[data-habitat-motion="on"] .atlas-compass-glint { opacity: .85; }
+.habitat-page:not([data-habitat-motion="on"]) .hotspot::after { visibility: hidden; }
+@keyframes habitat-sea-drift { to { transform: translateX(126px); } }
+@keyframes habitat-lake-drift { to { transform: translateX(36px); } }
+@keyframes habitat-compass-tour { to { stroke-dashoffset: -2946.814; } }
+@keyframes habitat-point-breathe {
+  0% { opacity: 0; transform: scale(.45); }
+  18% { opacity: .65; }
+  75%,100% { opacity: 0; transform: scale(1.6); }
+}
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+  .habitat-page[data-habitat-motion="on"] .hotspot:hover .point-core { transform: scale(1.25); transition: transform .2s; }
+}
 @media(max-width:760px){.habitat-point-aura{--aura-size:clamp(212px,60vw,248px)}.map-motion-bar,.map-motion-toggle{font-size:11px}}
 /* Include pseudo elements as well as nodes; system preference always wins. */
 @media(prefers-reduced-motion:reduce){

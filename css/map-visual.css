@@ -1,0 +1,191 @@
+/* Atlas presentation only. Keep map coordinates, source material and shared pages intact.
+   Ink jade #192622 / deep sea #243d36 / paper #f3e6ca /
+   aged gold #c5ab76 / cinnabar #a82320. */
+.habitat-page {
+  --habitat-line: #c5ab7640;
+  --habitat-muted: #b9c4b5;
+  background: #192622;
+}
+.habitat-page .habitat-intro::after {
+  background: linear-gradient(180deg, #19262233, transparent 30%, #192622 100%);
+}
+.habitat-page .habitat-intro-content { padding-block: 26px 42px; }
+.habitat-page .habitat-intro .habitat-breadcrumb { margin-bottom: 22px; }
+.habitat-page .habitat-intro h1 { font-size: clamp(66px, 6.4vw, 96px); letter-spacing: .06em; }
+.habitat-page .intro-copy { gap: 30px; }
+.habitat-page .intro-copy > p { font-size: 17px; padding-left: 26px; }
+.habitat-page .intro-note {
+  padding: 12px 15px;
+  border: 1px solid #c5ab7666;
+  color: #e6d1a6;
+  font-size: 12px;
+  background: #192622b3;
+}
+
+/* A quiet instrument shelf, with one clear chapter selection. */
+.habitat-page .atlas-toolbar {
+  margin-top: 8px;
+  padding: 16px 20px;
+  gap: 12px 22px;
+  border: 1px solid var(--habitat-line);
+  border-bottom: 0;
+  background: #21322c;
+}
+.habitat-page .chapter-switch { gap: 4px; }
+.habitat-page .chapter-switch button { padding-inline: 13px; color: #c8cfbd; }
+.habitat-page .chapter-switch button[aria-pressed="true"] {
+  background: #81352c;
+  color: #fff0d4;
+  box-shadow: inset 0 -2px #d6b876;
+}
+.habitat-page .atlas-search {
+  max-width: 300px;
+  background: #192622;
+  border: 1px solid #c5ab764d;
+  padding-inline: 12px;
+}
+.habitat-page .atlas-search input { font-size: 14px; }
+.habitat-page .more-filters > summary { font-size: 13px; }
+.habitat-page .filters-panel { background: #24362e; border-color: #bca06b; }
+.habitat-page .series-toolbar {
+  padding: 12px 20px;
+  gap: 12px 20px;
+  border: 1px solid var(--habitat-line);
+  border-top-color: #c5ab7626;
+  background: #1d2c26;
+}
+.habitat-page .series-field select { background: #192622; border-color: #c5ab7659; }
+.habitat-page .view-switch { border-color: #c5ab7659; }
+.habitat-page .view-switch button[aria-pressed="true"] { background: #cdb780; color: #23362b; }
+
+/* The circular world is the feature; the surrounding frame stays still. */
+.habitat-page .atlas-layout {
+  grid-template-columns: minmax(0, 1fr) 336px;
+  gap: 24px;
+  padding-top: 28px;
+}
+.habitat-page .atlas-main {
+  padding: 20px 24px 16px;
+  border: 1px solid #c5ab7652;
+  background: radial-gradient(ellipse at 50% 38%, #36544a66, transparent 68%), #1b2c25;
+  box-shadow: inset 0 0 0 5px #192622, inset 0 0 0 6px #c5ab761c;
+}
+.habitat-page .map-topline { padding: 0 0 16px; border-bottom: 1px solid #c5ab762b; }
+.habitat-page .map-topline strong { font: 26px/1.4 var(--habitat-display); color: #eed8a8; letter-spacing: .08em; }
+.habitat-page .map-topline > span { font-size: 12px; color: #b8c7b5; }
+.habitat-page .map-viewport { margin-block: 14px; }
+.habitat-page .map-controls { border-color: #c5ab7640; padding-block: 10px; }
+.habitat-page .zoom-controls {
+  border: 1px solid #c5ab764a;
+  background: #17251e;
+}
+.habitat-page .map-actions { gap: 6px; }
+.habitat-page .map-actions button { padding-inline: 12px; border: 1px solid #c5ab7640; }
+.habitat-page .map-help { line-height: 1.8; }
+.habitat-page .map-motion-bar { margin-top: 14px; }
+.habitat-page .map-label { border-color: #9c8c5955; background: #f0e0badb; }
+.habitat-page .map-label.is-selected { background: #fff0cd; color: #842c23; border-color: #9f6147; }
+.habitat-page .map-tooltip { background: #16271f; box-shadow: 0 8px 24px #0003; }
+.habitat-page .map-label-name { display: block; }
+.habitat-page .map-label.is-group { font-size: 13px; line-height: 1.5; border-color: #9f7859; }
+.map-label-leaders { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.map-label-leaders line { stroke: #d4ba82; stroke-width: 1; }
+@media (max-width: 760px) {
+  .habitat-page .map-label.is-group { font-size: 11px; line-height: 1.4; }
+}
+
+/* Open field notes: full artwork, readable paper, and a visible book edge. */
+.habitat-page .field-journal {
+  border: 1px solid #b49a65;
+  border-top: 3px solid #b49a65;
+  box-shadow: 4px 4px 0 #d4c29d, 5px 5px 0 #89764f, 0 16px 36px #07130e33;
+  background: #f3e6ca;
+}
+.habitat-page .journal-head { padding: 16px 20px; background: #e8d8b6; border-bottom-color: #b7a77f88; }
+.habitat-page .journal-head h2 { font-size: 28px; }
+.habitat-page .journal-head > span { color: #705b38; letter-spacing: .12em; }
+.habitat-page .journal-art { margin: 14px 14px 0; background: #e8d8b6; }
+.habitat-page .journal-art img { border: 1px solid #b7a77f88; }
+.habitat-page .journal-art figcaption { padding: 9px 0; color: #6e5b3d; text-align: left; }
+.habitat-page .journal-body { padding: 20px 24px 26px; }
+.habitat-page .journal-name { font-size: 48px; margin-block: 8px 12px; }
+.habitat-page .journal-place { color: #6d5b3a; letter-spacing: .08em; }
+.habitat-page .journal-chapter { color: #6d5b3a; }
+.habitat-page .journal-summary { font-size: 16px; color: #3f4132; }
+.habitat-page .journal-reading { background: #e9dbbb77; padding: 12px; border-bottom: 1px solid #c9b88d; }
+.habitat-page .journal-excerpt { font-size: 15px; line-height: 2; }
+.habitat-page .journal-links .primary-link { background: #80362b; padding-block: 12px; }
+
+/* Catalogue entries feel like illustrated index slips, with a clear selection. */
+.habitat-page .catalog-section { padding-top: 60px; }
+.habitat-page .section-title { border-bottom: 1px solid var(--habitat-line); padding-bottom: 22px; }
+.habitat-page .section-title h2 { font-size: 46px; }
+.habitat-page .habitat-catalog { gap: 12px 18px; }
+.habitat-page .catalog-record {
+  gap: 14px;
+  padding: 14px 12px;
+  border: 1px solid #c5ab762e;
+  background: #21322a;
+}
+.habitat-page .catalog-record img,
+.habitat-page .catalog-record .record-placeholder { width: 70px; height: 80px; border: 1px solid #c5ab7633; }
+.habitat-page .catalog-record[aria-pressed="true"] { border-color: #c5ab76; background: #304437; box-shadow: inset 3px 0 #c5ab76; }
+.habitat-page .catalog-record strong { font-size: 26px; }
+.habitat-page .catalog-record small { color: #bdc9b6; }
+.habitat-page .source-method { padding-inline: 20px; background: #1d2c26; border: 1px solid var(--habitat-line); }
+.habitat-page .habitat-footer::before { background: linear-gradient(#192622, #19262299), url('../images/hero/home-landscape-01.webp') center 70%/cover; }
+@media (hover: hover) {
+  .habitat-page .catalog-record:hover { background: #2a4033; border-color: #c5ab7680; }
+  .habitat-page .map-actions button:enabled:hover { background: #344a39; }
+}
+@media (max-width: 1200px) {
+  .habitat-page .atlas-layout { grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; }
+  .habitat-page .chapter-switch button { padding-inline: 10px; }
+  .habitat-page .atlas-main { padding-inline: 18px; }
+}
+@media (max-width: 1000px) {
+  .habitat-page .atlas-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .habitat-page .atlas-main { max-width: none; }
+  .habitat-page .field-journal { grid-template-columns: minmax(190px, .75fr) 1fr; }
+  .habitat-page .journal-art { margin-bottom: 14px; }
+}
+@media (max-width: 760px) {
+  .habitat-page .habitat-intro-content { padding-block: 20px 30px; }
+  .habitat-page .habitat-intro h1 { font-size: clamp(52px, 13vw, 78px); letter-spacing: .04em; }
+  .habitat-page .intro-copy { display: block; }
+  .habitat-page .intro-copy > p { padding: 0; font-size: 15px; margin-top: 16px; }
+  .habitat-page .atlas-toolbar { padding: 14px; gap: 10px; }
+  .habitat-page .atlas-search { flex-basis: 150px; max-width: none; padding-inline: 8px; }
+  .habitat-page .atlas-search input { font-size: 16px; }
+  .habitat-page .series-toolbar { padding: 12px 14px; gap: 12px; }
+  .habitat-page .catalog-jump { font-size: 11px; }
+  .habitat-page .atlas-layout { padding-top: 20px; }
+  .habitat-page .atlas-main { padding: 16px 12px 12px; }
+  .habitat-page .map-topline { padding-bottom: 12px; gap: 8px; }
+  .habitat-page .map-topline strong { font-size: 22px; }
+  .habitat-page .map-topline > span { font-size: 10px; }
+  .habitat-page .map-viewport { width: calc(100% + 16px); margin: 12px -8px; }
+  .habitat-page .map-controls { justify-content: center; gap: 10px; }
+  .habitat-page .zoom-controls { flex: 1 0 100%; justify-content: center; }
+  .habitat-page .zoom-controls button { width: 48px; }
+  .habitat-page .map-actions { justify-content: center; width: 100%; gap: 4px; }
+  .habitat-page .map-actions button { padding-inline: 10px; font-size: 12px; }
+  .habitat-page .map-help { display: block; }
+  .habitat-page .map-help #map-instructions { max-width: none; margin-top: 5px; text-align: left; }
+  .habitat-page .field-journal { display: block; }
+  .habitat-page .journal-art { margin: 12px 12px 0; }
+  .habitat-page .journal-body { padding: 20px; }
+  .habitat-page .journal-name { font-size: 44px; }
+  .habitat-page .catalog-section { padding-top: 42px; }
+  .habitat-page .section-title h2 { font-size: 36px; }
+  .habitat-page .section-title { padding-bottom: 18px; }
+  .habitat-page .habitat-catalog { gap: 12px; }
+  .habitat-page .catalog-record { padding: 10px; }
+  .habitat-page .catalog-record img,
+  .habitat-page .catalog-record .record-placeholder { width: 100%; height: auto; aspect-ratio: 1.15; }
+  .habitat-page .catalog-record strong { font-size: 25px; }
+  .habitat-page .catalog-record .record-arrow { right: 10px; bottom: 42px; }
+  .habitat-page .source-method { padding-inline: 14px; }
+  .habitat-page .source-method > summary { flex-wrap: wrap; gap: 8px 12px; }
+  .habitat-page .source-method > summary span { font-size: 12px; }
+}

@@ -78,7 +78,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="-1"]:fo
 
 /* ---------- 阅读区 ---------- */
 .classics-scroll { position: relative; isolation: isolate; }
-.classics-scroll::before { content: ""; position: absolute; z-index: -1; inset: 0; background: url('../images/hero/home-landscape-01.png') center top / 100% auto repeat-y; filter: grayscale(1); opacity: .035; pointer-events: none; }
+.classics-scroll::before { content: ""; position: absolute; z-index: -1; inset: 0; background: url('../images/hero/home-landscape-01.webp') center top / 100% auto repeat-y; filter: grayscale(1); opacity: .035; pointer-events: none; }
 .classics-stage { padding-top: 64px; padding-bottom: 96px; }
 
 .stage-intro { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 24px 48px; }
@@ -169,7 +169,7 @@ mark { background: none; color: var(--gold); border-bottom: 2px solid var(--red)
 
 /* ---------- 页脚：与首页一致的开合式收尾 ---------- */
 .home-footer { position: relative; isolation: isolate; overflow: hidden; padding-top: 64px; padding-bottom: 34px; }
-.footer-art { position: absolute; z-index: -2; inset: 0; background: url('../images/hero/home-landscape-01.png') center 65% / cover; filter: grayscale(1); opacity: .11; }
+.footer-art { position: absolute; z-index: -2; inset: 0; background: url('../images/hero/home-landscape-01.webp') center 65% / cover; filter: grayscale(1); opacity: .11; }
 .home-footer::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, var(--ink), transparent 65%); pointer-events: none; } /* taste-skill-ignore: neutral scrim over the closing landscape. */
 .footer-finale { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
 .footer-closing { font: 64px/1.2 var(--display); font-weight: 400; }
