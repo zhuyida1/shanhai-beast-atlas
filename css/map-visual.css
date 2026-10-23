@@ -29,7 +29,7 @@
   gap: 12px 22px;
   border: 1px solid var(--habitat-line);
   border-bottom: 0;
-  background: #21322c;
+  background: #21322d;
 }
 .habitat-page .chapter-switch { gap: 4px; }
 .habitat-page .chapter-switch button { padding-inline: 13px; color: #c8cfbd; }
@@ -46,17 +46,17 @@
 }
 .habitat-page .atlas-search input { font-size: 14px; }
 .habitat-page .more-filters > summary { font-size: 13px; }
-.habitat-page .filters-panel { background: #24362e; border-color: #bca06b; }
+.habitat-page .filters-panel { background: #243631; border-color: #bca06b; }
 .habitat-page .series-toolbar {
   padding: 12px 20px;
   gap: 12px 20px;
   border: 1px solid var(--habitat-line);
   border-top-color: #c5ab7626;
-  background: #1d2c26;
+  background: #1d2c28;
 }
 .habitat-page .series-field select { background: #192622; border-color: #c5ab7659; }
 .habitat-page .view-switch { border-color: #c5ab7659; }
-.habitat-page .view-switch button[aria-pressed="true"] { background: #cdb780; color: #23362b; }
+.habitat-page .view-switch button[aria-pressed="true"] { background: #cdb780; color: #233630; }
 
 /* The circular world is the feature; the surrounding frame stays still. */
 .habitat-page .atlas-layout {
@@ -67,17 +67,17 @@
 .habitat-page .atlas-main {
   padding: 20px 24px 16px;
   border: 1px solid #c5ab7652;
-  background: radial-gradient(ellipse at 50% 38%, #36544a66, transparent 68%), #1b2c25;
+  background: radial-gradient(ellipse at 50% 38%, #36544b66, transparent 68%), #1b2c27;
   box-shadow: inset 0 0 0 5px #192622, inset 0 0 0 6px #c5ab761c;
 }
 .habitat-page .map-topline { padding: 0 0 16px; border-bottom: 1px solid #c5ab762b; }
 .habitat-page .map-topline strong { font: 26px/1.4 var(--habitat-display); color: #eed8a8; letter-spacing: .08em; }
-.habitat-page .map-topline > span { font-size: 12px; color: #b8c7b5; }
+.habitat-page .map-topline > span { font-size: 12px; color: #b5c7c2; }
 .habitat-page .map-viewport { margin-block: 14px; }
 .habitat-page .map-controls { border-color: #c5ab7640; padding-block: 10px; }
 .habitat-page .zoom-controls {
   border: 1px solid #c5ab764a;
-  background: #17251e;
+  background: #172521;
 }
 .habitat-page .map-actions { gap: 6px; }
 .habitat-page .map-actions button { padding-inline: 12px; border: 1px solid #c5ab7640; }
@@ -85,7 +85,7 @@
 .habitat-page .map-motion-bar { margin-top: 14px; }
 .habitat-page .map-label { border-color: #9c8c5955; background: #f0e0badb; }
 .habitat-page .map-label.is-selected { background: #fff0cd; color: #842c23; border-color: #9f6147; }
-.habitat-page .map-tooltip { background: #16271f; box-shadow: 0 8px 24px #0003; }
+.habitat-page .map-tooltip { background: #162722; box-shadow: 0 8px 24px #0003; }
 .habitat-page .map-label-name { display: block; }
 .habitat-page .map-label.is-group { font-size: 13px; line-height: 1.5; border-color: #9f7859; }
 .map-label-leaders { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
@@ -98,7 +98,7 @@
 .habitat-page .field-journal {
   border: 1px solid #b49a65;
   border-top: 3px solid #b49a65;
-  box-shadow: 4px 4px 0 #d4c29d, 5px 5px 0 #89764f, 0 16px 36px #07130e33;
+  box-shadow: 4px 4px 0 #d4c29d, 5px 5px 0 #89764f, 0 16px 36px #07130f33;
   background: #f3e6ca;
 }
 .habitat-page .journal-head { padding: 16px 20px; background: #e8d8b6; border-bottom-color: #b7a77f88; }
@@ -125,18 +125,18 @@
   gap: 14px;
   padding: 14px 12px;
   border: 1px solid #c5ab762e;
-  background: #21322a;
+  background: #21322d;
 }
 .habitat-page .catalog-record img,
 .habitat-page .catalog-record .record-placeholder { width: 70px; height: 80px; border: 1px solid #c5ab7633; }
-.habitat-page .catalog-record[aria-pressed="true"] { border-color: #c5ab76; background: #304437; box-shadow: inset 3px 0 #c5ab76; }
+.habitat-page .catalog-record[aria-pressed="true"] { border-color: #c5ab76; background: #30443e; box-shadow: inset 3px 0 #c5ab76; }
 .habitat-page .catalog-record strong { font-size: 26px; }
 .habitat-page .catalog-record small { color: #bdc9b6; }
-.habitat-page .source-method { padding-inline: 20px; background: #1d2c26; border: 1px solid var(--habitat-line); }
+.habitat-page .source-method { padding-inline: 20px; background: #1d2c28; border: 1px solid var(--habitat-line); }
 .habitat-page .habitat-footer::before { background: linear-gradient(#192622, #19262299), url('../images/hero/home-landscape-01.webp') center 70%/cover; }
 @media (hover: hover) {
-  .habitat-page .catalog-record:hover { background: #2a4033; border-color: #c5ab7680; }
-  .habitat-page .map-actions button:enabled:hover { background: #344a39; }
+  .habitat-page .catalog-record:hover { background: #2a4039; border-color: #c5ab7680; }
+  .habitat-page .map-actions button:enabled:hover { background: #344a43; }
 }
 @media (max-width: 1200px) {
   .habitat-page .atlas-layout { grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; }

@@ -1,0 +1,82 @@
+/* 舆图色调层：墨绿是「山海舆图」的专属底色，色相统一在 162°。
+   全站主色仍是墨黑／宣纸／金／朱，这里只补三处过渡：
+   1) 进入舆图时，卷首由墨黑淡入墨绿；
+   2) 离开舆图时，页脚由墨绿淡回墨黑；
+   3) 首页通往舆图的入口、以及地域详情页，各留一点绿意，让前后读起来是同一支。 */
+
+/* 1. 卷首：墨黑 → 墨绿 */
+.habitat-intro {
+  position: relative;
+}
+
+.habitat-page .habitat-intro::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 190px;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, #0f1413 0%, rgba(15, 20, 19, .58) 34%, rgba(25, 38, 34, 0) 100%);
+}
+
+/* 2. 页脚：墨绿 → 墨黑，收在页脚末句之后回到全站的墨色 */
+.habitat-page .habitat-footer {
+  border-top: 1px solid rgba(197, 171, 118, .2);
+}
+
+.habitat-page .habitat-footer::before {
+  background:
+    linear-gradient(#192622 0%, rgba(25, 38, 34, .86) 42%, #0f1413 92%),
+    url('../images/hero/home-landscape-01.webp') center 70% / cover;
+}
+
+/* 3a. 地域详情：同属舆图一支，卷首留一层极淡绿意 */
+.habitat-detail-page .region-heading {
+  position: relative;
+}
+
+.habitat-detail-page .region-heading::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -30px;
+  right: -24px;
+  left: -24px;
+  height: 210px;
+  pointer-events: none;
+  background: radial-gradient(120% 100% at 16% 0%, rgba(25, 38, 34, .92), rgba(25, 38, 34, 0) 70%);
+}
+
+/* 3b. 首页：通往舆图的入口条目带一条墨绿边与极淡底色，点之前就知道去向 */
+.reading-list > a[href="map.html"] {
+  position: relative;
+  margin-left: -16px;
+  padding-left: 16px;
+  background: linear-gradient(90deg, rgba(25, 38, 34, .5), rgba(25, 38, 34, 0) 78%);
+  box-shadow: inset 2px 0 0 rgba(101, 152, 126, .42);
+}
+
+.reading-list > a[href="map.html"]:hover {
+  box-shadow: inset 2px 0 0 rgba(101, 152, 126, .78);
+}
+
+@media (max-width: 760px) {
+  .habitat-page .habitat-intro::before {
+    height: 140px;
+  }
+
+  .habitat-detail-page .region-heading::before {
+    height: 160px;
+  }
+
+  .reading-list > a[href="map.html"] {
+    margin-left: -10px;
+    padding-left: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reading-list > a[href="map.html"] {
+    background: rgba(25, 38, 34, .42);
+  }
+}
